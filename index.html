@@ -22,10 +22,10 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./preguntas.css">
     <style>
-        .hamburger { display: none; background: transparent; color: white; border: none; padding: 15px; font-size: 1.5rem; cursor: cursor; text-align: center; width: 100%; font-weight: bold; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .hamburger { display: none; background: transparent; color: white; border: none; padding: 15px; font-size: 1.5rem; cursor: pointer; text-align: center; width: 100%; font-weight: bold; border-bottom: 1px solid rgba(255,255,255,0.1); }
         /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .hamburger { display: block; }
+        @media (max-width: 1024px) {
+            .hamburger { display: block !important; }
             .nav-links { display: none !important; }
             .nav-links.show-mobile { display: flex !important; flex-direction: column !important; }
             .dropdown { flex: none !important; width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
