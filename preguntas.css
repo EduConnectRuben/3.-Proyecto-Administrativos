@@ -1,0 +1,337 @@
+/* ========================================= */
+/* Estilo del contenedor principal           */
+/* ========================================= */
+.content {
+    max-width: 900px;
+    margin: 5px auto;
+    background-color: #F1F8E9; /* Fondo muy suave (verde pálido) */
+    padding: 0px;
+    border-radius: 8px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    line-height: 2; /* Ajustado para el nuevo alto */
+    text-align: justify;
+}
+
+/* ========================================= */
+/* Estilo del encabezado titulo              */
+/* ========================================= */
+h1 {
+    color: #1B5E20; /* Verde oscuro para los títulos, fuerte y legible */
+    text-align: center;
+    font-size: 1.8em;
+    padding: 0px;
+}
+
+/* ========================================= */
+/* Estilo del temporizador                   */
+/* ========================================= */
+.timer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px; /* Reducido para dejar espacio a la nueva barra de info */
+    font-weight: bold;
+    color: #fabd14; /* Verde vivo */
+    
+}
+
+/* ========================================= */
+/* Estilo para la barra de información del quiz */
+/* ========================================= */
+.quiz-info-bar {
+    display: flex;
+    justify-content: space-between; /* Alinea los elementos a los extremos */
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #35a00a; /* Verde brillante para información positiva/actual */
+}
+
+.score-display {
+    text-align: right;
+}
+
+#question-number-display {
+    text-align: left;
+}
+
+/* ========================================= */
+/* Estilo para la barra de progreso         */
+/* ========================================= */
+.progress-bar {
+    background-color: #C8E6C9; /* Verde muy pálido para el fondo de la barra */
+    border-radius: 5px;
+    height: 10px;
+    margin-bottom: 10px;
+}
+
+.progress-fill {
+    background-color: #388E3C; /* Verde vivo para el progreso */
+    height: 100%;
+    width: 0%;
+    border-radius: 5px;
+}
+
+/* ========================================= */
+/* Estilo para las preguntas                */
+/* ========================================= */
+.question-block {
+    margin: 0;    
+    padding: 5px;
+    border: 1px solid #bcd581; /* Borde suave verde pálido */
+    border-radius: 8px;
+    background-color: #f8fdf3; /* Crema para el bloque de preguntas */
+    display: none;
+    min-width: 90%;
+    
+}
+
+.question-block.active {
+    display: block;
+}
+
+.question-text {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #0c440f; /* Verde oscuro para el texto de la pregunta */
+    margin: 0;
+    padding: 5px;
+}
+
+/* ========================================= */
+/* Estilo para las opciones de respuesta     */
+/* ========================================= */
+.options label {
+    color: #1c9924;
+        background-color: #f3ffe4; /* Verde muy pálido al pasar el ratón */
+
+    display: block;
+    margin-bottom: 10px;
+    padding: 5px 5px;
+    margin: 5px;
+    font-size: 17px;
+    border: 1px solid #AED581; /* Borde verde pálido */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.options label:hover {
+    background-color: #DCEDC8; /* Verde muy pálido al pasar el ratón */
+    border-color: #689F38; /* Verde brillante para el borde en hover */
+}
+
+.options input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* MODIFICACIONES PARA RESPUESTA CORRECTA E INCORRECTA */
+.options label.correct-answer {
+    background-color: #FFD600; /* Amarillo brillante para respuesta correcta */
+    border-color: #689F38; /* Verde brillante para el borde */
+    color: #1B5E20; /* Verde oscuro para el texto */
+}
+
+.options label.incorrect-selected {
+    background-color: #EF5350; /* Rojo más intenso para incorrecta seleccionada */
+    border-color: #D32F2F; /* Rojo vivo para el borde */
+    color: #FFFFFF; /* Texto blanco para mayor contraste */
+}
+/* FIN DE MODIFICACIONES */
+
+
+/* ========================================= */
+/* Estilo para los botones de navegación     */
+/* ========================================= */
+.navigation-buttons {
+    text-align: center;
+    margin: 25px;
+}
+
+.nav-button {
+    padding: 10px 25px;
+    /* Degradado inicial para los botones */
+    background: linear-gradient(to right, #689F38, #9CCC65); /* Verde a verde claro */
+    color: #FFFFFF; /* Blanco para el texto del botón */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 0 30px;
+    /* Transiciones suaves para todos los efectos de hover */
+    transition: background 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra inicial sutil */
+}
+
+.nav-button:hover:not(:disabled) {
+    /* Degradado impresionante al pasar el ratón: de verde oscuro a verde vibrante */
+    background: linear-gradient(to right, #388E3C, #43A047); 
+    transform: translateY(-5px); /* Efecto de "levantamiento" */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada al levantar */
+    color: #FFFFFF; /* Asegurar que el color del texto se mantenga blanco o cambie a un amarillo brillante */
+}
+
+.nav-button:disabled {
+    background-color: #C8E6C9; /* Verde muy pálido para deshabilitado */
+    cursor: not-allowed;
+    transform: none; /* Asegurar que no haya transformación en disabled */
+    box-shadow: none; /* Asegurar que no haya sombra en disabled */
+}
+
+/* ========================================= */
+/* Mensaje de finalización del quiz          */
+/* ========================================= */
+.quiz-finished-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: #2E7D32; /* Verde oscuro */
+    font-weight: bold;
+    margin-top: 40px;
+    display: none;
+}
+
+/* ========================================= */
+/* Sección de revisión                       */
+/* ========================================= */
+.review-section {
+    margin-top: 10px;
+    display: none;
+}
+
+.review-question {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #AED581; /* Borde verde pálido */
+    border-radius: 5px;
+    background-color: #F9FBE7; /* Crema para el bloque de revisión */
+}
+
+.review-question .question {
+    color: #1B5E20; /* Verde oscuro para el texto de la pregunta de revisión */
+}
+
+.review-question .correct {
+    color: #FFD600; /* Amarillo para respuestas correctas en revisión */
+}
+
+.review-question .incorrect {
+    color: #D32F2F; /* Rojo vivo para respuestas incorrectas en revisión */
+}
+
+.review-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* ========================================= */
+/* Estilos responsivos pantalla mediana      */
+/* ========================================= */
+
+#botones {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+         }
+
+
+
+
+/* ========================================= */
+/* Estilos responsivos pantalla mediana      */
+/* ========================================= */
+@media (max-width: 768px) {
+    /* Ajustes para pantallas medianas */
+    .content {
+        padding: 15px; /* Reducir padding en pantallas más pequeñas */
+    }
+
+    h1 {
+        font-size: 1.5em; /* Ajustar tamaño de fuente */
+    }
+
+    .timer {
+    font-size: 1em;
+    padding : 0;
+}
+
+.quiz-info-bar {
+    font-size: 1em;
+    padding : 0;
+}
+
+
+    .question-text {
+        font-size: 1.1em; /* Ajustar tamaño de fuente para preguntas */
+    }
+
+    .options label {
+        padding: 8px 12px; /* Ajustar padding de opciones */
+    }
+
+    .nav-button {
+        padding: 8px 20px; /* Ajustar padding de botones */
+        font-size: 0.9em; /* Reducir tamaño de fuente de botones */
+    }
+}
+
+/* ========================================= */
+/* Estilos responsivos pantalla pequeña      */
+/* ========================================= */
+@media (max-width: 480px) {
+    
+    .body{
+        padding: 0px;
+        margin: 0px;
+    }
+ 
+    .content {
+        padding: 10px; /* Reducir aún más el padding */
+        margin: 10px 0px;
+    }
+
+
+    h1 {
+        font-size: 1.2em; /* Ajustar tamaño de fuente */
+    }
+    .question-block {
+        padding : 1px;
+        margin: 0;
+        min-width: 100%;
+    }
+
+.quiz-section{
+        padding: 0;
+        margin: 0;
+    }
+
+    .question-text {
+        font-size: 1.2em; /* Ajustar tamaño de fuente para preguntas */
+        padding : 7px;
+
+    }
+
+    .options label {
+        padding : 5px;
+        font-size: 1.2em; /* Tamaño de texto para la opcion de respuestas */
+    }
+   
+   .navigation-buttons {
+    text-align: center;
+    margin-top: 25px;
+
+}
+    .nav-button {
+        padding: 10px 15px; /* Ajustar padding de botones */
+        font-size: 1em; /* Reducir tamaño de fuente de botones */
+        margin: 0 10px; /* separacion de botones*/
+    }
+
+    .quiz-finished-message {
+        font-size: 1,1em; /* Ajustar tamaño de fuente del mensaje final */
+    }
+}

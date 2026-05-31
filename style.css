@@ -1,0 +1,583 @@
+/* ========================================= */
+/* Estilo del cuerpo                         */
+/* ========================================= */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* Fondo con un degradado muy suave de verde pálido a un blanco cremoso */
+    background: linear-gradient(to bottom, #F1F8E9, #F9FBE7);
+    color: #2E7D32; /* Texto principal en un verde oscuro, fuerte y legible */
+}
+
+/* ========================================= */
+/* Barra estática de encabezado              */
+/* ========================================= */
+.encabezado {   
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    margin: 0;
+    height: 60px; /* Ligeramente más alto para un look más moderno */
+    width: 100%;
+    text-align: center;
+    line-height: 22px; /* Ajustado para el nuevo alto */
+    color: #ffffff; /* Blanco */
+    /* Degradado de verde vivo a un verde intenso */
+    background: linear-gradient(to bottom, #388E3C, #43A047, #2E7D32);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.45); /* Sombra pronunciada y oscura */
+    transition: background 0.6s ease-in-out; /* Transición suave y lenta */
+}
+
+.encabezado:hover {
+    background: linear-gradient(to right, #43A047, #689F38); /* Hacia un verde más brillante en hover */
+}
+
+#titulo {
+    font-weight: bold;
+    margin-top: 8px;
+    letter-spacing: 2px; /* Mayor espaciado para impacto */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Sombra de texto definida */
+}
+
+#titulo:hover {
+  color: #FFD600; /* Amarillo vibrante para acentos */  
+}
+
+#logo1, #logo2 {
+    margin: 0;
+    padding: 0;
+    max-width: 100px; /* Máximo ancho */
+    width: 60px; /* Ligeramente más grandes */
+    height: auto; /* Mantiene la proporción */
+    transition: transform 0.5s ease-in-out; /* Animación más lenta al pasar el ratón */
+}
+
+#logo1:hover, #logo2:hover {
+    transform: scale(1.3); /* Un poco más grandes al pasar el ratón */
+}
+
+#logo1 {
+    position: fixed;
+    top: 2px; /* Ajustado para el nuevo alto */
+    right: 15px; /* Más margen */
+}
+
+#logo2 {
+    position: fixed;
+    top: 2px; /* Ajustado para el nuevo alto */
+    left: 15px; /* Más margen */
+}
+
+/* ========================================= */
+/* Barra cinta de letra                      */
+/* ========================================= */
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    /* Fondo en un verde claro para un contraste energético */
+    background: linear-gradient(to right, #DCEDC8, #C5E1A5);
+    color: #1B5E20; /* Verde oscuro para el texto, destacando sobre el verde claro */
+    padding: 8px 2px 2px 2px; /* Más padding */
+    margin: 0;
+    letter-spacing: 2px;
+    font-size: 25px; /* Tamaño de fuente más prominente */
+    font-weight: bold; /* Extra audaz */
+    position: relative;
+    margin-top: 55px; /* Ajustado para el nuevo alto del encabezado */
+    display: flex;   
+    z-index: 2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); /* Sombra más definida */
+}
+
+.marquee span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 20s linear infinite; /* Animación ligeramente más lenta */
+}
+
+@keyframes marquee {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}
+
+/* ========================================= */
+/* Barra de navegación estática              */
+/* ========================================= */
+.navbar {
+    position: sticky;
+    display: flex;
+    align-items: center; /* Alinear verticalmente */
+    justify-content: center;
+    /* Degradado similar al encabezado para coherencia visual */
+    background: linear-gradient(to right, #388E3C, #43A047);
+    flex-wrap: nowrap;
+    width: 100%;  
+    z-index: 1;
+    padding: 0px 0px; /* Más padding */
+     text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.5); /* Sombra de texto definida */
+}
+
+#boton {
+    position: relative;
+    flex: 1;
+    margin: 0;
+    padding: 5px 0px; /* Más padding para una mejor área de clic */
+    /* Degradado de verde a un verde amarillento */
+    background: linear-gradient(to bottom, #689F38, #9CCC65);
+    cursor: pointer;
+    transition: all 0.3s ease; /* Transición más suave */
+    max-width: 100%;
+    overflow: hidden; /* Ocultar el desbordamiento */
+    text-overflow: ellipsis; /* Mostrar puntos suspensivos si el texto es demasiado largo */
+    color: #FFFFFF;
+    border-radius: 8px; /* Bordes más redondeados */
+    /*margin: 0 5px; /* Espacio entre botones */
+    font-size: 1rem; /* Tamaño de fuente ligeramente más grande */
+    
+
+}
+
+#boton:hover {
+    color: #1B5E20; /* Verde oscuro para acento */
+    background: linear-gradient(to bottom, #558B2F, #7CB342); /* Más oscuro en hover */
+    transform: translateY(-6px); /* Efecto de "levantamiento" más pronunciado */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Sombra más fuerte en hover */
+}
+
+.collapse-btn {
+    background: linear-gradient(to right, #388E3C, #43A047); /* Mismo degradado del encabezado */
+    color: #ffffff; /* Blanco */
+    border: none;
+    padding: 9px; /* Más padding */
+    cursor: pointer;
+    font-size: 20px; /* Tamaño de fuente unificado */
+    display: none; /* Ocultar por defecto */
+    margin-left: auto; /* Alinear a la derecha */
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    position: fixed;
+    transition: background 0.4s ease-in-out, color 0.4s ease-in-out;
+}
+
+.collapse-btn:hover {
+    background: linear-gradient(to right, #43A047, #689F38); /* Ligeramente más claro en hover */
+    color: #FFD600; /* Amarillo brillante para acento */
+}
+
+.collapse-container {
+    padding: 0px; /* Espaciado interior */
+    background-color: #F9FBE7; /* Fondo crema para contraste */
+}
+
+/* ========================================= */
+/* Contenedor de lista desplegable          */
+/* ========================================= */
+.dropdown {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown button {
+    color: #ffffff; /* Blanco */
+    font-size: 20px; /* Ajuste de tamaño para el botón del dropdown */
+    flex: 1;
+    margin: 0;
+    padding: 9px 25px; /* Más padding para una mejor área de clic */
+    background: linear-gradient(to right, #388E3C, #43A047); /* Coherente con el encabezado */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.4s ease;
+    max-width: 100%;
+    border: none;
+
+}
+
+.dropdown button:hover {
+    color: #FFD600; /* Amarillo brillante para acento */
+    background: linear-gradient(to right, #43A047, #689F38); /* Ligeramente más claro en hover */
+}
+
+.dropdown-content {
+    display: none;  
+    font-size: 20px auto; /* Tamaño de fuente ligeramente más grande */
+    position: absolute;
+    background-color: #faf2ac;
+    min-width: 220px; /* Ancho mínimo ligeramente mayor */
+    z-index: 1;
+    border-radius: 12px; /* Bordes más redondeados */
+    border-top: 8px solid #aec721; /* Línea de acento en verde claro */
+
+    
+}
+
+.dropdown-content a {
+    color: #1B5E20; /* Verde oscuro para el texto */
+    padding: 7px 10px; /* Más padding */
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #f7f459; /* Verde muy pálido al pasar el ratón */
+    color: #0D4702; /* Verde más oscuro al pasar el ratón */
+}
+
+/* ========================================= */
+/* Contenedor de sección                     */
+/* ========================================= */
+.content {
+    padding: 0; /* Más padding para el contenido */
+    margin: 0;
+    min-height: 100vh;
+    border: 1px solid #AED581; /* Borde suave y verde pálido */
+    border-radius: 20px; /* Bordes muy redondeados */
+    background-color: #FFFFFF;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada y elegante */
+}
+
+.section {
+    line-height: 1.5; /* Interlineado moderno y espacioso */
+    display: none;
+    background-color: #FFFFFF;
+    margin-top: 3px; /* Más margen superior */
+    margin-bottom: 3px; /* Más margen inferior */
+    padding: 10px; /* Más padding */
+    text-align: justify;
+    border-radius: 15px; /* Bordes ligeramente redondeados */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil pero presente */
+}
+
+.active {
+    display: block;
+}
+
+h2 {
+    text-align: center;
+    color: #2E7D32; /* Verde oscuro para los títulos */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15); /* Sombra de texto sutil */
+    letter-spacing: 1px; /* Mayor espaciado */
+}
+
+/* ========================================= */
+/* hoja index                                */
+/* ========================================= */
+
+.enlace a{
+    color: #18bd26;
+    display: block;
+    margin-bottom: 10px;
+    padding: 2px 2px;
+    margin: 5px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+a:hover{  
+ color:blue;
+}
+
+.card-block{
+    color: #1B5E20;
+    display: block;
+    margin: 10px 0;    
+    padding: 10px;
+    border: 1px solid #AED581; /* Borde suave verde pálido */
+    border-radius: 8px;
+    text-align: justify;   
+    background-color: #F9FBE7; /* Crema para el bloque de preguntas */
+    min-width: 90%;
+    border-bottom: 8px solid #9CCC65; /* Línea de acento en verde claro */
+    border-top: 8px solid #9CCC65; /* Línea de acento en verde claro */
+}
+
+.card-text{
+ font-size: 17px;
+ line-height: 2; /* Ajustado para el nuevo alto */
+}
+
+
+/* En tu hoja principal (primera hoja) añade: */
+ol {
+  list-style-type: none; /* Desactiva números automáticos */
+  counter-reset: item;
+  padding-left: 0;
+}
+
+ol li {
+  counter-increment: item;
+  position: relative;
+  padding-left: 30px;
+}
+
+ol li:before {
+  content: counter(item) ".";
+  position: absolute;
+  left: 0;
+  color: #689F38;
+  font-weight: bold;
+}
+
+
+/* ========================================= */
+/* Estilo de pie de página                   */
+/* ========================================= */
+
+footer {   
+background: linear-gradient(to bottom, #388E3C, #43A047, #2E7D32);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.45); /* Sombra pronunciada y oscura */
+    transition: background 0.6s ease-in-out; /* Transición suave y lenta */
+    color: #ffffff; /* Blanco */
+    text-align: center;
+    font-size: 16px; /* Tamaño de fuente ligeramente mayor */
+    padding: 5px; /* Más padding */
+    margin: 0;
+    /* Eliminamos 'position: fixed;' y sus propiedades relacionadas */
+    /* bottom: 0; */
+    /* width: 100%; */
+    box-shadow: 0 -6px 15px rgba(0, 0, 0, 0.45);
+    transition: background 0.5s ease-in-out;
+    /* Añadimos 'position: relative;' para asegurar que se comporte como un bloque normal al final del contenido */
+    position: relative; 
+    line-height: 1px;
+
+}     
+
+
+#YouTube:hover, #TikTok:hover, #WhatsApp:hover, #Facebook:hover {
+    transform: scale(1.5); /* Un poco más grandes al pasar el ratón */
+}
+
+footer:hover {
+    background: linear-gradient(to right, #43A047, #689F38); /* Hacia un verde más brillante en hover */
+}
+
+.social {
+    margin: 6px 0 0 0; /* Más margen */
+}
+
+.social a {
+    text-decoration: none;
+    padding: 0 50px; /* Más espacio entre iconos */
+    color: #ffffff; /* Blanco */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social a:hover {
+    color: #360802; /* Amarillo brillante para acento */
+    transform: scale(1.5); /* Iconos más grandes al pasar el ratón */
+}
+
+/* ========================================= */
+/* Estilos responsivos pantalla mediana      */
+/* ========================================= */
+@media (max-width: 768px) {
+    /* Ajustes para pantallas medianas */
+    .content {
+        padding: 15px; /* Reducir padding en pantallas más pequeñas */
+    }
+
+    h1 {
+        font-size: 1.5em; /* Ajustar tamaño de fuente */
+    }
+
+    .timer {
+        font-size: 1em;
+        padding: 0;
+    }
+
+    .quiz-info-bar {
+        font-size: 1em;
+        padding: 0;
+    }
+
+    .question-text {
+        font-size: 1.1em; /* Ajustar tamaño de fuente para preguntas */
+    }
+
+    .options label {
+        padding: 8px 12px; /* Ajustar padding de opciones */
+    }
+
+    .nav-button {
+        padding: 8px 20px; /* Ajustar padding de botones */
+        font-size: 0.9em; /* Reducir tamaño de fuente de botones */
+    }
+
+    /* Estilos específicos para este breakpoint */
+    #logo1, #logo2 {
+        width: 60px; /* Ajustar el tamaño en pantallas más pequeñas */
+    }
+
+    #titulo {
+        font-size: 0.8rem;
+        display: block;
+    }
+
+    .dropdown button {
+        font-size: 1rem;
+        padding: 5px 20px;
+    }
+
+    .dropdown-content {
+        font-size: 0.9rem;
+    }
+
+    .encabezado {
+        height: 3.7rem;
+    }
+}
+
+/* ========================================= */
+/* Estilos responsivos pantalla pequeña      */
+/* ========================================= */
+@media (max-width: 480px) {
+    /* Nota: Si `body` se refiere a la etiqueta HTML `<body>`, quita el punto: `body` en lugar de `.body` */
+    .body { 
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .content {
+        padding: 10px; /* Reducir aún más el padding */
+        margin: 10px 0px;
+    }
+
+    h1 {
+        font-size: 1.2em; /* Ajustar tamaño de fuente */
+    }
+
+    .question-block {
+        padding: 1px;
+        margin: 0;
+        min-width: 100%;
+    }
+
+    .quiz-section {
+        padding: 0;
+        margin: 0;
+    }
+
+    .question-text {
+        font-size: 1.2em; /* Ajustar tamaño de fuente para preguntas */
+        padding: 7px;
+    }
+
+    .options label {
+        padding: 5px;
+        font-size: 1.2em; /* Tamaño de texto para la opcion de respuestas */
+    }
+
+    .navigation-buttons {
+        text-align: center;
+        margin-top: 25px;
+    }
+
+    .nav-button {
+        padding: 10px 15px; /* Ajustar padding de botones */
+        font-size: 1em; /* Reducir tamaño de fuente de botones */
+        margin: 0 10px; /* separacion de botones*/
+    }
+
+    .quiz-finished-message {
+        font-size: 1.1em; /* Ajustar tamaño de fuente del mensaje final */
+    }
+
+    /* Estilos específicos para este breakpoint */
+    #logo1, #logo2 {
+        width: 50px; /* Ajustar aún más el tamaño en pantallas muy pequeñas */
+    }
+
+    #logo1 {
+        right: 4px;
+    }
+
+    #logo2 {
+        left: 4px;
+    }
+
+    .encabezado {
+        height: 3.4rem;
+    }
+
+    #titulo {
+        font-size: 0.8rem;
+        line-height: 1.3;
+    }
+
+    /* cinta de texto */
+    .marquee {
+        font-size: 1.2em;
+        padding: 2px 0;
+    }
+
+    /* boton lista de enlaces */
+    .dropdown button {
+        font-size: 1em;
+        padding: 9px 10px;
+        width: 100%;
+        text-align: end;
+    }
+
+    /* elementos de la lista de enlaces */
+    .dropdown-content {
+        font-size: 0.98em;
+        width: 60%;
+        text-align: end;
+    }
+
+    .dropdown-content a {
+        padding: 9px 15px 9px 1px;
+    }
+
+    footer {
+        padding: 2px;
+        font-size: 0.9em;
+    }
+
+    .social a {
+        padding: 0px 25px;
+    }
+
+    /* ========================================= */
+    /* Ocultar barra de navegacion               */
+    /* ========================================= */
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        display: none; /* Ocultar la barra de navegación por defecto */
+    }
+
+    .span-left {
+        float: left; /* Alinear a la izquierda  */
+        padding-left: 10px;
+        font-size: 1.2em;
+    }
+
+    .span-right {
+        float: right; /* Alinear a la derecha  */
+        font-size: 1.4em;
+        padding: 4px 10px 4px 0; /* Corrección de 'pading' a 'padding' */
+    }
+
+    .dropdown {
+        width: 100%;
+    }
+
+    .collapse-btn {
+        display: block; /* Mostrar el botón de colapsar */
+        font-size: 1.5em;
+        padding: 4px;
+    }
+
+    .card-text {
+        font-size: 1.2em;
+
+    }
+}
+
