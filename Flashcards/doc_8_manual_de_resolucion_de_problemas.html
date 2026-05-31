@@ -9,10 +9,10 @@
     <meta name="description" content="3. Administrativos - Material de Estudio Oficial para el Examen de Ascenso de Categoría 2026.">
     <meta property="og:title" content="3. Administrativos - EduConnectRuben">
     <meta property="og:description" content="Estudia con Simuladores de Examen, Flashcards, Audiolibros y Audios Resumidos. ¡Prepárate para el Ascenso 2026!">
-    <meta property="og:image" content="https://administrativos.netlify.app/images/logo.png">
+    <meta property="og:image" content="https://administrativos-2026.netlify.app/images/logo.png">
     <meta property="og:image:width" content="800">
     <meta property="og:image:height" content="800">
-    <meta property="og:url" content="https://administrativos.netlify.app/">
+    <meta property="og:url" content="https://administrativos-2026.netlify.app/">
     <meta property="og:type" content="website">
     
     <!-- PWA Settings -->
@@ -23,7 +23,11 @@
     <link rel="stylesheet" href="../preguntas.css">
     <style>
         /* Responsive adjustments */
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
+            .hamburger { display: block !important; }
+            .nav-links { display: none !important; }
+            .nav-links.show-mobile { display: flex !important; flex-direction: column !important; }
+            .dropdown { flex: none !important; width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
             .hero-title { font-size: 1.8rem !important; }
             .hero-subtitle { font-size: 1rem !important; }
             .header-title { font-size: 1.1rem !important; }
@@ -64,7 +68,9 @@
     
     
     <nav class="navbar" id="navbar" style="background: #1b5e20; padding: 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 9999;">
-        <div style="display: flex; justify-content: center; max-width: 1200px; margin: 0 auto; width: 100%;">
+        <div class="nav-container" style="width: 100%; max-width: 1200px; margin: 0 auto;">
+            <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('show-mobile')" style="display: none; background: transparent; color: white; border: none; padding: 15px; font-size: 1.5rem; cursor: pointer; text-align: center; width: 100%; font-weight: bold;">☰ Menú Principal</button>
+            <div class="nav-links" id="navLinks" style="display: flex; justify-content: center; width: 100%;">
 
             <div class="dropdown" style="flex: 1; text-align: center;">
                 <button onclick="toggleDropdown(this)" style="width: 100%; background: transparent; color: white; padding: 15px; font-weight: bold; font-size: 1.1rem; border: none; cursor: pointer; transition: background 0.3s;">
@@ -130,6 +136,7 @@
                 </div>
             </div>
 
+            </div>
         </div>
     </nav>
     <script>
@@ -140,7 +147,7 @@
             btn.nextElementSibling.classList.toggle('show');
         }
         window.onclick = function(event) {
-            if (!event.target.matches('.dropdown button')) {
+            if (!event.target.matches('.dropdown button') && !event.target.matches('.hamburger')) {
                 document.querySelectorAll('.dropdown-content.show').forEach(d => d.classList.remove('show'));
             }
         }
