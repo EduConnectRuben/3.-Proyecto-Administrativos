@@ -550,7 +550,7 @@ footer:hover {
     .navbar {
         flex-direction: column;
         align-items: flex-start;
-        display: none; /* Ocultar la barra de navegación por defecto */
+        display: block !important;
     }
 
     .span-left {
