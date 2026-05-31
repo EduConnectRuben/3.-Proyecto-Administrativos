@@ -29,6 +29,9 @@
             .nav-links { display: none !important; }
             .nav-links.show-mobile { display: flex !important; flex-direction: column !important; }
             .dropdown { flex: none !important; width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
+            .dropdown-content { position: relative !important; min-width: 100% !important; box-shadow: inset 0 2px 5px rgba(0,0,0,0.2) !important; border-radius: 0 !important; background: #2e7d32 !important; border: none !important; }
+            .dropdown-content a { color: white !important; border-bottom: 1px solid rgba(255,255,255,0.1) !important; padding: 10px 15px !important; font-size: 0.95rem !important; }
+            .dropdown-content a:hover { background: #1b5e20 !important; }
             .hero-title { font-size: 1.8rem !important; }
             .hero-subtitle { font-size: 1rem !important; }
             .header-title { font-size: 1.1rem !important; }
@@ -38,8 +41,10 @@
         }
         @media (max-width: 768px) {
             /* Ajustes para tarjetas flash */
-            #flashcard-box { padding: 25px 15px !important; min-height: 200px !important; }
-            #card-text { font-size: 1.1rem !important; line-height: 1.4 !important; }
+            #flashcard-box { padding: 15px 10px !important; min-height: 150px !important; }
+            #card-text { font-size: 1.05rem !important; line-height: 1.3 !important; }
+            #flash-buttons { gap: 5px !important; margin-top: 15px !important; }
+            #flash-buttons button { padding: 10px 5px !important; font-size: 0.85rem !important; flex: 1 !important; }
             
             /* Ajustes para audiolibros y contenedores principales */
             div[style*="padding: 40px;"] { padding: 15px !important; }
@@ -89,7 +94,7 @@
     
     <nav class="navbar" id="navbar" style="background: #1b5e20; padding: 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 9999;">
         <div class="nav-container" style="width: 100%; max-width: 1200px; margin: 0 auto;">
-            <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('show-mobile')">☰ Menú Principal</button>
+            <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('show-mobile')">Menú Principal ☰</button>
             <div class="nav-links" id="navLinks" style="display: flex; justify-content: center; width: 100%;">
 
             <div class="dropdown" style="flex: 1; text-align: center;">
@@ -205,10 +210,10 @@
         <div class="question-block" id="q1" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">1. ¿Cuál es el objeto de la Ley N° 223?</div>
             <div class="options">
-                <label><input type="radio" name="q1" value="a"> a) Garantizar a las personas con discapacidad el ejercicio pleno de sus derechos y deberes</label>
-                <label><input type="radio" name="q1" value="b"> b) Crear hospitales privados</label>
-                <label><input type="radio" name="q1" value="c"> c) Sancionar a los maestros</label>
-                <label><input type="radio" name="q1" value="d"> d) Construir escuelas regulares</label>
+                <label><input type="radio" name="q1" value="a"> a) Construir escuelas regulares</label>
+                <label><input type="radio" name="q1" value="b"> b) Sancionar a los maestros</label>
+                <label><input type="radio" name="q1" value="c"> c) Crear hospitales privados</label>
+                <label><input type="radio" name="q1" value="d"> d) Garantizar a las personas con discapacidad el ejercicio pleno de sus derechos y deberes</label>
             </div>
         </div>
         
@@ -225,60 +230,60 @@
         <div class="question-block" id="q3" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">3. ¿Cómo define la Ley 223 la 'discapacidad'?</div>
             <div class="options">
-                <label><input type="radio" name="q3" value="a"> a) Como la deficiencia física, mental, intelectual o sensorial a largo plazo que interfiere en la participación plena y efectiva</label>
-                <label><input type="radio" name="q3" value="b"> b) Como una enfermedad incurable</label>
-                <label><input type="radio" name="q3" value="c"> c) Como un castigo divino</label>
-                <label><input type="radio" name="q3" value="d"> d) Como una incapacidad temporal</label>
+                <label><input type="radio" name="q3" value="a"> a) Como un castigo divino</label>
+                <label><input type="radio" name="q3" value="b"> b) Como una incapacidad temporal</label>
+                <label><input type="radio" name="q3" value="c"> c) Como la deficiencia física, mental, intelectual o sensorial a largo plazo que interfiere en la participación plena y efectiva</label>
+                <label><input type="radio" name="q3" value="d"> d) Como una enfermedad incurable</label>
             </div>
         </div>
         
         <div class="question-block" id="q4" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">4. ¿Cuál de estos NO es un tipo de discapacidad reconocido por la ley?</div>
             <div class="options">
-                <label><input type="radio" name="q4" value="a"> a) Discapacidad estética</label>
-                <label><input type="radio" name="q4" value="b"> b) Discapacidad física-motora</label>
-                <label><input type="radio" name="q4" value="c"> c) Discapacidad intelectual</label>
-                <label><input type="radio" name="q4" value="d"> d) Discapacidad visual</label>
+                <label><input type="radio" name="q4" value="a"> a) Discapacidad visual</label>
+                <label><input type="radio" name="q4" value="b"> b) Discapacidad intelectual</label>
+                <label><input type="radio" name="q4" value="c"> c) Discapacidad física-motora</label>
+                <label><input type="radio" name="q4" value="d"> d) Discapacidad estética</label>
             </div>
         </div>
         
         <div class="question-block" id="q5" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">5. El enfoque de educación para personas con discapacidad exige:</div>
             <div class="options">
-                <label><input type="radio" name="q5" value="a"> a) Educación Inclusiva en todos los niveles del Sistema Educativo Plurinacional</label>
-                <label><input type="radio" name="q5" value="b"> b) Educación exclusiva en centros especializados siempre</label>
-                <label><input type="radio" name="q5" value="c"> c) Educación solo en casa</label>
-                <label><input type="radio" name="q5" value="d"> d) Eximirlos de la escuela</label>
+                <label><input type="radio" name="q5" value="a"> a) Educación solo en casa</label>
+                <label><input type="radio" name="q5" value="b"> b) Educación Inclusiva en todos los niveles del Sistema Educativo Plurinacional</label>
+                <label><input type="radio" name="q5" value="c"> c) Eximirlos de la escuela</label>
+                <label><input type="radio" name="q5" value="d"> d) Educación exclusiva en centros especializados siempre</label>
             </div>
         </div>
         
         <div class="question-block" id="q6" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">6. ¿Qué entidad emite el Carnet de Discapacidad?</div>
             <div class="options">
-                <label><input type="radio" name="q6" value="a"> a) El Comité Departamental de Personas con Discapacidad (CODEPEDIS) / SEDES</label>
-                <label><input type="radio" name="q6" value="b"> b) El Ministerio de Educación</label>
-                <label><input type="radio" name="q6" value="c"> c) El SEGIP</label>
-                <label><input type="radio" name="q6" value="d"> d) La Policía Boliviana</label>
+                <label><input type="radio" name="q6" value="a"> a) El SEGIP</label>
+                <label><input type="radio" name="q6" value="b"> b) La Policía Boliviana</label>
+                <label><input type="radio" name="q6" value="c"> c) El Comité Departamental de Personas con Discapacidad (CODEPEDIS) / SEDES</label>
+                <label><input type="radio" name="q6" value="d"> d) El Ministerio de Educación</label>
             </div>
         </div>
         
         <div class="question-block" id="q7" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">7. ¿Qué son los 'ajustes razonables' según la ley?</div>
             <div class="options">
-                <label><input type="radio" name="q7" value="a"> a) Modificaciones y adaptaciones necesarias que no impongan carga desproporcionada para garantizar derechos</label>
-                <label><input type="radio" name="q7" value="b"> b) Cambiar todo el colegio</label>
-                <label><input type="radio" name="q7" value="c"> c) Cobrar más pensiones</label>
-                <label><input type="radio" name="q7" value="d"> d) Exigir que el estudiante se adapte al colegio</label>
+                <label><input type="radio" name="q7" value="a"> a) Cambiar todo el colegio</label>
+                <label><input type="radio" name="q7" value="b"> b) Exigir que el estudiante se adapte al colegio</label>
+                <label><input type="radio" name="q7" value="c"> c) Modificaciones y adaptaciones necesarias que no impongan carga desproporcionada para garantizar derechos</label>
+                <label><input type="radio" name="q7" value="d"> d) Cobrar más pensiones</label>
             </div>
         </div>
         
         <div class="question-block" id="q8" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">8. ¿Qué porcentaje mínimo de inserción laboral en instituciones públicas establece la ley?</div>
             <div class="options">
-                <label><input type="radio" name="q8" value="a"> a) 4% del personal</label>
-                <label><input type="radio" name="q8" value="b"> b) 10% del personal</label>
+                <label><input type="radio" name="q8" value="a"> a) 20% del personal</label>
+                <label><input type="radio" name="q8" value="b"> b) 4% del personal</label>
                 <label><input type="radio" name="q8" value="c"> c) 1% del personal</label>
-                <label><input type="radio" name="q8" value="d"> d) 20% del personal</label>
+                <label><input type="radio" name="q8" value="d"> d) 10% del personal</label>
             </div>
         </div>
         
@@ -295,30 +300,30 @@
         <div class="question-block" id="q10" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">10. ¿Qué es el RUDEAL en el contexto educativo alternativo y especial?</div>
             <div class="options">
-                <label><input type="radio" name="q10" value="a"> a) Registro Único de Estudiantes de Alternativa y Especial</label>
-                <label><input type="radio" name="q10" value="b"> b) Reglamento Universal de Educación</label>
-                <label><input type="radio" name="q10" value="c"> c) Registro Unificado de Docentes</label>
-                <label><input type="radio" name="q10" value="d"> d) Reglamento de Discapacidad</label>
+                <label><input type="radio" name="q10" value="a"> a) Reglamento Universal de Educación</label>
+                <label><input type="radio" name="q10" value="b"> b) Registro Unificado de Docentes</label>
+                <label><input type="radio" name="q10" value="c"> c) Reglamento de Discapacidad</label>
+                <label><input type="radio" name="q10" value="d"> d) Registro Único de Estudiantes de Alternativa y Especial</label>
             </div>
         </div>
         
         <div class="question-block" id="q11" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">11. Las personas con discapacidad tienen derecho a la gratuidad en el sistema de salud en:</div>
             <div class="options">
-                <label><input type="radio" name="q11" value="a"> a) Todo el Sistema Nacional de Salud Pública</label>
-                <label><input type="radio" name="q11" value="b"> b) Solo en hospitales privados</label>
-                <label><input type="radio" name="q11" value="c"> c) Clínicas dentales exclusivas</label>
-                <label><input type="radio" name="q11" value="d"> d) Cirugías estéticas</label>
+                <label><input type="radio" name="q11" value="a"> a) Clínicas dentales exclusivas</label>
+                <label><input type="radio" name="q11" value="b"> b) Todo el Sistema Nacional de Salud Pública</label>
+                <label><input type="radio" name="q11" value="c"> c) Cirugías estéticas</label>
+                <label><input type="radio" name="q11" value="d"> d) Solo en hospitales privados</label>
             </div>
         </div>
         
         <div class="question-block" id="q12" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">12. ¿Qué institución nacional formula las políticas para personas con discapacidad?</div>
             <div class="options">
-                <label><input type="radio" name="q12" value="a"> a) El Comité Nacional de Personas con Discapacidad (CONALPEDIS)</label>
+                <label><input type="radio" name="q12" value="a"> a) El Ministerio de Culturas</label>
                 <label><input type="radio" name="q12" value="b"> b) La Asamblea Legislativa</label>
                 <label><input type="radio" name="q12" value="c"> c) El Tribunal Supremo Electoral</label>
-                <label><input type="radio" name="q12" value="d"> d) El Ministerio de Culturas</label>
+                <label><input type="radio" name="q12" value="d"> d) El Comité Nacional de Personas con Discapacidad (CONALPEDIS)</label>
             </div>
         </div>
         
@@ -326,8 +331,8 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">13. La lengua de señas boliviana (LSB) es reconocida como:</div>
             <div class="options">
                 <label><input type="radio" name="q13" value="a"> a) El medio de acceso a la comunicación de las personas sordas</label>
-                <label><input type="radio" name="q13" value="b"> b) Un idioma extranjero</label>
-                <label><input type="radio" name="q13" value="c"> c) Una lengua indígena</label>
+                <label><input type="radio" name="q13" value="b"> b) Una lengua indígena</label>
+                <label><input type="radio" name="q13" value="c"> c) Un idioma extranjero</label>
                 <label><input type="radio" name="q13" value="d"> d) Un sistema braille</label>
             </div>
         </div>
@@ -335,109 +340,109 @@
         <div class="question-block" id="q14" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">14. El Estado debe promover la accesibilidad en la infraestructura pública. Esto significa:</div>
             <div class="options">
-                <label><input type="radio" name="q14" value="a"> a) Eliminar barreras arquitectónicas (rampas, ascensores, señalética)</label>
-                <label><input type="radio" name="q14" value="b"> b) Prohibir el ingreso de personas en sillas de ruedas</label>
-                <label><input type="radio" name="q14" value="c"> c) Cobrar por el uso de rampas</label>
-                <label><input type="radio" name="q14" value="d"> d) Construir hospitales lejanos</label>
+                <label><input type="radio" name="q14" value="a"> a) Cobrar por el uso de rampas</label>
+                <label><input type="radio" name="q14" value="b"> b) Eliminar barreras arquitectónicas (rampas, ascensores, señalética)</label>
+                <label><input type="radio" name="q14" value="c"> c) Construir hospitales lejanos</label>
+                <label><input type="radio" name="q14" value="d"> d) Prohibir el ingreso de personas en sillas de ruedas</label>
             </div>
         </div>
         
         <div class="question-block" id="q15" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">15. En el ámbito educativo, ¿qué es la 'Discapacidad Múltiple'?</div>
             <div class="options">
-                <label><input type="radio" name="q15" value="a"> a) La presencia de dos o más deficiencias (ej. sordo-ceguera)</label>
-                <label><input type="radio" name="q15" value="b"> b) Tener muchos problemas familiares</label>
-                <label><input type="radio" name="q15" value="c"> c) Discapacidad leve en un brazo</label>
-                <label><input type="radio" name="q15" value="d"> d) Retraso escolar común</label>
+                <label><input type="radio" name="q15" value="a"> a) Discapacidad leve en un brazo</label>
+                <label><input type="radio" name="q15" value="b"> b) Retraso escolar común</label>
+                <label><input type="radio" name="q15" value="c"> c) La presencia de dos o más deficiencias (ej. sordo-ceguera)</label>
+                <label><input type="radio" name="q15" value="d"> d) Tener muchos problemas familiares</label>
             </div>
         </div>
         
         <div class="question-block" id="q16" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">16. ¿Qué nivel de discapacidad tiene derecho a la renta solidaria (según normativas conexas)?</div>
             <div class="options">
-                <label><input type="radio" name="q16" value="a"> a) Grave y Muy Grave</label>
-                <label><input type="radio" name="q16" value="b"> b) Leve</label>
-                <label><input type="radio" name="q16" value="c"> c) Moderada</label>
-                <label><input type="radio" name="q16" value="d"> d) Todas las anteriores</label>
+                <label><input type="radio" name="q16" value="a"> a) Leve</label>
+                <label><input type="radio" name="q16" value="b"> b) Moderada</label>
+                <label><input type="radio" name="q16" value="c"> c) Todas las anteriores</label>
+                <label><input type="radio" name="q16" value="d"> d) Grave y Muy Grave</label>
             </div>
         </div>
         
         <div class="question-block" id="q17" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">17. Si un colegio privado rechaza la inscripción de un estudiante por su discapacidad, está cometiendo:</div>
             <div class="options">
-                <label><input type="radio" name="q17" value="a"> a) Un acto de discriminación penado por la Ley 045 y 223</label>
+                <label><input type="radio" name="q17" value="a"> a) Una selección académica válida</label>
                 <label><input type="radio" name="q17" value="b"> b) Un acto de libre mercado</label>
-                <label><input type="radio" name="q17" value="c"> c) Una selección académica válida</label>
-                <label><input type="radio" name="q17" value="d"> d) Un error administrativo</label>
+                <label><input type="radio" name="q17" value="c"> c) Un error administrativo</label>
+                <label><input type="radio" name="q17" value="d"> d) Un acto de discriminación penado por la Ley 045 y 223</label>
             </div>
         </div>
         
         <div class="question-block" id="q18" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">18. ¿Quiénes son responsables del diseño e implementación de las adaptaciones curriculares?</div>
             <div class="options">
-                <label><input type="radio" name="q18" value="a"> a) Los maestros y maestras con apoyo técnico</label>
-                <label><input type="radio" name="q18" value="b"> b) Solo el director</label>
-                <label><input type="radio" name="q18" value="c"> c) Los padres de familia exclusivamente</label>
-                <label><input type="radio" name="q18" value="d"> d) El Ministerio de Salud</label>
+                <label><input type="radio" name="q18" value="a"> a) Solo el director</label>
+                <label><input type="radio" name="q18" value="b"> b) Los maestros y maestras con apoyo técnico</label>
+                <label><input type="radio" name="q18" value="c"> c) El Ministerio de Salud</label>
+                <label><input type="radio" name="q18" value="d"> d) Los padres de familia exclusivamente</label>
             </div>
         </div>
         
         <div class="question-block" id="q19" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">19. ¿Qué implica el principio de 'Equidad de Género' en la Ley 223?</div>
             <div class="options">
-                <label><input type="radio" name="q19" value="a"> a) Garantizar que mujeres y niñas con discapacidad no sufran doble discriminación</label>
-                <label><input type="radio" name="q19" value="b"> b) Que solo las mujeres reciban el carnet</label>
-                <label><input type="radio" name="q19" value="c"> c) Que los hombres no tienen beneficios</label>
-                <label><input type="radio" name="q19" value="d"> d) Que debe haber colegios separados</label>
+                <label><input type="radio" name="q19" value="a"> a) Que solo las mujeres reciban el carnet</label>
+                <label><input type="radio" name="q19" value="b"> b) Garantizar que mujeres y niñas con discapacidad no sufran doble discriminación</label>
+                <label><input type="radio" name="q19" value="c"> c) Que debe haber colegios separados</label>
+                <label><input type="radio" name="q19" value="d"> d) Que los hombres no tienen beneficios</label>
             </div>
         </div>
         
         <div class="question-block" id="q20" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">20. El sistema de escritura Braille debe ser implementado prioritariamente para personas con:</div>
             <div class="options">
-                <label><input type="radio" name="q20" value="a"> a) Discapacidad visual (ceguera)</label>
+                <label><input type="radio" name="q20" value="a"> a) Discapacidad psíquica</label>
                 <label><input type="radio" name="q20" value="b"> b) Discapacidad auditiva</label>
-                <label><input type="radio" name="q20" value="c"> c) Discapacidad física</label>
-                <label><input type="radio" name="q20" value="d"> d) Discapacidad psíquica</label>
+                <label><input type="radio" name="q20" value="c"> c) Discapacidad visual (ceguera)</label>
+                <label><input type="radio" name="q20" value="d"> d) Discapacidad física</label>
             </div>
         </div>
         
         <div class="question-block" id="q21" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">21. ¿Qué rol tienen los Centros de Educación Especial?</div>
             <div class="options">
-                <label><input type="radio" name="q21" value="a"> a) Brindar atención directa a quienes no pueden incluirse en escuelas regulares y apoyo indirecto a las inclusivas</label>
-                <label><input type="radio" name="q21" value="b"> b) Aislar a los estudiantes de la sociedad</label>
-                <label><input type="radio" name="q21" value="c"> c) Curar las discapacidades</label>
-                <label><input type="radio" name="q21" value="d"> d) Ser guarderías</label>
+                <label><input type="radio" name="q21" value="a"> a) Aislar a los estudiantes de la sociedad</label>
+                <label><input type="radio" name="q21" value="b"> b) Ser guarderías</label>
+                <label><input type="radio" name="q21" value="c"> c) Brindar atención directa a quienes no pueden incluirse en escuelas regulares y apoyo indirecto a las inclusivas</label>
+                <label><input type="radio" name="q21" value="d"> d) Curar las discapacidades</label>
             </div>
         </div>
         
         <div class="question-block" id="q22" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">22. ¿La evaluación a un estudiante con discapacidad en educación regular debe ser?</div>
             <div class="options">
-                <label><input type="radio" name="q22" value="a"> a) Adaptada a sus capacidades mediante instrumentos diferenciados y flexibles</label>
+                <label><input type="radio" name="q22" value="a"> a) Solo cualitativa sin libreta</label>
                 <label><input type="radio" name="q22" value="b"> b) Exactamente igual a la de los demás</label>
-                <label><input type="radio" name="q22" value="c"> c) Solo cualitativa sin libreta</label>
-                <label><input type="radio" name="q22" value="d"> d) Realizada por un médico</label>
+                <label><input type="radio" name="q22" value="c"> c) Realizada por un médico</label>
+                <label><input type="radio" name="q22" value="d"> d) Adaptada a sus capacidades mediante instrumentos diferenciados y flexibles</label>
             </div>
         </div>
         
         <div class="question-block" id="q23" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">23. ¿Qué derecho tienen las personas con discapacidad en el transporte público?</div>
             <div class="options">
-                <label><input type="radio" name="q23" value="a"> a) Accesibilidad y tarifas preferenciales (según normativas municipales/nacionales)</label>
-                <label><input type="radio" name="q23" value="b"> b) Transporte gratis en avión</label>
-                <label><input type="radio" name="q23" value="c"> c) Manejar sin licencia</label>
-                <label><input type="radio" name="q23" value="d"> d) No pueden usar transporte público</label>
+                <label><input type="radio" name="q23" value="a"> a) Transporte gratis en avión</label>
+                <label><input type="radio" name="q23" value="b"> b) No pueden usar transporte público</label>
+                <label><input type="radio" name="q23" value="c"> c) Accesibilidad y tarifas preferenciales (según normativas municipales/nacionales)</label>
+                <label><input type="radio" name="q23" value="d"> d) Manejar sin licencia</label>
             </div>
         </div>
         
         <div class="question-block" id="q24" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">24. ¿Qué es la 'Rehabilitación Basada en la Comunidad' (RBC)?</div>
             <div class="options">
-                <label><input type="radio" name="q24" value="a"> a) Estrategia de desarrollo comunitario para la rehabilitación, igualdad de oportunidades e integración</label>
-                <label><input type="radio" name="q24" value="b"> b) Un hospital central</label>
-                <label><input type="radio" name="q24" value="c"> c) Una terapia intensiva</label>
+                <label><input type="radio" name="q24" value="a"> a) Un hospital central</label>
+                <label><input type="radio" name="q24" value="b"> b) Una terapia intensiva</label>
+                <label><input type="radio" name="q24" value="c"> c) Estrategia de desarrollo comunitario para la rehabilitación, igualdad de oportunidades e integración</label>
                 <label><input type="radio" name="q24" value="d"> d) Un bono económico</label>
             </div>
         </div>
@@ -445,10 +450,10 @@
         <div class="question-block" id="q25" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">25. ¿Qué institución a nivel departamental protege los derechos de las Personas con Discapacidad?</div>
             <div class="options">
-                <label><input type="radio" name="q25" value="a"> a) CODEPEDIS</label>
-                <label><input type="radio" name="q25" value="b"> b) CONALPEDIS</label>
-                <label><input type="radio" name="q25" value="c"> c) Defensoría del Pueblo (únicamente)</label>
-                <label><input type="radio" name="q25" value="d"> d) Ministerio de la Presidencia</label>
+                <label><input type="radio" name="q25" value="a"> a) Defensoría del Pueblo (únicamente)</label>
+                <label><input type="radio" name="q25" value="b"> b) Ministerio de la Presidencia</label>
+                <label><input type="radio" name="q25" value="c"> c) CODEPEDIS</label>
+                <label><input type="radio" name="q25" value="d"> d) CONALPEDIS</label>
             </div>
         </div>
         
@@ -456,18 +461,18 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">26. Las personas con discapacidad intelectual tienen derecho a:</div>
             <div class="options">
                 <label><input type="radio" name="q26" value="a"> a) Apoyo psicopedagógico y educación continua respetando sus ritmos de aprendizaje</label>
-                <label><input type="radio" name="q26" value="b"> b) Ser medicadas en la escuela</label>
-                <label><input type="radio" name="q26" value="c"> c) No ser escolarizadas</label>
-                <label><input type="radio" name="q26" value="d"> d) Ingresar a la universidad sin dar examen</label>
+                <label><input type="radio" name="q26" value="b"> b) Ingresar a la universidad sin dar examen</label>
+                <label><input type="radio" name="q26" value="c"> c) Ser medicadas en la escuela</label>
+                <label><input type="radio" name="q26" value="d"> d) No ser escolarizadas</label>
             </div>
         </div>
         
         <div class="question-block" id="q27" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">27. ¿Es legal exigir que un niño con discapacidad lleve un tutor pagado ('sombra') a la escuela regular pública?</div>
             <div class="options">
-                <label><input type="radio" name="q27" value="a"> a) No, el Estado debe garantizar la educación inclusiva sin cobros extra</label>
-                <label><input type="radio" name="q27" value="b"> b) Sí, siempre es obligatorio</label>
-                <label><input type="radio" name="q27" value="c"> c) Sí, es decisión del director</label>
+                <label><input type="radio" name="q27" value="a"> a) Sí, siempre es obligatorio</label>
+                <label><input type="radio" name="q27" value="b"> b) Sí, es decisión del director</label>
+                <label><input type="radio" name="q27" value="c"> c) No, el Estado debe garantizar la educación inclusiva sin cobros extra</label>
                 <label><input type="radio" name="q27" value="d"> d) Solo en colegios privados</label>
             </div>
         </div>
@@ -475,10 +480,10 @@
         <div class="question-block" id="q28" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">28. ¿Qué significa que la educación inclusiva requiere 'corresponsabilidad'?</div>
             <div class="options">
-                <label><input type="radio" name="q28" value="a"> a) Que maestros, familia, comunidad y Estado deben participar activamente</label>
-                <label><input type="radio" name="q28" value="b"> b) Que los padres tienen la culpa</label>
-                <label><input type="radio" name="q28" value="c"> c) Que el Estado no interviene</label>
-                <label><input type="radio" name="q28" value="d"> d) Que el maestro asume todo el gasto</label>
+                <label><input type="radio" name="q28" value="a"> a) Que el maestro asume todo el gasto</label>
+                <label><input type="radio" name="q28" value="b"> b) Que el Estado no interviene</label>
+                <label><input type="radio" name="q28" value="c"> c) Que los padres tienen la culpa</label>
+                <label><input type="radio" name="q28" value="d"> d) Que maestros, familia, comunidad y Estado deben participar activamente</label>
             </div>
         </div>
         
@@ -486,17 +491,17 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">29. La Ley 223 establece el derecho a la vida libre de violencia. Las personas con discapacidad son:</div>
             <div class="options">
                 <label><input type="radio" name="q29" value="a"> a) Población altamente vulnerable y el estado debe priorizar su protección</label>
-                <label><input type="radio" name="q29" value="b"> b) Inmunes a la violencia</label>
+                <label><input type="radio" name="q29" value="b"> b) Excluidas de la Ley 348</label>
                 <label><input type="radio" name="q29" value="c"> c) Responsables si sufren violencia</label>
-                <label><input type="radio" name="q29" value="d"> d) Excluidas de la Ley 348</label>
+                <label><input type="radio" name="q29" value="d"> d) Inmunes a la violencia</label>
             </div>
         </div>
         
         <div class="question-block" id="q30" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">30. ¿Qué porcentaje de rebaja establece la normativa para servicios básicos e impuestos para personas con discapacidad?</div>
             <div class="options">
-                <label><input type="radio" name="q30" value="a"> a) Tarifas preferenciales establecidas por los gobiernos autónomos (ej. 20% a 50%)</label>
-                <label><input type="radio" name="q30" value="b"> b) 100% de gratuidad</label>
+                <label><input type="radio" name="q30" value="a"> a) 100% de gratuidad</label>
+                <label><input type="radio" name="q30" value="b"> b) Tarifas preferenciales establecidas por los gobiernos autónomos (ej. 20% a 50%)</label>
                 <label><input type="radio" name="q30" value="c"> c) 0%</label>
                 <label><input type="radio" name="q30" value="d"> d) Pagan doble</label>
             </div>
@@ -515,19 +520,19 @@
         <div class="question-block" id="q32" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">32. La negación de ajustes razonables en el trabajo se considera:</div>
             <div class="options">
-                <label><input type="radio" name="q32" value="a"> a) Discriminación en el empleo</label>
-                <label><input type="radio" name="q32" value="b"> b) Ahorro empresarial</label>
+                <label><input type="radio" name="q32" value="a"> a) Falta leve</label>
+                <label><input type="radio" name="q32" value="b"> b) Discriminación en el empleo</label>
                 <label><input type="radio" name="q32" value="c"> c) Derecho del empleador</label>
-                <label><input type="radio" name="q32" value="d"> d) Falta leve</label>
+                <label><input type="radio" name="q32" value="d"> d) Ahorro empresarial</label>
             </div>
         </div>
         
         <div class="question-block" id="q33" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">33. ¿Los niños con discapacidad tienen derecho a recibir el Bono Juancito Pinto?</div>
             <div class="options">
-                <label><input type="radio" name="q33" value="a"> a) Sí, están incluidos y en Educación Especial no hay límite de edad estricto como en regular</label>
+                <label><input type="radio" name="q33" value="a"> a) Solo si tienen buenas notas</label>
                 <label><input type="radio" name="q33" value="b"> b) No, no les corresponde</label>
-                <label><input type="radio" name="q33" value="c"> c) Solo si tienen buenas notas</label>
+                <label><input type="radio" name="q33" value="c"> c) Sí, están incluidos y en Educación Especial no hay límite de edad estricto como en regular</label>
                 <label><input type="radio" name="q33" value="d"> d) Solo si no reciben la renta solidaria</label>
             </div>
         </div>
@@ -535,9 +540,9 @@
         <div class="question-block" id="q34" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">34. ¿Qué significa Discapacidad Psíquica o Mental?</div>
             <div class="options">
-                <label><input type="radio" name="q34" value="a"> a) Alteración del comportamiento, desarrollo o estado de ánimo que afecta la autonomía</label>
-                <label><input type="radio" name="q34" value="b"> b) No tener inteligencia</label>
-                <label><input type="radio" name="q34" value="c"> c) Estar en coma</label>
+                <label><input type="radio" name="q34" value="a"> a) No tener inteligencia</label>
+                <label><input type="radio" name="q34" value="b"> b) Estar en coma</label>
+                <label><input type="radio" name="q34" value="c"> c) Alteración del comportamiento, desarrollo o estado de ánimo que afecta la autonomía</label>
                 <label><input type="radio" name="q34" value="d"> d) Ceguera total</label>
             </div>
         </div>
@@ -546,8 +551,8 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">35. El personal docente que tiene hijos con discapacidad grave, en temas de designación, tiene:</div>
             <div class="options">
                 <label><input type="radio" name="q35" value="a"> a) Prioridad para su asignación cerca de su domicilio o centro médico</label>
-                <label><input type="radio" name="q35" value="b"> b) Inhabilitación para trabajar</label>
-                <label><input type="radio" name="q35" value="c"> c) Descuento salarial</label>
+                <label><input type="radio" name="q35" value="b"> b) Descuento salarial</label>
+                <label><input type="radio" name="q35" value="c"> c) Inhabilitación para trabajar</label>
                 <label><input type="radio" name="q35" value="d"> d) Obligación de trabajar en el campo</label>
             </div>
         </div>
@@ -555,10 +560,10 @@
         <div class="question-block" id="q36" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">36. ¿Cuál de estos NO es un instrumento de evaluación del estudiante con discapacidad?</div>
             <div class="options">
-                <label><input type="radio" name="q36" value="a"> a) Sentencia judicial</label>
-                <label><input type="radio" name="q36" value="b"> b) Informe Psicológico/Pedagógico</label>
-                <label><input type="radio" name="q36" value="c"> c) Adaptación Curricular Individualizada</label>
-                <label><input type="radio" name="q36" value="d"> d) Evaluación Diagnóstica Integral</label>
+                <label><input type="radio" name="q36" value="a"> a) Adaptación Curricular Individualizada</label>
+                <label><input type="radio" name="q36" value="b"> b) Evaluación Diagnóstica Integral</label>
+                <label><input type="radio" name="q36" value="c"> c) Sentencia judicial</label>
+                <label><input type="radio" name="q36" value="d"> d) Informe Psicológico/Pedagógico</label>
             </div>
         </div>
         
@@ -566,19 +571,19 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">37. ¿Qué ente del Ministerio de Educación rige la educación de esta población?</div>
             <div class="options">
                 <label><input type="radio" name="q37" value="a"> a) El Viceministerio de Educación Alternativa y Especial</label>
-                <label><input type="radio" name="q37" value="b"> b) El Viceministerio de Educación Regular</label>
-                <label><input type="radio" name="q37" value="c"> c) El Viceministerio de Educación Superior</label>
-                <label><input type="radio" name="q37" value="d"> d) El Viceministerio de Deportes</label>
+                <label><input type="radio" name="q37" value="b"> b) El Viceministerio de Deportes</label>
+                <label><input type="radio" name="q37" value="c"> c) El Viceministerio de Educación Regular</label>
+                <label><input type="radio" name="q37" value="d"> d) El Viceministerio de Educación Superior</label>
             </div>
         </div>
         
         <div class="question-block" id="q38" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">38. ¿Qué papel juegan las familias en la educación de un niño con discapacidad?</div>
             <div class="options">
-                <label><input type="radio" name="q38" value="a"> a) Aliados fundamentales para el desarrollo del plan educativo y terapia en casa</label>
-                <label><input type="radio" name="q38" value="b"> b) Obstáculos para el maestro</label>
-                <label><input type="radio" name="q38" value="c"> c) Suplentes del director</label>
-                <label><input type="radio" name="q38" value="d"> d) Inversores económicos</label>
+                <label><input type="radio" name="q38" value="a"> a) Inversores económicos</label>
+                <label><input type="radio" name="q38" value="b"> b) Suplentes del director</label>
+                <label><input type="radio" name="q38" value="c"> c) Obstáculos para el maestro</label>
+                <label><input type="radio" name="q38" value="d"> d) Aliados fundamentales para el desarrollo del plan educativo y terapia en casa</label>
             </div>
         </div>
         
@@ -586,19 +591,19 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">39. ¿Qué dice la Ley 223 sobre la capacidad jurídica de las personas con discapacidad?</div>
             <div class="options">
                 <label><input type="radio" name="q39" value="a"> a) Tienen capacidad jurídica en igualdad de condiciones, con sistemas de apoyo si lo requieren</label>
-                <label><input type="radio" name="q39" value="b"> b) Son incapaces y pierden sus derechos</label>
+                <label><input type="radio" name="q39" value="b"> b) Pasan a ser propiedad del Estado</label>
                 <label><input type="radio" name="q39" value="c"> c) No pueden firmar contratos nunca</label>
-                <label><input type="radio" name="q39" value="d"> d) Pasan a ser propiedad del Estado</label>
+                <label><input type="radio" name="q39" value="d"> d) Son incapaces y pierden sus derechos</label>
             </div>
         </div>
         
         <div class="question-block" id="q40" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">40. Los medios de comunicación deben garantizar:</div>
             <div class="options">
-                <label><input type="radio" name="q40" value="a"> a) Intérpretes en lengua de señas y subtitulado en programas informativos/oficiales</label>
-                <label><input type="radio" name="q40" value="b"> b) Solo programas de entretenimiento</label>
+                <label><input type="radio" name="q40" value="a"> a) Cobrar extra por subtítulos</label>
+                <label><input type="radio" name="q40" value="b"> b) Intérpretes en lengua de señas y subtitulado en programas informativos/oficiales</label>
                 <label><input type="radio" name="q40" value="c"> c) Ausencia total de personas con discapacidad en pantalla</label>
-                <label><input type="radio" name="q40" value="d"> d) Cobrar extra por subtítulos</label>
+                <label><input type="radio" name="q40" value="d"> d) Solo programas de entretenimiento</label>
             </div>
         </div>
         
@@ -607,8 +612,8 @@
             <div class="options">
                 <label><input type="radio" name="q41" value="a"> a) Su cónyuge, padres o tutores que la tengan a su cargo</label>
                 <label><input type="radio" name="q41" value="b"> b) A toda su familia extendida</label>
-                <label><input type="radio" name="q41" value="c"> c) A sus amigos</label>
-                <label><input type="radio" name="q41" value="d"> d) Solo a la persona misma, nadie más</label>
+                <label><input type="radio" name="q41" value="c"> c) Solo a la persona misma, nadie más</label>
+                <label><input type="radio" name="q41" value="d"> d) A sus amigos</label>
             </div>
         </div>
         
@@ -617,8 +622,8 @@
             <div class="options">
                 <label><input type="radio" name="q42" value="a"> a) Vulneración al derecho a la libertad, inclusión y trato digno (violencia)</label>
                 <label><input type="radio" name="q42" value="b"> b) Medida de protección válida</label>
-                <label><input type="radio" name="q42" value="c"> c) Cuidado paliativo</label>
-                <label><input type="radio" name="q42" value="d"> d) Educación en casa</label>
+                <label><input type="radio" name="q42" value="c"> c) Educación en casa</label>
+                <label><input type="radio" name="q42" value="d"> d) Cuidado paliativo</label>
             </div>
         </div>
         
@@ -626,9 +631,9 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">43. ¿Los centros de educación especial son gratuitos?</div>
             <div class="options">
                 <label><input type="radio" name="q43" value="a"> a) Sí, los centros fiscales y de convenio son de carácter gratuito</label>
-                <label><input type="radio" name="q43" value="b"> b) No, todos son privados</label>
+                <label><input type="radio" name="q43" value="b"> b) Solo para adultos</label>
                 <label><input type="radio" name="q43" value="c"> c) Depende de la discapacidad</label>
-                <label><input type="radio" name="q43" value="d"> d) Solo para adultos</label>
+                <label><input type="radio" name="q43" value="d"> d) No, todos son privados</label>
             </div>
         </div>
         
@@ -637,38 +642,38 @@
             <div class="options">
                 <label><input type="radio" name="q44" value="a"> a) Una Falta Muy Grave</label>
                 <label><input type="radio" name="q44" value="b"> b) Una Falta Leve</label>
-                <label><input type="radio" name="q44" value="c"> c) Una Falta Grave</label>
-                <label><input type="radio" name="q44" value="d"> d) Una estrategia pedagógica</label>
+                <label><input type="radio" name="q44" value="c"> c) Una estrategia pedagógica</label>
+                <label><input type="radio" name="q44" value="d"> d) Una Falta Grave</label>
             </div>
         </div>
         
         <div class="question-block" id="q45" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">45. ¿Qué es la 'prevención' de la discapacidad?</div>
             <div class="options">
-                <label><input type="radio" name="q45" value="a"> a) Medidas orientadas a evitar que se produzcan deficiencias físicas, mentales o sensoriales</label>
+                <label><input type="radio" name="q45" value="a"> a) Prohibir embarazos</label>
                 <label><input type="radio" name="q45" value="b"> b) Evitar hablar de discapacidad</label>
-                <label><input type="radio" name="q45" value="c"> c) Construir muros</label>
-                <label><input type="radio" name="q45" value="d"> d) Prohibir embarazos</label>
+                <label><input type="radio" name="q45" value="c"> c) Medidas orientadas a evitar que se produzcan deficiencias físicas, mentales o sensoriales</label>
+                <label><input type="radio" name="q45" value="d"> d) Construir muros</label>
             </div>
         </div>
         
         <div class="question-block" id="q46" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">46. El talento extraordinario (superdotación), ¿pertenece a Educación Especial?</div>
             <div class="options">
-                <label><input type="radio" name="q46" value="a"> a) Sí, es un área de atención dentro del Subsistema de Educación Especial</label>
-                <label><input type="radio" name="q46" value="b"> b) No, pertenece a Educación Superior</label>
+                <label><input type="radio" name="q46" value="a"> a) No, pertenece a Educación Superior</label>
+                <label><input type="radio" name="q46" value="b"> b) No está regulado en Bolivia</label>
                 <label><input type="radio" name="q46" value="c"> c) Es un área médica</label>
-                <label><input type="radio" name="q46" value="d"> d) No está regulado en Bolivia</label>
+                <label><input type="radio" name="q46" value="d"> d) Sí, es un área de atención dentro del Subsistema de Educación Especial</label>
             </div>
         </div>
         
         <div class="question-block" id="q47" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">47. ¿Qué es un equipo multidisciplinario en Educación Especial?</div>
             <div class="options">
-                <label><input type="radio" name="q47" value="a"> a) Conjunto de profesionales (psicólogo, trabajador social, fisioterapeuta, educador) que evalúan al estudiante</label>
-                <label><input type="radio" name="q47" value="b"> b) Un grupo de directores</label>
-                <label><input type="radio" name="q47" value="c"> c) Un equipo de fútbol</label>
-                <label><input type="radio" name="q47" value="d"> d) Maestros de la misma materia</label>
+                <label><input type="radio" name="q47" value="a"> a) Un grupo de directores</label>
+                <label><input type="radio" name="q47" value="b"> b) Un equipo de fútbol</label>
+                <label><input type="radio" name="q47" value="c"> c) Maestros de la misma materia</label>
+                <label><input type="radio" name="q47" value="d"> d) Conjunto de profesionales (psicólogo, trabajador social, fisioterapeuta, educador) que evalúan al estudiante</label>
             </div>
         </div>
         
@@ -676,8 +681,8 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">48. Las certificaciones académicas (diploma de bachiller) de estudiantes con discapacidad de escuelas inclusivas:</div>
             <div class="options">
                 <label><input type="radio" name="q48" value="a"> a) Tienen el mismo valor legal que las de cualquier otro estudiante</label>
-                <label><input type="radio" name="q48" value="b"> b) Dicen 'Bachiller Especial' y valen menos</label>
-                <label><input type="radio" name="q48" value="c"> c) No se les entrega diploma</label>
+                <label><input type="radio" name="q48" value="b"> b) No se les entrega diploma</label>
+                <label><input type="radio" name="q48" value="c"> c) Dicen 'Bachiller Especial' y valen menos</label>
                 <label><input type="radio" name="q48" value="d"> d) Solo sirven en Bolivia</label>
             </div>
         </div>
@@ -685,19 +690,19 @@
         <div class="question-block" id="q49" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">49. ¿El término correcto según la ley boliviana es?</div>
             <div class="options">
-                <label><input type="radio" name="q49" value="a"> a) Personas con discapacidad</label>
-                <label><input type="radio" name="q49" value="b"> b) Discapacitados</label>
-                <label><input type="radio" name="q49" value="c"> c) Minusválidos</label>
-                <label><input type="radio" name="q49" value="d"> d) Capacidades diferentes</label>
+                <label><input type="radio" name="q49" value="a"> a) Capacidades diferentes</label>
+                <label><input type="radio" name="q49" value="b"> b) Minusválidos</label>
+                <label><input type="radio" name="q49" value="c"> c) Personas con discapacidad</label>
+                <label><input type="radio" name="q49" value="d"> d) Discapacitados</label>
             </div>
         </div>
         
         <div class="question-block" id="q50" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">50. ¿El Estado boliviano firmó la Convención de la ONU sobre los Derechos de las Personas con Discapacidad?</div>
             <div class="options">
-                <label><input type="radio" name="q50" value="a"> a) Sí, y la Ley 223 se fundamenta en dicha Convención</label>
+                <label><input type="radio" name="q50" value="a"> a) Solo firmó acuerdos comerciales</label>
                 <label><input type="radio" name="q50" value="b"> b) No, se rechazó</label>
-                <label><input type="radio" name="q50" value="c"> c) Solo firmó acuerdos comerciales</label>
+                <label><input type="radio" name="q50" value="c"> c) Sí, y la Ley 223 se fundamenta en dicha Convención</label>
                 <label><input type="radio" name="q50" value="d"> d) Está en trámite desde 1990</label>
             </div>
         </div>
@@ -729,56 +734,56 @@
     
     <script>
         const correctAnswers = {
-            "q1": "a",
+            "q1": "d",
         "q2": "a",
-        "q3": "a",
-        "q4": "a",
-        "q5": "a",
-        "q6": "a",
-        "q7": "a",
-        "q8": "a",
+        "q3": "c",
+        "q4": "d",
+        "q5": "b",
+        "q6": "c",
+        "q7": "c",
+        "q8": "b",
         "q9": "a",
-        "q10": "a",
-        "q11": "a",
-        "q12": "a",
+        "q10": "d",
+        "q11": "b",
+        "q12": "d",
         "q13": "a",
-        "q14": "a",
-        "q15": "a",
-        "q16": "a",
-        "q17": "a",
-        "q18": "a",
-        "q19": "a",
-        "q20": "a",
-        "q21": "a",
-        "q22": "a",
-        "q23": "a",
-        "q24": "a",
-        "q25": "a",
+        "q14": "b",
+        "q15": "c",
+        "q16": "d",
+        "q17": "d",
+        "q18": "b",
+        "q19": "b",
+        "q20": "c",
+        "q21": "c",
+        "q22": "d",
+        "q23": "c",
+        "q24": "c",
+        "q25": "c",
         "q26": "a",
-        "q27": "a",
-        "q28": "a",
+        "q27": "c",
+        "q28": "d",
         "q29": "a",
-        "q30": "a",
+        "q30": "b",
         "q31": "a",
-        "q32": "a",
-        "q33": "a",
-        "q34": "a",
+        "q32": "b",
+        "q33": "c",
+        "q34": "c",
         "q35": "a",
-        "q36": "a",
+        "q36": "c",
         "q37": "a",
-        "q38": "a",
+        "q38": "d",
         "q39": "a",
-        "q40": "a",
+        "q40": "b",
         "q41": "a",
         "q42": "a",
         "q43": "a",
         "q44": "a",
-        "q45": "a",
-        "q46": "a",
-        "q47": "a",
+        "q45": "c",
+        "q46": "d",
+        "q47": "d",
         "q48": "a",
-        "q49": "a",
-        "q50": "a"
+        "q49": "c",
+        "q50": "c"
         };
     </script>
     <script src="../preguntas.js"></script>

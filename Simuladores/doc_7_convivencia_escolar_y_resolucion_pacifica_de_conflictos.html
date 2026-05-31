@@ -29,6 +29,9 @@
             .nav-links { display: none !important; }
             .nav-links.show-mobile { display: flex !important; flex-direction: column !important; }
             .dropdown { flex: none !important; width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
+            .dropdown-content { position: relative !important; min-width: 100% !important; box-shadow: inset 0 2px 5px rgba(0,0,0,0.2) !important; border-radius: 0 !important; background: #2e7d32 !important; border: none !important; }
+            .dropdown-content a { color: white !important; border-bottom: 1px solid rgba(255,255,255,0.1) !important; padding: 10px 15px !important; font-size: 0.95rem !important; }
+            .dropdown-content a:hover { background: #1b5e20 !important; }
             .hero-title { font-size: 1.8rem !important; }
             .hero-subtitle { font-size: 1rem !important; }
             .header-title { font-size: 1.1rem !important; }
@@ -38,8 +41,10 @@
         }
         @media (max-width: 768px) {
             /* Ajustes para tarjetas flash */
-            #flashcard-box { padding: 25px 15px !important; min-height: 200px !important; }
-            #card-text { font-size: 1.1rem !important; line-height: 1.4 !important; }
+            #flashcard-box { padding: 15px 10px !important; min-height: 150px !important; }
+            #card-text { font-size: 1.05rem !important; line-height: 1.3 !important; }
+            #flash-buttons { gap: 5px !important; margin-top: 15px !important; }
+            #flash-buttons button { padding: 10px 5px !important; font-size: 0.85rem !important; flex: 1 !important; }
             
             /* Ajustes para audiolibros y contenedores principales */
             div[style*="padding: 40px;"] { padding: 15px !important; }
@@ -89,7 +94,7 @@
     
     <nav class="navbar" id="navbar" style="background: #1b5e20; padding: 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 9999;">
         <div class="nav-container" style="width: 100%; max-width: 1200px; margin: 0 auto;">
-            <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('show-mobile')">☰ Menú Principal</button>
+            <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('show-mobile')">Menú Principal ☰</button>
             <div class="nav-links" id="navLinks" style="display: flex; justify-content: center; width: 100%;">
 
             <div class="dropdown" style="flex: 1; text-align: center;">
@@ -205,10 +210,10 @@
         <div class="question-block" id="q1" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">1. ¿Qué se entiende por Convivencia Escolar?</div>
             <div class="options">
-                <label><input type="radio" name="q1" value="a"> a) La coexistencia armónica y respetuosa entre todos los miembros de la comunidad educativa</label>
+                <label><input type="radio" name="q1" value="a"> a) El tiempo del recreo</label>
                 <label><input type="radio" name="q1" value="b"> b) El cumplimiento estricto del silencio en el aula</label>
-                <label><input type="radio" name="q1" value="c"> c) La relación exclusiva entre docentes y el director</label>
-                <label><input type="radio" name="q1" value="d"> d) El tiempo del recreo</label>
+                <label><input type="radio" name="q1" value="c"> c) La coexistencia armónica y respetuosa entre todos los miembros de la comunidad educativa</label>
+                <label><input type="radio" name="q1" value="d"> d) La relación exclusiva entre docentes y el director</label>
             </div>
         </div>
         
@@ -216,18 +221,18 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">2. Un conflicto en el ámbito escolar debe ser visto como:</div>
             <div class="options">
                 <label><input type="radio" name="q2" value="a"> a) Una oportunidad de aprendizaje y crecimiento si se gestiona adecuadamente</label>
-                <label><input type="radio" name="q2" value="b"> b) Un fracaso del sistema disciplinario</label>
-                <label><input type="radio" name="q2" value="c"> c) Una situación que debe ocultarse a los padres</label>
-                <label><input type="radio" name="q2" value="d"> d) Un motivo automático de expulsión</label>
+                <label><input type="radio" name="q2" value="b"> b) Una situación que debe ocultarse a los padres</label>
+                <label><input type="radio" name="q2" value="c"> c) Un motivo automático de expulsión</label>
+                <label><input type="radio" name="q2" value="d"> d) Un fracaso del sistema disciplinario</label>
             </div>
         </div>
         
         <div class="question-block" id="q3" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">3. ¿Cuál es el primer paso en la resolución pacífica de un conflicto?</div>
             <div class="options">
-                <label><input type="radio" name="q3" value="a"> a) Identificar el problema y escuchar activamente a las partes involucradas</label>
-                <label><input type="radio" name="q3" value="b"> b) Imponer un castigo a ambas partes</label>
-                <label><input type="radio" name="q3" value="c"> c) Llamar a la policía</label>
+                <label><input type="radio" name="q3" value="a"> a) Llamar a la policía</label>
+                <label><input type="radio" name="q3" value="b"> b) Identificar el problema y escuchar activamente a las partes involucradas</label>
+                <label><input type="radio" name="q3" value="c"> c) Imponer un castigo a ambas partes</label>
                 <label><input type="radio" name="q3" value="d"> d) Ignorar el problema hasta que desaparezca</label>
             </div>
         </div>
@@ -235,10 +240,10 @@
         <div class="question-block" id="q4" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">4. La mediación escolar implica:</div>
             <div class="options">
-                <label><input type="radio" name="q4" value="a"> a) La intervención de un tercero imparcial que facilita el diálogo para que las partes lleguen a un acuerdo</label>
-                <label><input type="radio" name="q4" value="b"> b) Que el director decida quién tiene la razón</label>
-                <label><input type="radio" name="q4" value="c"> c) Que los padres de familia impongan la sanción</label>
-                <label><input type="radio" name="q4" value="d"> d) Un juicio legal</label>
+                <label><input type="radio" name="q4" value="a"> a) Que los padres de familia impongan la sanción</label>
+                <label><input type="radio" name="q4" value="b"> b) Un juicio legal</label>
+                <label><input type="radio" name="q4" value="c"> c) Que el director decida quién tiene la razón</label>
+                <label><input type="radio" name="q4" value="d"> d) La intervención de un tercero imparcial que facilita el diálogo para que las partes lleguen a un acuerdo</label>
             </div>
         </div>
         
@@ -247,18 +252,18 @@
             <div class="options">
                 <label><input type="radio" name="q5" value="a"> a) Participativa, involucrando a estudiantes, docentes y padres</label>
                 <label><input type="radio" name="q5" value="b"> b) Vertical, redactado solo por la dirección</label>
-                <label><input type="radio" name="q5" value="c"> c) Copiando el de otro colegio</label>
-                <label><input type="radio" name="q5" value="d"> d) Impositiva desde el Ministerio</label>
+                <label><input type="radio" name="q5" value="c"> c) Impositiva desde el Ministerio</label>
+                <label><input type="radio" name="q5" value="d"> d) Copiando el de otro colegio</label>
             </div>
         </div>
         
         <div class="question-block" id="q6" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">6. La justicia restaurativa en la escuela busca:</div>
             <div class="options">
-                <label><input type="radio" name="q6" value="a"> a) Reparar el daño causado y restaurar las relaciones, más que solo castigar</label>
-                <label><input type="radio" name="q6" value="b"> b) Castigar con la mayor severidad posible</label>
-                <label><input type="radio" name="q6" value="c"> c) Expulsar al infractor</label>
-                <label><input type="radio" name="q6" value="d"> d) Ignorar a la víctima</label>
+                <label><input type="radio" name="q6" value="a"> a) Ignorar a la víctima</label>
+                <label><input type="radio" name="q6" value="b"> b) Expulsar al infractor</label>
+                <label><input type="radio" name="q6" value="c"> c) Reparar el daño causado y restaurar las relaciones, más que solo castigar</label>
+                <label><input type="radio" name="q6" value="d"> d) Castigar con la mayor severidad posible</label>
             </div>
         </div>
         
@@ -266,39 +271,39 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">7. ¿Qué es la empatía en el contexto escolar?</div>
             <div class="options">
                 <label><input type="radio" name="q7" value="a"> a) La capacidad de comprender y compartir los sentimientos de los demás</label>
-                <label><input type="radio" name="q7" value="b"> b) Sentir pena por un compañero</label>
-                <label><input type="radio" name="q7" value="c"> c) Copiar las tareas de los demás</label>
-                <label><input type="radio" name="q7" value="d"> d) Aislarse del grupo</label>
+                <label><input type="radio" name="q7" value="b"> b) Copiar las tareas de los demás</label>
+                <label><input type="radio" name="q7" value="c"> c) Aislarse del grupo</label>
+                <label><input type="radio" name="q7" value="d"> d) Sentir pena por un compañero</label>
             </div>
         </div>
         
         <div class="question-block" id="q8" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">8. Ante una situación de acoso escolar (bullying), la escuela debe:</div>
             <div class="options">
-                <label><input type="radio" name="q8" value="a"> a) Activar inmediatamente los protocolos de prevención y actuación</label>
-                <label><input type="radio" name="q8" value="b"> b) Considerarlo un 'juego de niños'</label>
-                <label><input type="radio" name="q8" value="c"> c) Culpar a la víctima</label>
-                <label><input type="radio" name="q8" value="d"> d) Esperar a fin de año para hablar con los padres</label>
+                <label><input type="radio" name="q8" value="a"> a) Culpar a la víctima</label>
+                <label><input type="radio" name="q8" value="b"> b) Esperar a fin de año para hablar con los padres</label>
+                <label><input type="radio" name="q8" value="c"> c) Considerarlo un 'juego de niños'</label>
+                <label><input type="radio" name="q8" value="d"> d) Activar inmediatamente los protocolos de prevención y actuación</label>
             </div>
         </div>
         
         <div class="question-block" id="q9" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">9. El clima escolar positivo se caracteriza por:</div>
             <div class="options">
-                <label><input type="radio" name="q9" value="a"> a) Relaciones de confianza, respeto, participación y seguridad emocional</label>
-                <label><input type="radio" name="q9" value="b"> b) Miedo al castigo</label>
-                <label><input type="radio" name="q9" value="c"> c) Exceso de competitividad</label>
-                <label><input type="radio" name="q9" value="d"> d) Falta de reglas</label>
+                <label><input type="radio" name="q9" value="a"> a) Miedo al castigo</label>
+                <label><input type="radio" name="q9" value="b"> b) Relaciones de confianza, respeto, participación y seguridad emocional</label>
+                <label><input type="radio" name="q9" value="c"> c) Falta de reglas</label>
+                <label><input type="radio" name="q9" value="d"> d) Exceso de competitividad</label>
             </div>
         </div>
         
         <div class="question-block" id="q10" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">10. ¿Cuál es el rol del docente en la convivencia pacífica?</div>
             <div class="options">
-                <label><input type="radio" name="q10" value="a"> a) Ser un modelo de respeto, promotor del diálogo y mediador natural</label>
-                <label><input type="radio" name="q10" value="b"> b) Ser un juez castigador</label>
-                <label><input type="radio" name="q10" value="c"> c) Ignorar los problemas personales de los alumnos</label>
-                <label><input type="radio" name="q10" value="d"> d) Delegar toda la disciplina al regente</label>
+                <label><input type="radio" name="q10" value="a"> a) Delegar toda la disciplina al regente</label>
+                <label><input type="radio" name="q10" value="b"> b) Ignorar los problemas personales de los alumnos</label>
+                <label><input type="radio" name="q10" value="c"> c) Ser un juez castigador</label>
+                <label><input type="radio" name="q10" value="d"> d) Ser un modelo de respeto, promotor del diálogo y mediador natural</label>
             </div>
         </div>
         
@@ -306,8 +311,8 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">11. En base al manual: ¿Qué se entiende por Convivencia Escolar?</div>
             <div class="options">
                 <label><input type="radio" name="q11" value="a"> a) La coexistencia armónica y respetuosa entre todos los miembros de la comunidad educativa</label>
-                <label><input type="radio" name="q11" value="b"> b) El cumplimiento estricto del silencio en el aula</label>
-                <label><input type="radio" name="q11" value="c"> c) La relación exclusiva entre docentes y el director</label>
+                <label><input type="radio" name="q11" value="b"> b) La relación exclusiva entre docentes y el director</label>
+                <label><input type="radio" name="q11" value="c"> c) El cumplimiento estricto del silencio en el aula</label>
                 <label><input type="radio" name="q11" value="d"> d) El tiempo del recreo</label>
             </div>
         </div>
@@ -325,8 +330,8 @@
         <div class="question-block" id="q13" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">13. En base al manual: ¿Cuál es el primer paso en la resolución pacífica de un conflicto?</div>
             <div class="options">
-                <label><input type="radio" name="q13" value="a"> a) Identificar el problema y escuchar activamente a las partes involucradas</label>
-                <label><input type="radio" name="q13" value="b"> b) Imponer un castigo a ambas partes</label>
+                <label><input type="radio" name="q13" value="a"> a) Imponer un castigo a ambas partes</label>
+                <label><input type="radio" name="q13" value="b"> b) Identificar el problema y escuchar activamente a las partes involucradas</label>
                 <label><input type="radio" name="q13" value="c"> c) Llamar a la policía</label>
                 <label><input type="radio" name="q13" value="d"> d) Ignorar el problema hasta que desaparezca</label>
             </div>
@@ -335,30 +340,30 @@
         <div class="question-block" id="q14" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">14. En base al manual: La mediación escolar implica:</div>
             <div class="options">
-                <label><input type="radio" name="q14" value="a"> a) La intervención de un tercero imparcial que facilita el diálogo para que las partes lleguen a un acuerdo</label>
-                <label><input type="radio" name="q14" value="b"> b) Que el director decida quién tiene la razón</label>
-                <label><input type="radio" name="q14" value="c"> c) Que los padres de familia impongan la sanción</label>
-                <label><input type="radio" name="q14" value="d"> d) Un juicio legal</label>
+                <label><input type="radio" name="q14" value="a"> a) Que el director decida quién tiene la razón</label>
+                <label><input type="radio" name="q14" value="b"> b) Un juicio legal</label>
+                <label><input type="radio" name="q14" value="c"> c) La intervención de un tercero imparcial que facilita el diálogo para que las partes lleguen a un acuerdo</label>
+                <label><input type="radio" name="q14" value="d"> d) Que los padres de familia impongan la sanción</label>
             </div>
         </div>
         
         <div class="question-block" id="q15" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">15. En base al manual: Un reglamento de convivencia debe construirse de manera:</div>
             <div class="options">
-                <label><input type="radio" name="q15" value="a"> a) Participativa, involucrando a estudiantes, docentes y padres</label>
-                <label><input type="radio" name="q15" value="b"> b) Vertical, redactado solo por la dirección</label>
-                <label><input type="radio" name="q15" value="c"> c) Copiando el de otro colegio</label>
-                <label><input type="radio" name="q15" value="d"> d) Impositiva desde el Ministerio</label>
+                <label><input type="radio" name="q15" value="a"> a) Copiando el de otro colegio</label>
+                <label><input type="radio" name="q15" value="b"> b) Participativa, involucrando a estudiantes, docentes y padres</label>
+                <label><input type="radio" name="q15" value="c"> c) Impositiva desde el Ministerio</label>
+                <label><input type="radio" name="q15" value="d"> d) Vertical, redactado solo por la dirección</label>
             </div>
         </div>
         
         <div class="question-block" id="q16" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">16. En base al manual: La justicia restaurativa en la escuela busca:</div>
             <div class="options">
-                <label><input type="radio" name="q16" value="a"> a) Reparar el daño causado y restaurar las relaciones, más que solo castigar</label>
-                <label><input type="radio" name="q16" value="b"> b) Castigar con la mayor severidad posible</label>
-                <label><input type="radio" name="q16" value="c"> c) Expulsar al infractor</label>
-                <label><input type="radio" name="q16" value="d"> d) Ignorar a la víctima</label>
+                <label><input type="radio" name="q16" value="a"> a) Expulsar al infractor</label>
+                <label><input type="radio" name="q16" value="b"> b) Reparar el daño causado y restaurar las relaciones, más que solo castigar</label>
+                <label><input type="radio" name="q16" value="c"> c) Ignorar a la víctima</label>
+                <label><input type="radio" name="q16" value="d"> d) Castigar con la mayor severidad posible</label>
             </div>
         </div>
         
@@ -366,8 +371,8 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">17. En base al manual: ¿Qué es la empatía en el contexto escolar?</div>
             <div class="options">
                 <label><input type="radio" name="q17" value="a"> a) La capacidad de comprender y compartir los sentimientos de los demás</label>
-                <label><input type="radio" name="q17" value="b"> b) Sentir pena por un compañero</label>
-                <label><input type="radio" name="q17" value="c"> c) Copiar las tareas de los demás</label>
+                <label><input type="radio" name="q17" value="b"> b) Copiar las tareas de los demás</label>
+                <label><input type="radio" name="q17" value="c"> c) Sentir pena por un compañero</label>
                 <label><input type="radio" name="q17" value="d"> d) Aislarse del grupo</label>
             </div>
         </div>
@@ -376,8 +381,8 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">18. En base al manual: Ante una situación de acoso escolar (bullying), la escuela debe:</div>
             <div class="options">
                 <label><input type="radio" name="q18" value="a"> a) Activar inmediatamente los protocolos de prevención y actuación</label>
-                <label><input type="radio" name="q18" value="b"> b) Considerarlo un 'juego de niños'</label>
-                <label><input type="radio" name="q18" value="c"> c) Culpar a la víctima</label>
+                <label><input type="radio" name="q18" value="b"> b) Culpar a la víctima</label>
+                <label><input type="radio" name="q18" value="c"> c) Considerarlo un 'juego de niños'</label>
                 <label><input type="radio" name="q18" value="d"> d) Esperar a fin de año para hablar con los padres</label>
             </div>
         </div>
@@ -385,9 +390,9 @@
         <div class="question-block" id="q19" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">19. En base al manual: El clima escolar positivo se caracteriza por:</div>
             <div class="options">
-                <label><input type="radio" name="q19" value="a"> a) Relaciones de confianza, respeto, participación y seguridad emocional</label>
-                <label><input type="radio" name="q19" value="b"> b) Miedo al castigo</label>
-                <label><input type="radio" name="q19" value="c"> c) Exceso de competitividad</label>
+                <label><input type="radio" name="q19" value="a"> a) Miedo al castigo</label>
+                <label><input type="radio" name="q19" value="b"> b) Exceso de competitividad</label>
+                <label><input type="radio" name="q19" value="c"> c) Relaciones de confianza, respeto, participación y seguridad emocional</label>
                 <label><input type="radio" name="q19" value="d"> d) Falta de reglas</label>
             </div>
         </div>
@@ -395,49 +400,49 @@
         <div class="question-block" id="q20" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">20. En base al manual: ¿Cuál es el rol del docente en la convivencia pacífica?</div>
             <div class="options">
-                <label><input type="radio" name="q20" value="a"> a) Ser un modelo de respeto, promotor del diálogo y mediador natural</label>
-                <label><input type="radio" name="q20" value="b"> b) Ser un juez castigador</label>
-                <label><input type="radio" name="q20" value="c"> c) Ignorar los problemas personales de los alumnos</label>
-                <label><input type="radio" name="q20" value="d"> d) Delegar toda la disciplina al regente</label>
+                <label><input type="radio" name="q20" value="a"> a) Ignorar los problemas personales de los alumnos</label>
+                <label><input type="radio" name="q20" value="b"> b) Delegar toda la disciplina al regente</label>
+                <label><input type="radio" name="q20" value="c"> c) Ser un juez castigador</label>
+                <label><input type="radio" name="q20" value="d"> d) Ser un modelo de respeto, promotor del diálogo y mediador natural</label>
             </div>
         </div>
         
         <div class="question-block" id="q21" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">21. Desde la perspectiva institucional, ¿Qué se entiende por Convivencia Escolar?</div>
             <div class="options">
-                <label><input type="radio" name="q21" value="a"> a) La coexistencia armónica y respetuosa entre todos los miembros de la comunidad educativa</label>
-                <label><input type="radio" name="q21" value="b"> b) El cumplimiento estricto del silencio en el aula</label>
-                <label><input type="radio" name="q21" value="c"> c) La relación exclusiva entre docentes y el director</label>
-                <label><input type="radio" name="q21" value="d"> d) El tiempo del recreo</label>
+                <label><input type="radio" name="q21" value="a"> a) La relación exclusiva entre docentes y el director</label>
+                <label><input type="radio" name="q21" value="b"> b) La coexistencia armónica y respetuosa entre todos los miembros de la comunidad educativa</label>
+                <label><input type="radio" name="q21" value="c"> c) El tiempo del recreo</label>
+                <label><input type="radio" name="q21" value="d"> d) El cumplimiento estricto del silencio en el aula</label>
             </div>
         </div>
         
         <div class="question-block" id="q22" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">22. Desde la perspectiva institucional, Un conflicto en el ámbito escolar debe ser visto como:</div>
             <div class="options">
-                <label><input type="radio" name="q22" value="a"> a) Una oportunidad de aprendizaje y crecimiento si se gestiona adecuadamente</label>
-                <label><input type="radio" name="q22" value="b"> b) Un fracaso del sistema disciplinario</label>
-                <label><input type="radio" name="q22" value="c"> c) Una situación que debe ocultarse a los padres</label>
-                <label><input type="radio" name="q22" value="d"> d) Un motivo automático de expulsión</label>
+                <label><input type="radio" name="q22" value="a"> a) Un motivo automático de expulsión</label>
+                <label><input type="radio" name="q22" value="b"> b) Una situación que debe ocultarse a los padres</label>
+                <label><input type="radio" name="q22" value="c"> c) Un fracaso del sistema disciplinario</label>
+                <label><input type="radio" name="q22" value="d"> d) Una oportunidad de aprendizaje y crecimiento si se gestiona adecuadamente</label>
             </div>
         </div>
         
         <div class="question-block" id="q23" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">23. Desde la perspectiva institucional, ¿Cuál es el primer paso en la resolución pacífica de un conflicto?</div>
             <div class="options">
-                <label><input type="radio" name="q23" value="a"> a) Identificar el problema y escuchar activamente a las partes involucradas</label>
+                <label><input type="radio" name="q23" value="a"> a) Llamar a la policía</label>
                 <label><input type="radio" name="q23" value="b"> b) Imponer un castigo a ambas partes</label>
-                <label><input type="radio" name="q23" value="c"> c) Llamar a la policía</label>
-                <label><input type="radio" name="q23" value="d"> d) Ignorar el problema hasta que desaparezca</label>
+                <label><input type="radio" name="q23" value="c"> c) Ignorar el problema hasta que desaparezca</label>
+                <label><input type="radio" name="q23" value="d"> d) Identificar el problema y escuchar activamente a las partes involucradas</label>
             </div>
         </div>
         
         <div class="question-block" id="q24" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">24. Desde la perspectiva institucional, La mediación escolar implica:</div>
             <div class="options">
-                <label><input type="radio" name="q24" value="a"> a) La intervención de un tercero imparcial que facilita el diálogo para que las partes lleguen a un acuerdo</label>
+                <label><input type="radio" name="q24" value="a"> a) Que los padres de familia impongan la sanción</label>
                 <label><input type="radio" name="q24" value="b"> b) Que el director decida quién tiene la razón</label>
-                <label><input type="radio" name="q24" value="c"> c) Que los padres de familia impongan la sanción</label>
+                <label><input type="radio" name="q24" value="c"> c) La intervención de un tercero imparcial que facilita el diálogo para que las partes lleguen a un acuerdo</label>
                 <label><input type="radio" name="q24" value="d"> d) Un juicio legal</label>
             </div>
         </div>
@@ -446,8 +451,8 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">25. Desde la perspectiva institucional, Un reglamento de convivencia debe construirse de manera:</div>
             <div class="options">
                 <label><input type="radio" name="q25" value="a"> a) Participativa, involucrando a estudiantes, docentes y padres</label>
-                <label><input type="radio" name="q25" value="b"> b) Vertical, redactado solo por la dirección</label>
-                <label><input type="radio" name="q25" value="c"> c) Copiando el de otro colegio</label>
+                <label><input type="radio" name="q25" value="b"> b) Copiando el de otro colegio</label>
+                <label><input type="radio" name="q25" value="c"> c) Vertical, redactado solo por la dirección</label>
                 <label><input type="radio" name="q25" value="d"> d) Impositiva desde el Ministerio</label>
             </div>
         </div>
@@ -457,8 +462,8 @@
             <div class="options">
                 <label><input type="radio" name="q26" value="a"> a) Reparar el daño causado y restaurar las relaciones, más que solo castigar</label>
                 <label><input type="radio" name="q26" value="b"> b) Castigar con la mayor severidad posible</label>
-                <label><input type="radio" name="q26" value="c"> c) Expulsar al infractor</label>
-                <label><input type="radio" name="q26" value="d"> d) Ignorar a la víctima</label>
+                <label><input type="radio" name="q26" value="c"> c) Ignorar a la víctima</label>
+                <label><input type="radio" name="q26" value="d"> d) Expulsar al infractor</label>
             </div>
         </div>
         
@@ -475,9 +480,9 @@
         <div class="question-block" id="q28" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">28. Desde la perspectiva institucional, Ante una situación de acoso escolar (bullying), la escuela debe:</div>
             <div class="options">
-                <label><input type="radio" name="q28" value="a"> a) Activar inmediatamente los protocolos de prevención y actuación</label>
-                <label><input type="radio" name="q28" value="b"> b) Considerarlo un 'juego de niños'</label>
-                <label><input type="radio" name="q28" value="c"> c) Culpar a la víctima</label>
+                <label><input type="radio" name="q28" value="a"> a) Considerarlo un 'juego de niños'</label>
+                <label><input type="radio" name="q28" value="b"> b) Culpar a la víctima</label>
+                <label><input type="radio" name="q28" value="c"> c) Activar inmediatamente los protocolos de prevención y actuación</label>
                 <label><input type="radio" name="q28" value="d"> d) Esperar a fin de año para hablar con los padres</label>
             </div>
         </div>
@@ -495,10 +500,10 @@
         <div class="question-block" id="q30" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">30. Desde la perspectiva institucional, ¿Cuál es el rol del docente en la convivencia pacífica?</div>
             <div class="options">
-                <label><input type="radio" name="q30" value="a"> a) Ser un modelo de respeto, promotor del diálogo y mediador natural</label>
+                <label><input type="radio" name="q30" value="a"> a) Delegar toda la disciplina al regente</label>
                 <label><input type="radio" name="q30" value="b"> b) Ser un juez castigador</label>
-                <label><input type="radio" name="q30" value="c"> c) Ignorar los problemas personales de los alumnos</label>
-                <label><input type="radio" name="q30" value="d"> d) Delegar toda la disciplina al regente</label>
+                <label><input type="radio" name="q30" value="c"> c) Ser un modelo de respeto, promotor del diálogo y mediador natural</label>
+                <label><input type="radio" name="q30" value="d"> d) Ignorar los problemas personales de los alumnos</label>
             </div>
         </div>
         
@@ -506,28 +511,28 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">31. Es fundamental considerar que: ¿Qué se entiende por Convivencia Escolar?</div>
             <div class="options">
                 <label><input type="radio" name="q31" value="a"> a) La coexistencia armónica y respetuosa entre todos los miembros de la comunidad educativa</label>
-                <label><input type="radio" name="q31" value="b"> b) El cumplimiento estricto del silencio en el aula</label>
-                <label><input type="radio" name="q31" value="c"> c) La relación exclusiva entre docentes y el director</label>
-                <label><input type="radio" name="q31" value="d"> d) El tiempo del recreo</label>
+                <label><input type="radio" name="q31" value="b"> b) La relación exclusiva entre docentes y el director</label>
+                <label><input type="radio" name="q31" value="c"> c) El tiempo del recreo</label>
+                <label><input type="radio" name="q31" value="d"> d) El cumplimiento estricto del silencio en el aula</label>
             </div>
         </div>
         
         <div class="question-block" id="q32" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">32. Es fundamental considerar que: Un conflicto en el ámbito escolar debe ser visto como:</div>
             <div class="options">
-                <label><input type="radio" name="q32" value="a"> a) Una oportunidad de aprendizaje y crecimiento si se gestiona adecuadamente</label>
-                <label><input type="radio" name="q32" value="b"> b) Un fracaso del sistema disciplinario</label>
+                <label><input type="radio" name="q32" value="a"> a) Un motivo automático de expulsión</label>
+                <label><input type="radio" name="q32" value="b"> b) Una oportunidad de aprendizaje y crecimiento si se gestiona adecuadamente</label>
                 <label><input type="radio" name="q32" value="c"> c) Una situación que debe ocultarse a los padres</label>
-                <label><input type="radio" name="q32" value="d"> d) Un motivo automático de expulsión</label>
+                <label><input type="radio" name="q32" value="d"> d) Un fracaso del sistema disciplinario</label>
             </div>
         </div>
         
         <div class="question-block" id="q33" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">33. Es fundamental considerar que: ¿Cuál es el primer paso en la resolución pacífica de un conflicto?</div>
             <div class="options">
-                <label><input type="radio" name="q33" value="a"> a) Identificar el problema y escuchar activamente a las partes involucradas</label>
+                <label><input type="radio" name="q33" value="a"> a) Llamar a la policía</label>
                 <label><input type="radio" name="q33" value="b"> b) Imponer un castigo a ambas partes</label>
-                <label><input type="radio" name="q33" value="c"> c) Llamar a la policía</label>
+                <label><input type="radio" name="q33" value="c"> c) Identificar el problema y escuchar activamente a las partes involucradas</label>
                 <label><input type="radio" name="q33" value="d"> d) Ignorar el problema hasta que desaparezca</label>
             </div>
         </div>
@@ -535,8 +540,8 @@
         <div class="question-block" id="q34" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">34. Es fundamental considerar que: La mediación escolar implica:</div>
             <div class="options">
-                <label><input type="radio" name="q34" value="a"> a) La intervención de un tercero imparcial que facilita el diálogo para que las partes lleguen a un acuerdo</label>
-                <label><input type="radio" name="q34" value="b"> b) Que el director decida quién tiene la razón</label>
+                <label><input type="radio" name="q34" value="a"> a) Que el director decida quién tiene la razón</label>
+                <label><input type="radio" name="q34" value="b"> b) La intervención de un tercero imparcial que facilita el diálogo para que las partes lleguen a un acuerdo</label>
                 <label><input type="radio" name="q34" value="c"> c) Que los padres de familia impongan la sanción</label>
                 <label><input type="radio" name="q34" value="d"> d) Un juicio legal</label>
             </div>
@@ -545,58 +550,58 @@
         <div class="question-block" id="q35" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">35. Es fundamental considerar que: Un reglamento de convivencia debe construirse de manera:</div>
             <div class="options">
-                <label><input type="radio" name="q35" value="a"> a) Participativa, involucrando a estudiantes, docentes y padres</label>
-                <label><input type="radio" name="q35" value="b"> b) Vertical, redactado solo por la dirección</label>
-                <label><input type="radio" name="q35" value="c"> c) Copiando el de otro colegio</label>
-                <label><input type="radio" name="q35" value="d"> d) Impositiva desde el Ministerio</label>
+                <label><input type="radio" name="q35" value="a"> a) Vertical, redactado solo por la dirección</label>
+                <label><input type="radio" name="q35" value="b"> b) Participativa, involucrando a estudiantes, docentes y padres</label>
+                <label><input type="radio" name="q35" value="c"> c) Impositiva desde el Ministerio</label>
+                <label><input type="radio" name="q35" value="d"> d) Copiando el de otro colegio</label>
             </div>
         </div>
         
         <div class="question-block" id="q36" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">36. Es fundamental considerar que: La justicia restaurativa en la escuela busca:</div>
             <div class="options">
-                <label><input type="radio" name="q36" value="a"> a) Reparar el daño causado y restaurar las relaciones, más que solo castigar</label>
-                <label><input type="radio" name="q36" value="b"> b) Castigar con la mayor severidad posible</label>
+                <label><input type="radio" name="q36" value="a"> a) Ignorar a la víctima</label>
+                <label><input type="radio" name="q36" value="b"> b) Reparar el daño causado y restaurar las relaciones, más que solo castigar</label>
                 <label><input type="radio" name="q36" value="c"> c) Expulsar al infractor</label>
-                <label><input type="radio" name="q36" value="d"> d) Ignorar a la víctima</label>
+                <label><input type="radio" name="q36" value="d"> d) Castigar con la mayor severidad posible</label>
             </div>
         </div>
         
         <div class="question-block" id="q37" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">37. Es fundamental considerar que: ¿Qué es la empatía en el contexto escolar?</div>
             <div class="options">
-                <label><input type="radio" name="q37" value="a"> a) La capacidad de comprender y compartir los sentimientos de los demás</label>
+                <label><input type="radio" name="q37" value="a"> a) Aislarse del grupo</label>
                 <label><input type="radio" name="q37" value="b"> b) Sentir pena por un compañero</label>
-                <label><input type="radio" name="q37" value="c"> c) Copiar las tareas de los demás</label>
-                <label><input type="radio" name="q37" value="d"> d) Aislarse del grupo</label>
+                <label><input type="radio" name="q37" value="c"> c) La capacidad de comprender y compartir los sentimientos de los demás</label>
+                <label><input type="radio" name="q37" value="d"> d) Copiar las tareas de los demás</label>
             </div>
         </div>
         
         <div class="question-block" id="q38" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">38. Es fundamental considerar que: Ante una situación de acoso escolar (bullying), la escuela debe:</div>
             <div class="options">
-                <label><input type="radio" name="q38" value="a"> a) Activar inmediatamente los protocolos de prevención y actuación</label>
-                <label><input type="radio" name="q38" value="b"> b) Considerarlo un 'juego de niños'</label>
-                <label><input type="radio" name="q38" value="c"> c) Culpar a la víctima</label>
-                <label><input type="radio" name="q38" value="d"> d) Esperar a fin de año para hablar con los padres</label>
+                <label><input type="radio" name="q38" value="a"> a) Esperar a fin de año para hablar con los padres</label>
+                <label><input type="radio" name="q38" value="b"> b) Culpar a la víctima</label>
+                <label><input type="radio" name="q38" value="c"> c) Activar inmediatamente los protocolos de prevención y actuación</label>
+                <label><input type="radio" name="q38" value="d"> d) Considerarlo un 'juego de niños'</label>
             </div>
         </div>
         
         <div class="question-block" id="q39" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">39. Es fundamental considerar que: El clima escolar positivo se caracteriza por:</div>
             <div class="options">
-                <label><input type="radio" name="q39" value="a"> a) Relaciones de confianza, respeto, participación y seguridad emocional</label>
-                <label><input type="radio" name="q39" value="b"> b) Miedo al castigo</label>
-                <label><input type="radio" name="q39" value="c"> c) Exceso de competitividad</label>
-                <label><input type="radio" name="q39" value="d"> d) Falta de reglas</label>
+                <label><input type="radio" name="q39" value="a"> a) Falta de reglas</label>
+                <label><input type="radio" name="q39" value="b"> b) Exceso de competitividad</label>
+                <label><input type="radio" name="q39" value="c"> c) Relaciones de confianza, respeto, participación y seguridad emocional</label>
+                <label><input type="radio" name="q39" value="d"> d) Miedo al castigo</label>
             </div>
         </div>
         
         <div class="question-block" id="q40" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">40. Es fundamental considerar que: ¿Cuál es el rol del docente en la convivencia pacífica?</div>
             <div class="options">
-                <label><input type="radio" name="q40" value="a"> a) Ser un modelo de respeto, promotor del diálogo y mediador natural</label>
-                <label><input type="radio" name="q40" value="b"> b) Ser un juez castigador</label>
+                <label><input type="radio" name="q40" value="a"> a) Ser un juez castigador</label>
+                <label><input type="radio" name="q40" value="b"> b) Ser un modelo de respeto, promotor del diálogo y mediador natural</label>
                 <label><input type="radio" name="q40" value="c"> c) Ignorar los problemas personales de los alumnos</label>
                 <label><input type="radio" name="q40" value="d"> d) Delegar toda la disciplina al regente</label>
             </div>
@@ -605,39 +610,39 @@
         <div class="question-block" id="q41" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">41. Según los lineamientos: ¿Qué se entiende por Convivencia Escolar?</div>
             <div class="options">
-                <label><input type="radio" name="q41" value="a"> a) La coexistencia armónica y respetuosa entre todos los miembros de la comunidad educativa</label>
-                <label><input type="radio" name="q41" value="b"> b) El cumplimiento estricto del silencio en el aula</label>
+                <label><input type="radio" name="q41" value="a"> a) El tiempo del recreo</label>
+                <label><input type="radio" name="q41" value="b"> b) La coexistencia armónica y respetuosa entre todos los miembros de la comunidad educativa</label>
                 <label><input type="radio" name="q41" value="c"> c) La relación exclusiva entre docentes y el director</label>
-                <label><input type="radio" name="q41" value="d"> d) El tiempo del recreo</label>
+                <label><input type="radio" name="q41" value="d"> d) El cumplimiento estricto del silencio en el aula</label>
             </div>
         </div>
         
         <div class="question-block" id="q42" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">42. Según los lineamientos: Un conflicto en el ámbito escolar debe ser visto como:</div>
             <div class="options">
-                <label><input type="radio" name="q42" value="a"> a) Una oportunidad de aprendizaje y crecimiento si se gestiona adecuadamente</label>
-                <label><input type="radio" name="q42" value="b"> b) Un fracaso del sistema disciplinario</label>
-                <label><input type="radio" name="q42" value="c"> c) Una situación que debe ocultarse a los padres</label>
-                <label><input type="radio" name="q42" value="d"> d) Un motivo automático de expulsión</label>
+                <label><input type="radio" name="q42" value="a"> a) Una situación que debe ocultarse a los padres</label>
+                <label><input type="radio" name="q42" value="b"> b) Una oportunidad de aprendizaje y crecimiento si se gestiona adecuadamente</label>
+                <label><input type="radio" name="q42" value="c"> c) Un motivo automático de expulsión</label>
+                <label><input type="radio" name="q42" value="d"> d) Un fracaso del sistema disciplinario</label>
             </div>
         </div>
         
         <div class="question-block" id="q43" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">43. Según los lineamientos: ¿Cuál es el primer paso en la resolución pacífica de un conflicto?</div>
             <div class="options">
-                <label><input type="radio" name="q43" value="a"> a) Identificar el problema y escuchar activamente a las partes involucradas</label>
-                <label><input type="radio" name="q43" value="b"> b) Imponer un castigo a ambas partes</label>
+                <label><input type="radio" name="q43" value="a"> a) Ignorar el problema hasta que desaparezca</label>
+                <label><input type="radio" name="q43" value="b"> b) Identificar el problema y escuchar activamente a las partes involucradas</label>
                 <label><input type="radio" name="q43" value="c"> c) Llamar a la policía</label>
-                <label><input type="radio" name="q43" value="d"> d) Ignorar el problema hasta que desaparezca</label>
+                <label><input type="radio" name="q43" value="d"> d) Imponer un castigo a ambas partes</label>
             </div>
         </div>
         
         <div class="question-block" id="q44" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">44. Según los lineamientos: La mediación escolar implica:</div>
             <div class="options">
-                <label><input type="radio" name="q44" value="a"> a) La intervención de un tercero imparcial que facilita el diálogo para que las partes lleguen a un acuerdo</label>
-                <label><input type="radio" name="q44" value="b"> b) Que el director decida quién tiene la razón</label>
-                <label><input type="radio" name="q44" value="c"> c) Que los padres de familia impongan la sanción</label>
+                <label><input type="radio" name="q44" value="a"> a) Que los padres de familia impongan la sanción</label>
+                <label><input type="radio" name="q44" value="b"> b) La intervención de un tercero imparcial que facilita el diálogo para que las partes lleguen a un acuerdo</label>
+                <label><input type="radio" name="q44" value="c"> c) Que el director decida quién tiene la razón</label>
                 <label><input type="radio" name="q44" value="d"> d) Un juicio legal</label>
             </div>
         </div>
@@ -647,28 +652,28 @@
             <div class="options">
                 <label><input type="radio" name="q45" value="a"> a) Participativa, involucrando a estudiantes, docentes y padres</label>
                 <label><input type="radio" name="q45" value="b"> b) Vertical, redactado solo por la dirección</label>
-                <label><input type="radio" name="q45" value="c"> c) Copiando el de otro colegio</label>
-                <label><input type="radio" name="q45" value="d"> d) Impositiva desde el Ministerio</label>
+                <label><input type="radio" name="q45" value="c"> c) Impositiva desde el Ministerio</label>
+                <label><input type="radio" name="q45" value="d"> d) Copiando el de otro colegio</label>
             </div>
         </div>
         
         <div class="question-block" id="q46" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">46. Según los lineamientos: La justicia restaurativa en la escuela busca:</div>
             <div class="options">
-                <label><input type="radio" name="q46" value="a"> a) Reparar el daño causado y restaurar las relaciones, más que solo castigar</label>
-                <label><input type="radio" name="q46" value="b"> b) Castigar con la mayor severidad posible</label>
-                <label><input type="radio" name="q46" value="c"> c) Expulsar al infractor</label>
-                <label><input type="radio" name="q46" value="d"> d) Ignorar a la víctima</label>
+                <label><input type="radio" name="q46" value="a"> a) Ignorar a la víctima</label>
+                <label><input type="radio" name="q46" value="b"> b) Expulsar al infractor</label>
+                <label><input type="radio" name="q46" value="c"> c) Reparar el daño causado y restaurar las relaciones, más que solo castigar</label>
+                <label><input type="radio" name="q46" value="d"> d) Castigar con la mayor severidad posible</label>
             </div>
         </div>
         
         <div class="question-block" id="q47" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">47. Según los lineamientos: ¿Qué es la empatía en el contexto escolar?</div>
             <div class="options">
-                <label><input type="radio" name="q47" value="a"> a) La capacidad de comprender y compartir los sentimientos de los demás</label>
+                <label><input type="radio" name="q47" value="a"> a) Aislarse del grupo</label>
                 <label><input type="radio" name="q47" value="b"> b) Sentir pena por un compañero</label>
                 <label><input type="radio" name="q47" value="c"> c) Copiar las tareas de los demás</label>
-                <label><input type="radio" name="q47" value="d"> d) Aislarse del grupo</label>
+                <label><input type="radio" name="q47" value="d"> d) La capacidad de comprender y compartir los sentimientos de los demás</label>
             </div>
         </div>
         
@@ -676,29 +681,29 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">48. Según los lineamientos: Ante una situación de acoso escolar (bullying), la escuela debe:</div>
             <div class="options">
                 <label><input type="radio" name="q48" value="a"> a) Activar inmediatamente los protocolos de prevención y actuación</label>
-                <label><input type="radio" name="q48" value="b"> b) Considerarlo un 'juego de niños'</label>
-                <label><input type="radio" name="q48" value="c"> c) Culpar a la víctima</label>
-                <label><input type="radio" name="q48" value="d"> d) Esperar a fin de año para hablar con los padres</label>
+                <label><input type="radio" name="q48" value="b"> b) Esperar a fin de año para hablar con los padres</label>
+                <label><input type="radio" name="q48" value="c"> c) Considerarlo un 'juego de niños'</label>
+                <label><input type="radio" name="q48" value="d"> d) Culpar a la víctima</label>
             </div>
         </div>
         
         <div class="question-block" id="q49" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">49. Según los lineamientos: El clima escolar positivo se caracteriza por:</div>
             <div class="options">
-                <label><input type="radio" name="q49" value="a"> a) Relaciones de confianza, respeto, participación y seguridad emocional</label>
-                <label><input type="radio" name="q49" value="b"> b) Miedo al castigo</label>
-                <label><input type="radio" name="q49" value="c"> c) Exceso de competitividad</label>
-                <label><input type="radio" name="q49" value="d"> d) Falta de reglas</label>
+                <label><input type="radio" name="q49" value="a"> a) Miedo al castigo</label>
+                <label><input type="radio" name="q49" value="b"> b) Relaciones de confianza, respeto, participación y seguridad emocional</label>
+                <label><input type="radio" name="q49" value="c"> c) Falta de reglas</label>
+                <label><input type="radio" name="q49" value="d"> d) Exceso de competitividad</label>
             </div>
         </div>
         
         <div class="question-block" id="q50" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">50. Según los lineamientos: ¿Cuál es el rol del docente en la convivencia pacífica?</div>
             <div class="options">
-                <label><input type="radio" name="q50" value="a"> a) Ser un modelo de respeto, promotor del diálogo y mediador natural</label>
-                <label><input type="radio" name="q50" value="b"> b) Ser un juez castigador</label>
-                <label><input type="radio" name="q50" value="c"> c) Ignorar los problemas personales de los alumnos</label>
-                <label><input type="radio" name="q50" value="d"> d) Delegar toda la disciplina al regente</label>
+                <label><input type="radio" name="q50" value="a"> a) Ser un juez castigador</label>
+                <label><input type="radio" name="q50" value="b"> b) Ignorar los problemas personales de los alumnos</label>
+                <label><input type="radio" name="q50" value="c"> c) Delegar toda la disciplina al regente</label>
+                <label><input type="radio" name="q50" value="d"> d) Ser un modelo de respeto, promotor del diálogo y mediador natural</label>
             </div>
         </div>
         
@@ -729,56 +734,56 @@
     
     <script>
         const correctAnswers = {
-            "q1": "a",
+            "q1": "c",
         "q2": "a",
-        "q3": "a",
-        "q4": "a",
+        "q3": "b",
+        "q4": "d",
         "q5": "a",
-        "q6": "a",
+        "q6": "c",
         "q7": "a",
-        "q8": "a",
-        "q9": "a",
-        "q10": "a",
+        "q8": "d",
+        "q9": "b",
+        "q10": "d",
         "q11": "a",
         "q12": "a",
-        "q13": "a",
-        "q14": "a",
-        "q15": "a",
-        "q16": "a",
+        "q13": "b",
+        "q14": "c",
+        "q15": "b",
+        "q16": "b",
         "q17": "a",
         "q18": "a",
-        "q19": "a",
-        "q20": "a",
-        "q21": "a",
-        "q22": "a",
-        "q23": "a",
-        "q24": "a",
+        "q19": "c",
+        "q20": "d",
+        "q21": "b",
+        "q22": "d",
+        "q23": "d",
+        "q24": "c",
         "q25": "a",
         "q26": "a",
         "q27": "a",
-        "q28": "a",
+        "q28": "c",
         "q29": "a",
-        "q30": "a",
+        "q30": "c",
         "q31": "a",
-        "q32": "a",
-        "q33": "a",
-        "q34": "a",
-        "q35": "a",
-        "q36": "a",
-        "q37": "a",
-        "q38": "a",
-        "q39": "a",
-        "q40": "a",
-        "q41": "a",
-        "q42": "a",
-        "q43": "a",
-        "q44": "a",
+        "q32": "b",
+        "q33": "c",
+        "q34": "b",
+        "q35": "b",
+        "q36": "b",
+        "q37": "c",
+        "q38": "c",
+        "q39": "c",
+        "q40": "b",
+        "q41": "b",
+        "q42": "b",
+        "q43": "b",
+        "q44": "b",
         "q45": "a",
-        "q46": "a",
-        "q47": "a",
+        "q46": "c",
+        "q47": "d",
         "q48": "a",
-        "q49": "a",
-        "q50": "a"
+        "q49": "b",
+        "q50": "d"
         };
     </script>
     <script src="../preguntas.js"></script>

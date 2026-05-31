@@ -29,6 +29,9 @@
             .nav-links { display: none !important; }
             .nav-links.show-mobile { display: flex !important; flex-direction: column !important; }
             .dropdown { flex: none !important; width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
+            .dropdown-content { position: relative !important; min-width: 100% !important; box-shadow: inset 0 2px 5px rgba(0,0,0,0.2) !important; border-radius: 0 !important; background: #2e7d32 !important; border: none !important; }
+            .dropdown-content a { color: white !important; border-bottom: 1px solid rgba(255,255,255,0.1) !important; padding: 10px 15px !important; font-size: 0.95rem !important; }
+            .dropdown-content a:hover { background: #1b5e20 !important; }
             .hero-title { font-size: 1.8rem !important; }
             .hero-subtitle { font-size: 1rem !important; }
             .header-title { font-size: 1.1rem !important; }
@@ -38,8 +41,10 @@
         }
         @media (max-width: 768px) {
             /* Ajustes para tarjetas flash */
-            #flashcard-box { padding: 25px 15px !important; min-height: 200px !important; }
-            #card-text { font-size: 1.1rem !important; line-height: 1.4 !important; }
+            #flashcard-box { padding: 15px 10px !important; min-height: 150px !important; }
+            #card-text { font-size: 1.05rem !important; line-height: 1.3 !important; }
+            #flash-buttons { gap: 5px !important; margin-top: 15px !important; }
+            #flash-buttons button { padding: 10px 5px !important; font-size: 0.85rem !important; flex: 1 !important; }
             
             /* Ajustes para audiolibros y contenedores principales */
             div[style*="padding: 40px;"] { padding: 15px !important; }
@@ -89,7 +94,7 @@
     
     <nav class="navbar" id="navbar" style="background: #1b5e20; padding: 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 9999;">
         <div class="nav-container" style="width: 100%; max-width: 1200px; margin: 0 auto;">
-            <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('show-mobile')">☰ Menú Principal</button>
+            <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('show-mobile')">Menú Principal ☰</button>
             <div class="nav-links" id="navLinks" style="display: flex; justify-content: center; width: 100%;">
 
             <div class="dropdown" style="flex: 1; text-align: center;">
@@ -205,10 +210,10 @@
         <div class="question-block" id="q1" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">1. ¿Cuál es la norma que aprueba el Reglamento de Faltas y Sanciones del Magisterio?</div>
             <div class="options">
-                <label><input type="radio" name="q1" value="a"> a) Resolución Suprema 212414</label>
-                <label><input type="radio" name="q1" value="b"> b) D.S. 04688</label>
-                <label><input type="radio" name="q1" value="c"> c) Ley 070</label>
-                <label><input type="radio" name="q1" value="d"> d) Resolución Ministerial 001</label>
+                <label><input type="radio" name="q1" value="a"> a) Ley 070</label>
+                <label><input type="radio" name="q1" value="b"> b) Resolución Suprema 212414</label>
+                <label><input type="radio" name="q1" value="c"> c) Resolución Ministerial 001</label>
+                <label><input type="radio" name="q1" value="d"> d) D.S. 04688</label>
             </div>
         </div>
         
@@ -216,18 +221,18 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">2. ¿A quiénes se aplica el Reglamento de Faltas y Sanciones?</div>
             <div class="options">
                 <label><input type="radio" name="q2" value="a"> a) Al personal docente y administrativo del Magisterio y del Ministerio de Educación</label>
-                <label><input type="radio" name="q2" value="b"> b) Solo a los maestros de escuelas fiscales</label>
-                <label><input type="radio" name="q2" value="c"> c) A los estudiantes</label>
-                <label><input type="radio" name="q2" value="d"> d) A los padres de familia</label>
+                <label><input type="radio" name="q2" value="b"> b) A los padres de familia</label>
+                <label><input type="radio" name="q2" value="c"> c) Solo a los maestros de escuelas fiscales</label>
+                <label><input type="radio" name="q2" value="d"> d) A los estudiantes</label>
             </div>
         </div>
         
         <div class="question-block" id="q3" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">3. Según el reglamento, las faltas se clasifican en:</div>
             <div class="options">
-                <label><input type="radio" name="q3" value="a"> a) Leves, graves y muy graves</label>
+                <label><input type="radio" name="q3" value="a"> a) Menores y mayores</label>
                 <label><input type="radio" name="q3" value="b"> b) Primarias, secundarias y terciarias</label>
-                <label><input type="radio" name="q3" value="c"> c) Menores y mayores</label>
+                <label><input type="radio" name="q3" value="c"> c) Leves, graves y muy graves</label>
                 <label><input type="radio" name="q3" value="d"> d) Administrativas y penales</label>
             </div>
         </div>
@@ -235,29 +240,29 @@
         <div class="question-block" id="q4" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">4. ¿Qué tipo de falta es la suspensión de clases en días laborables sin permiso justificado?</div>
             <div class="options">
-                <label><input type="radio" name="q4" value="a"> a) Falta Leve</label>
-                <label><input type="radio" name="q4" value="b"> b) Falta Grave</label>
-                <label><input type="radio" name="q4" value="c"> c) Falta Muy Grave</label>
-                <label><input type="radio" name="q4" value="d"> d) No es una falta</label>
+                <label><input type="radio" name="q4" value="a"> a) No es una falta</label>
+                <label><input type="radio" name="q4" value="b"> b) Falta Leve</label>
+                <label><input type="radio" name="q4" value="c"> c) Falta Grave</label>
+                <label><input type="radio" name="q4" value="d"> d) Falta Muy Grave</label>
             </div>
         </div>
         
         <div class="question-block" id="q5" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">5. ¿Qué tipo de falta es la negligencia en el cuidado y conservación de los locales, mobiliario y equipos?</div>
             <div class="options">
-                <label><input type="radio" name="q5" value="a"> a) Falta Leve</label>
+                <label><input type="radio" name="q5" value="a"> a) Falta Muy Grave</label>
                 <label><input type="radio" name="q5" value="b"> b) Falta Grave</label>
-                <label><input type="radio" name="q5" value="c"> c) Falta Muy Grave</label>
-                <label><input type="radio" name="q5" value="d"> d) Delito Penal</label>
+                <label><input type="radio" name="q5" value="c"> c) Delito Penal</label>
+                <label><input type="radio" name="q5" value="d"> d) Falta Leve</label>
             </div>
         </div>
         
         <div class="question-block" id="q6" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">6. ¿Qué sanción corresponde a las faltas leves por primera vez?</div>
             <div class="options">
-                <label><input type="radio" name="q6" value="a"> a) Amonestación en privado</label>
-                <label><input type="radio" name="q6" value="b"> b) Descuento de 5 días</label>
-                <label><input type="radio" name="q6" value="c"> c) Destitución</label>
+                <label><input type="radio" name="q6" value="a"> a) Destitución</label>
+                <label><input type="radio" name="q6" value="b"> b) Amonestación en privado</label>
+                <label><input type="radio" name="q6" value="c"> c) Descuento de 5 días</label>
                 <label><input type="radio" name="q6" value="d"> d) Proceso penal</label>
             </div>
         </div>
@@ -265,10 +270,10 @@
         <div class="question-block" id="q7" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">7. ¿Qué sanción corresponde a la reincidencia en faltas leves?</div>
             <div class="options">
-                <label><input type="radio" name="q7" value="a"> a) Amonestación escrita o descuento de 1 a 5 días de haber</label>
-                <label><input type="radio" name="q7" value="b"> b) Suspensión definitiva</label>
-                <label><input type="radio" name="q7" value="c"> c) Traslado de unidad educativa</label>
-                <label><input type="radio" name="q7" value="d"> d) Disminución de categoría</label>
+                <label><input type="radio" name="q7" value="a"> a) Suspensión definitiva</label>
+                <label><input type="radio" name="q7" value="b"> b) Traslado de unidad educativa</label>
+                <label><input type="radio" name="q7" value="c"> c) Disminución de categoría</label>
+                <label><input type="radio" name="q7" value="d"> d) Amonestación escrita o descuento de 1 a 5 días de haber</label>
             </div>
         </div>
         
@@ -286,9 +291,9 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">9. ¿Qué tipo de falta es la extorsión a los alumnos ofreciendo calificaciones?</div>
             <div class="options">
                 <label><input type="radio" name="q9" value="a"> a) Falta Muy Grave</label>
-                <label><input type="radio" name="q9" value="b"> b) Falta Grave</label>
+                <label><input type="radio" name="q9" value="b"> b) Contravención Menor</label>
                 <label><input type="radio" name="q9" value="c"> c) Falta Leve</label>
-                <label><input type="radio" name="q9" value="d"> d) Contravención Menor</label>
+                <label><input type="radio" name="q9" value="d"> d) Falta Grave</label>
             </div>
         </div>
         
@@ -305,40 +310,40 @@
         <div class="question-block" id="q11" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">11. ¿Qué sanción corresponde a una falta grave?</div>
             <div class="options">
-                <label><input type="radio" name="q11" value="a"> a) Suspensión de funciones sin goce de haber de 15 a 60 días o postergación de ascenso por un año</label>
-                <label><input type="radio" name="q11" value="b"> b) Amonestación verbal</label>
-                <label><input type="radio" name="q11" value="c"> c) Destitución definitiva</label>
-                <label><input type="radio" name="q11" value="d"> d) Traslado a otro distrito</label>
+                <label><input type="radio" name="q11" value="a"> a) Amonestación verbal</label>
+                <label><input type="radio" name="q11" value="b"> b) Traslado a otro distrito</label>
+                <label><input type="radio" name="q11" value="c"> c) Suspensión de funciones sin goce de haber de 15 a 60 días o postergación de ascenso por un año</label>
+                <label><input type="radio" name="q11" value="d"> d) Destitución definitiva</label>
             </div>
         </div>
         
         <div class="question-block" id="q12" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">12. ¿Qué tipo de falta es el abandono de funciones (lugar de trabajo)?</div>
             <div class="options">
-                <label><input type="radio" name="q12" value="a"> a) Falta Grave</label>
-                <label><input type="radio" name="q12" value="b"> b) Falta Leve</label>
-                <label><input type="radio" name="q12" value="c"> c) Falta Muy Grave</label>
-                <label><input type="radio" name="q12" value="d"> d) Falta Administrativa Justificada</label>
+                <label><input type="radio" name="q12" value="a"> a) Falta Leve</label>
+                <label><input type="radio" name="q12" value="b"> b) Falta Grave</label>
+                <label><input type="radio" name="q12" value="c"> c) Falta Administrativa Justificada</label>
+                <label><input type="radio" name="q12" value="d"> d) Falta Muy Grave</label>
             </div>
         </div>
         
         <div class="question-block" id="q13" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">13. ¿Qué tipo de falta es el uso indebido de fondos o malversación de recursos de la Unidad Educativa?</div>
             <div class="options">
-                <label><input type="radio" name="q13" value="a"> a) Falta Muy Grave</label>
-                <label><input type="radio" name="q13" value="b"> b) Falta Grave</label>
-                <label><input type="radio" name="q13" value="c"> c) Falta Leve</label>
-                <label><input type="radio" name="q13" value="d"> d) Fraude Comercial</label>
+                <label><input type="radio" name="q13" value="a"> a) Falta Grave</label>
+                <label><input type="radio" name="q13" value="b"> b) Falta Leve</label>
+                <label><input type="radio" name="q13" value="c"> c) Fraude Comercial</label>
+                <label><input type="radio" name="q13" value="d"> d) Falta Muy Grave</label>
             </div>
         </div>
         
         <div class="question-block" id="q14" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">14. ¿Qué sanción corresponde a las faltas muy graves?</div>
             <div class="options">
-                <label><input type="radio" name="q14" value="a"> a) Destitución del cargo y suspensión definitiva del ejercicio del magisterio</label>
+                <label><input type="radio" name="q14" value="a"> a) Traslado a una escuela rural</label>
                 <label><input type="radio" name="q14" value="b"> b) Descuento de un mes de sueldo</label>
                 <label><input type="radio" name="q14" value="c"> c) Descenso de una categoría</label>
-                <label><input type="radio" name="q14" value="d"> d) Traslado a una escuela rural</label>
+                <label><input type="radio" name="q14" value="d"> d) Destitución del cargo y suspensión definitiva del ejercicio del magisterio</label>
             </div>
         </div>
         
@@ -346,29 +351,29 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">15. ¿Qué tipo de falta es el acoso sexual, abuso o estupro a estudiantes?</div>
             <div class="options">
                 <label><input type="radio" name="q15" value="a"> a) Falta Muy Grave</label>
-                <label><input type="radio" name="q15" value="b"> b) Falta Grave</label>
-                <label><input type="radio" name="q15" value="c"> c) Delito Menor</label>
-                <label><input type="radio" name="q15" value="d"> d) Falta Leve</label>
+                <label><input type="radio" name="q15" value="b"> b) Falta Leve</label>
+                <label><input type="radio" name="q15" value="c"> c) Falta Grave</label>
+                <label><input type="radio" name="q15" value="d"> d) Delito Menor</label>
             </div>
         </div>
         
         <div class="question-block" id="q16" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">16. ¿Qué instancias componen los Tribunales Disciplinarios?</div>
             <div class="options">
-                <label><input type="radio" name="q16" value="a"> a) Tribunal Nacional y Tribunales Departamentales</label>
+                <label><input type="radio" name="q16" value="a"> a) Tribunales Penales</label>
                 <label><input type="radio" name="q16" value="b"> b) Tribunales Distritales y Municipales</label>
-                <label><input type="radio" name="q16" value="c"> c) Tribunales Penales</label>
-                <label><input type="radio" name="q16" value="d"> d) Jueces Cívicos</label>
+                <label><input type="radio" name="q16" value="c"> c) Jueces Cívicos</label>
+                <label><input type="radio" name="q16" value="d"> d) Tribunal Nacional y Tribunales Departamentales</label>
             </div>
         </div>
         
         <div class="question-block" id="q17" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">17. ¿Dónde radica el Tribunal Disciplinario Nacional?</div>
             <div class="options">
-                <label><input type="radio" name="q17" value="a"> a) En la ciudad de La Paz (Ministerio de Educación)</label>
-                <label><input type="radio" name="q17" value="b"> b) En Santa Cruz</label>
-                <label><input type="radio" name="q17" value="c"> c) En Sucre</label>
-                <label><input type="radio" name="q17" value="d"> d) En Cochabamba</label>
+                <label><input type="radio" name="q17" value="a"> a) En Cochabamba</label>
+                <label><input type="radio" name="q17" value="b"> b) En Sucre</label>
+                <label><input type="radio" name="q17" value="c"> c) En Santa Cruz</label>
+                <label><input type="radio" name="q17" value="d"> d) En la ciudad de La Paz (Ministerio de Educación)</label>
             </div>
         </div>
         
@@ -376,9 +381,9 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">18. ¿Qué entidad organiza y elige a los miembros del Tribunal Departamental?</div>
             <div class="options">
                 <label><input type="radio" name="q18" value="a"> a) La Dirección Departamental de Educación en concurrencia con la Federación de Maestros</label>
-                <label><input type="radio" name="q18" value="b"> b) Los estudiantes</label>
-                <label><input type="radio" name="q18" value="c"> c) Los padres de familia</label>
-                <label><input type="radio" name="q18" value="d"> d) La Policía Boliviana</label>
+                <label><input type="radio" name="q18" value="b"> b) La Policía Boliviana</label>
+                <label><input type="radio" name="q18" value="c"> c) Los estudiantes</label>
+                <label><input type="radio" name="q18" value="d"> d) Los padres de familia</label>
             </div>
         </div>
         
@@ -386,9 +391,9 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">19. ¿Cuántos miembros componen el Tribunal Disciplinario Departamental?</div>
             <div class="options">
                 <label><input type="radio" name="q19" value="a"> a) Un Presidente, un Promotor Fiscal y un Secretario-Vocal</label>
-                <label><input type="radio" name="q19" value="b"> b) Solo un Juez</label>
-                <label><input type="radio" name="q19" value="c"> c) Cinco vocales</label>
-                <label><input type="radio" name="q19" value="d"> d) Diez maestros notables</label>
+                <label><input type="radio" name="q19" value="b"> b) Cinco vocales</label>
+                <label><input type="radio" name="q19" value="c"> c) Diez maestros notables</label>
+                <label><input type="radio" name="q19" value="d"> d) Solo un Juez</label>
             </div>
         </div>
         
@@ -396,29 +401,29 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">20. ¿Qué requisito es necesario para ser miembro del Tribunal Disciplinario?</div>
             <div class="options">
                 <label><input type="radio" name="q20" value="a"> a) Tener categoría no menor a la Tercera y gozar de idoneidad moral y profesional</label>
-                <label><input type="radio" name="q20" value="b"> b) Ser egresado reciente</label>
+                <label><input type="radio" name="q20" value="b"> b) Ser miembro del partido de gobierno</label>
                 <label><input type="radio" name="q20" value="c"> c) Ser abogado</label>
-                <label><input type="radio" name="q20" value="d"> d) Ser miembro del partido de gobierno</label>
+                <label><input type="radio" name="q20" value="d"> d) Ser egresado reciente</label>
             </div>
         </div>
         
         <div class="question-block" id="q21" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">21. ¿Qué tipo de falta es la falsificación de documentos para obtener ascensos o cargos?</div>
             <div class="options">
-                <label><input type="radio" name="q21" value="a"> a) Falta Muy Grave</label>
-                <label><input type="radio" name="q21" value="b"> b) Falta Grave</label>
-                <label><input type="radio" name="q21" value="c"> c) Falta Leve</label>
-                <label><input type="radio" name="q21" value="d"> d) Error material</label>
+                <label><input type="radio" name="q21" value="a"> a) Falta Leve</label>
+                <label><input type="radio" name="q21" value="b"> b) Error material</label>
+                <label><input type="radio" name="q21" value="c"> c) Falta Muy Grave</label>
+                <label><input type="radio" name="q21" value="d"> d) Falta Grave</label>
             </div>
         </div>
         
         <div class="question-block" id="q22" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">22. ¿Qué es la prescripción en el Reglamento de Faltas y Sanciones?</div>
             <div class="options">
-                <label><input type="radio" name="q22" value="a"> a) El tiempo que extingue la acción disciplinaria si no se inicia el proceso (ej. un año para faltas graves)</label>
-                <label><input type="radio" name="q22" value="b"> b) Una receta médica</label>
-                <label><input type="radio" name="q22" value="c"> c) Un bono</label>
-                <label><input type="radio" name="q22" value="d"> d) La graduación</label>
+                <label><input type="radio" name="q22" value="a"> a) Una receta médica</label>
+                <label><input type="radio" name="q22" value="b"> b) La graduación</label>
+                <label><input type="radio" name="q22" value="c"> c) El tiempo que extingue la acción disciplinaria si no se inicia el proceso (ej. un año para faltas graves)</label>
+                <label><input type="radio" name="q22" value="d"> d) Un bono</label>
             </div>
         </div>
         
@@ -445,10 +450,10 @@
         <div class="question-block" id="q25" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">25. ¿Qué es el Auto de Apertura de Sumario?</div>
             <div class="options">
-                <label><input type="radio" name="q25" value="a"> a) La resolución del Tribunal que admite la denuncia e inicia oficialmente la investigación</label>
-                <label><input type="radio" name="q25" value="b"> b) Una carta de despido</label>
-                <label><input type="radio" name="q25" value="c"> c) El inicio del año escolar</label>
-                <label><input type="radio" name="q25" value="d"> d) Un acta de calificaciones</label>
+                <label><input type="radio" name="q25" value="a"> a) Una carta de despido</label>
+                <label><input type="radio" name="q25" value="b"> b) Un acta de calificaciones</label>
+                <label><input type="radio" name="q25" value="c"> c) La resolución del Tribunal que admite la denuncia e inicia oficialmente la investigación</label>
+                <label><input type="radio" name="q25" value="d"> d) El inicio del año escolar</label>
             </div>
         </div>
         
@@ -456,8 +461,8 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">26. ¿Cuánto tiempo tiene el acusado para presentar sus descargos o pruebas?</div>
             <div class="options">
                 <label><input type="radio" name="q26" value="a"> a) Un término de prueba fijado por el tribunal, generalmente de 10 días hábiles</label>
-                <label><input type="radio" name="q26" value="b"> b) No tiene derecho a defensa</label>
-                <label><input type="radio" name="q26" value="c"> c) 1 día</label>
+                <label><input type="radio" name="q26" value="b"> b) 1 día</label>
+                <label><input type="radio" name="q26" value="c"> c) No tiene derecho a defensa</label>
                 <label><input type="radio" name="q26" value="d"> d) Hasta el siguiente año</label>
             </div>
         </div>
@@ -465,18 +470,18 @@
         <div class="question-block" id="q27" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">27. ¿El fallo del Tribunal Departamental puede ser apelado?</div>
             <div class="options">
-                <label><input type="radio" name="q27" value="a"> a) Sí, ante el Tribunal Disciplinario Nacional</label>
-                <label><input type="radio" name="q27" value="b"> b) No, es inapelable</label>
-                <label><input type="radio" name="q27" value="c"> c) Solo si el director lo permite</label>
-                <label><input type="radio" name="q27" value="d"> d) Sí, ante el Alcalde</label>
+                <label><input type="radio" name="q27" value="a"> a) Solo si el director lo permite</label>
+                <label><input type="radio" name="q27" value="b"> b) Sí, ante el Alcalde</label>
+                <label><input type="radio" name="q27" value="c"> c) Sí, ante el Tribunal Disciplinario Nacional</label>
+                <label><input type="radio" name="q27" value="d"> d) No, es inapelable</label>
             </div>
         </div>
         
         <div class="question-block" id="q28" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">28. ¿Quién aplica finalmente la sanción de destitución si el fallo queda ejecutoriado?</div>
             <div class="options">
-                <label><input type="radio" name="q28" value="a"> a) El Ministerio de Educación (autoridad ejecutiva)</label>
-                <label><input type="radio" name="q28" value="b"> b) El Juez del Trabajo</label>
+                <label><input type="radio" name="q28" value="a"> a) El Juez del Trabajo</label>
+                <label><input type="radio" name="q28" value="b"> b) El Ministerio de Educación (autoridad ejecutiva)</label>
                 <label><input type="radio" name="q28" value="c"> c) El sindicato</label>
                 <label><input type="radio" name="q28" value="d"> d) El Gobernador</label>
             </div>
@@ -486,18 +491,18 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">29. ¿Qué tipo de falta es incitar a los estudiantes al desorden o al uso de violencia?</div>
             <div class="options">
                 <label><input type="radio" name="q29" value="a"> a) Falta Grave</label>
-                <label><input type="radio" name="q29" value="b"> b) Falta Leve</label>
-                <label><input type="radio" name="q29" value="c"> c) Falta Muy Grave</label>
-                <label><input type="radio" name="q29" value="d"> d) Derecho a la protesta</label>
+                <label><input type="radio" name="q29" value="b"> b) Falta Muy Grave</label>
+                <label><input type="radio" name="q29" value="c"> c) Derecho a la protesta</label>
+                <label><input type="radio" name="q29" value="d"> d) Falta Leve</label>
             </div>
         </div>
         
         <div class="question-block" id="q30" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">30. ¿Qué tipo de falta es la usurpación de funciones?</div>
             <div class="options">
-                <label><input type="radio" name="q30" value="a"> a) Falta Grave</label>
+                <label><input type="radio" name="q30" value="a"> a) Falta Muy Grave</label>
                 <label><input type="radio" name="q30" value="b"> b) Falta Leve</label>
-                <label><input type="radio" name="q30" value="c"> c) Falta Muy Grave</label>
+                <label><input type="radio" name="q30" value="c"> c) Falta Grave</label>
                 <label><input type="radio" name="q30" value="d"> d) Innovación pedagógica</label>
             </div>
         </div>
@@ -505,20 +510,20 @@
         <div class="question-block" id="q31" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">31. Si un maestro abandona su cargo sin justificación por varios días, comete:</div>
             <div class="options">
-                <label><input type="radio" name="q31" value="a"> a) Abandono de funciones (Falta Grave o Muy Grave dependiendo de la norma conexa)</label>
+                <label><input type="radio" name="q31" value="a"> a) Cambio de destino</label>
                 <label><input type="radio" name="q31" value="b"> b) Falta Leve</label>
                 <label><input type="radio" name="q31" value="c"> c) Vacación anticipada</label>
-                <label><input type="radio" name="q31" value="d"> d) Cambio de destino</label>
+                <label><input type="radio" name="q31" value="d"> d) Abandono de funciones (Falta Grave o Muy Grave dependiendo de la norma conexa)</label>
             </div>
         </div>
         
         <div class="question-block" id="q32" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">32. ¿Qué tipo de falta es obligar a los alumnos a comprar útiles escolares de marcas específicas u obligar a consumir productos del docente?</div>
             <div class="options">
-                <label><input type="radio" name="q32" value="a"> a) Falta Grave</label>
-                <label><input type="radio" name="q32" value="b"> b) Falta Leve</label>
-                <label><input type="radio" name="q32" value="c"> c) Falta Muy Grave</label>
-                <label><input type="radio" name="q32" value="d"> d) Estrategia de ventas</label>
+                <label><input type="radio" name="q32" value="a"> a) Falta Leve</label>
+                <label><input type="radio" name="q32" value="b"> b) Falta Grave</label>
+                <label><input type="radio" name="q32" value="c"> c) Estrategia de ventas</label>
+                <label><input type="radio" name="q32" value="d"> d) Falta Muy Grave</label>
             </div>
         </div>
         
@@ -527,28 +532,28 @@
             <div class="options">
                 <label><input type="radio" name="q33" value="a"> a) Administrativa y disciplinaria, independiente de los procesos penales</label>
                 <label><input type="radio" name="q33" value="b"> b) Única y exclusivamente judicial</label>
-                <label><input type="radio" name="q33" value="c"> c) Civil y penal</label>
-                <label><input type="radio" name="q33" value="d"> d) Tributaria</label>
+                <label><input type="radio" name="q33" value="c"> c) Tributaria</label>
+                <label><input type="radio" name="q33" value="d"> d) Civil y penal</label>
             </div>
         </div>
         
         <div class="question-block" id="q34" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">34. Si una falta muy grave también es un delito penal, ¿qué procede?</div>
             <div class="options">
-                <label><input type="radio" name="q34" value="a"> a) Se sanciona en la vía administrativa y se remiten antecedentes al Ministerio Público (vía penal)</label>
-                <label><input type="radio" name="q34" value="b"> b) Solo se sanciona administrativamente</label>
-                <label><input type="radio" name="q34" value="c"> c) Se perdona la falta administrativa</label>
-                <label><input type="radio" name="q34" value="d"> d) Se suspende el proceso disciplinario</label>
+                <label><input type="radio" name="q34" value="a"> a) Solo se sanciona administrativamente</label>
+                <label><input type="radio" name="q34" value="b"> b) Se sanciona en la vía administrativa y se remiten antecedentes al Ministerio Público (vía penal)</label>
+                <label><input type="radio" name="q34" value="c"> c) Se suspende el proceso disciplinario</label>
+                <label><input type="radio" name="q34" value="d"> d) Se perdona la falta administrativa</label>
             </div>
         </div>
         
         <div class="question-block" id="q35" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">35. ¿Puede un maestro ser suspendido de sus funciones con goce de haber durante el proceso disciplinario?</div>
             <div class="options">
-                <label><input type="radio" name="q35" value="a"> a) Sí, en casos de faltas muy graves, como medida precautoria mientras dura el proceso</label>
-                <label><input type="radio" name="q35" value="b"> b) No, está prohibido</label>
+                <label><input type="radio" name="q35" value="a"> a) No, está prohibido</label>
+                <label><input type="radio" name="q35" value="b"> b) Solo si renuncia</label>
                 <label><input type="radio" name="q35" value="c"> c) Solo en escuelas rurales</label>
-                <label><input type="radio" name="q35" value="d"> d) Solo si renuncia</label>
+                <label><input type="radio" name="q35" value="d"> d) Sí, en casos de faltas muy graves, como medida precautoria mientras dura el proceso</label>
             </div>
         </div>
         
@@ -556,38 +561,38 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">36. ¿Qué tipo de falta es discriminar a estudiantes por su condición física o social?</div>
             <div class="options">
                 <label><input type="radio" name="q36" value="a"> a) Falta Muy Grave (concordante con Ley 045)</label>
-                <label><input type="radio" name="q36" value="b"> b) Falta Leve</label>
-                <label><input type="radio" name="q36" value="c"> c) Falta Administrativa Menor</label>
-                <label><input type="radio" name="q36" value="d"> d) Derecho del docente</label>
+                <label><input type="radio" name="q36" value="b"> b) Falta Administrativa Menor</label>
+                <label><input type="radio" name="q36" value="c"> c) Derecho del docente</label>
+                <label><input type="radio" name="q36" value="d"> d) Falta Leve</label>
             </div>
         </div>
         
         <div class="question-block" id="q37" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">37. ¿Qué tipo de falta es el cobro de dinero no autorizado a padres de familia?</div>
             <div class="options">
-                <label><input type="radio" name="q37" value="a"> a) Falta Muy Grave / Grave según la reincidencia y monto</label>
-                <label><input type="radio" name="q37" value="b"> b) Falta Leve</label>
-                <label><input type="radio" name="q37" value="c"> c) Cooperación escolar</label>
-                <label><input type="radio" name="q37" value="d"> d) Fondo de emergencia</label>
+                <label><input type="radio" name="q37" value="a"> a) Falta Leve</label>
+                <label><input type="radio" name="q37" value="b"> b) Fondo de emergencia</label>
+                <label><input type="radio" name="q37" value="c"> c) Falta Muy Grave / Grave según la reincidencia y monto</label>
+                <label><input type="radio" name="q37" value="d"> d) Cooperación escolar</label>
             </div>
         </div>
         
         <div class="question-block" id="q38" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">38. ¿La negligencia en el llenado del Registro Pedagógico es considerada?</div>
             <div class="options">
-                <label><input type="radio" name="q38" value="a"> a) Falta Leve</label>
-                <label><input type="radio" name="q38" value="b"> b) Falta Grave</label>
-                <label><input type="radio" name="q38" value="c"> c) Falta Muy Grave</label>
-                <label><input type="radio" name="q38" value="d"> d) Delito penal</label>
+                <label><input type="radio" name="q38" value="a"> a) Delito penal</label>
+                <label><input type="radio" name="q38" value="b"> b) Falta Muy Grave</label>
+                <label><input type="radio" name="q38" value="c"> c) Falta Leve</label>
+                <label><input type="radio" name="q38" value="d"> d) Falta Grave</label>
             </div>
         </div>
         
         <div class="question-block" id="q39" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">39. El trato descortés con el público, padres de familia o colegas de manera reiterada es una:</div>
             <div class="options">
-                <label><input type="radio" name="q39" value="a"> a) Falta Leve (que puede volverse grave por reincidencia)</label>
+                <label><input type="radio" name="q39" value="a"> a) Infracción de tránsito</label>
                 <label><input type="radio" name="q39" value="b"> b) Falta Muy Grave</label>
-                <label><input type="radio" name="q39" value="c"> c) Infracción de tránsito</label>
+                <label><input type="radio" name="q39" value="c"> c) Falta Leve (que puede volverse grave por reincidencia)</label>
                 <label><input type="radio" name="q39" value="d"> d) Libertad de expresión</label>
             </div>
         </div>
@@ -595,50 +600,50 @@
         <div class="question-block" id="q40" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">40. Si un director no denuncia las faltas graves cometidas por su personal, incurre en:</div>
             <div class="options">
-                <label><input type="radio" name="q40" value="a"> a) Encubrimiento y complicidad (Falta Grave o Muy Grave)</label>
-                <label><input type="radio" name="q40" value="b"> b) Buena gestión directiva</label>
-                <label><input type="radio" name="q40" value="c"> c) Falta Leve</label>
-                <label><input type="radio" name="q40" value="d"> d) Protección sindical</label>
+                <label><input type="radio" name="q40" value="a"> a) Protección sindical</label>
+                <label><input type="radio" name="q40" value="b"> b) Encubrimiento y complicidad (Falta Grave o Muy Grave)</label>
+                <label><input type="radio" name="q40" value="c"> c) Buena gestión directiva</label>
+                <label><input type="radio" name="q40" value="d"> d) Falta Leve</label>
             </div>
         </div>
         
         <div class="question-block" id="q41" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">41. ¿Se puede destituir a un maestro basándose solo en rumores sin pruebas ni tribunal?</div>
             <div class="options">
-                <label><input type="radio" name="q41" value="a"> a) No, todo maestro tiene derecho al debido proceso ante un Tribunal</label>
-                <label><input type="radio" name="q41" value="b"> b) Sí, si lo pide la Junta Escolar</label>
-                <label><input type="radio" name="q41" value="c"> c) Sí, por resolución directa del director</label>
-                <label><input type="radio" name="q41" value="d"> d) Sí, si hay presión social</label>
+                <label><input type="radio" name="q41" value="a"> a) Sí, si lo pide la Junta Escolar</label>
+                <label><input type="radio" name="q41" value="b"> b) Sí, por resolución directa del director</label>
+                <label><input type="radio" name="q41" value="c"> c) Sí, si hay presión social</label>
+                <label><input type="radio" name="q41" value="d"> d) No, todo maestro tiene derecho al debido proceso ante un Tribunal</label>
             </div>
         </div>
         
         <div class="question-block" id="q42" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">42. El Tribunal Nacional está compuesto por delegados de:</div>
             <div class="options">
-                <label><input type="radio" name="q42" value="a"> a) Ministerio de Educación, Federación Nacional de Maestros e instancias legales</label>
-                <label><input type="radio" name="q42" value="b"> b) Solo padres de familia</label>
-                <label><input type="radio" name="q42" value="c"> c) Directores de colegios privados</label>
-                <label><input type="radio" name="q42" value="d"> d) Alcaldías y gobernaciones</label>
+                <label><input type="radio" name="q42" value="a"> a) Alcaldías y gobernaciones</label>
+                <label><input type="radio" name="q42" value="b"> b) Directores de colegios privados</label>
+                <label><input type="radio" name="q42" value="c"> c) Ministerio de Educación, Federación Nacional de Maestros e instancias legales</label>
+                <label><input type="radio" name="q42" value="d"> d) Solo padres de familia</label>
             </div>
         </div>
         
         <div class="question-block" id="q43" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">43. ¿Las decisiones de un Tribunal de Faltas se toman por:</div>
             <div class="options">
-                <label><input type="radio" name="q43" value="a"> a) Mayoría de votos de sus miembros</label>
-                <label><input type="radio" name="q43" value="b"> b) Unanimidad obligatoria</label>
-                <label><input type="radio" name="q43" value="c"> c) Decisión exclusiva del Presidente</label>
-                <label><input type="radio" name="q43" value="d"> d) Sorteo</label>
+                <label><input type="radio" name="q43" value="a"> a) Decisión exclusiva del Presidente</label>
+                <label><input type="radio" name="q43" value="b"> b) Sorteo</label>
+                <label><input type="radio" name="q43" value="c"> c) Unanimidad obligatoria</label>
+                <label><input type="radio" name="q43" value="d"> d) Mayoría de votos de sus miembros</label>
             </div>
         </div>
         
         <div class="question-block" id="q44" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">44. ¿Qué sanción accesoria puede llevar una suspensión de 60 días?</div>
             <div class="options">
-                <label><input type="radio" name="q44" value="a"> a) Retraso de un año en el ascenso de categoría</label>
+                <label><input type="radio" name="q44" value="a"> a) Multa pecuniaria al estado</label>
                 <label><input type="radio" name="q44" value="b"> b) Trabajo comunitario</label>
-                <label><input type="radio" name="q44" value="c"> c) Expulsión del país</label>
-                <label><input type="radio" name="q44" value="d"> d) Multa pecuniaria al estado</label>
+                <label><input type="radio" name="q44" value="c"> c) Retraso de un año en el ascenso de categoría</label>
+                <label><input type="radio" name="q44" value="d"> d) Expulsión del país</label>
             </div>
         </div>
         
@@ -646,17 +651,17 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">45. La inasistencia injustificada a un desfile escolar oficial se considera:</div>
             <div class="options">
                 <label><input type="radio" name="q45" value="a"> a) Falta Leve</label>
-                <label><input type="radio" name="q45" value="b"> b) Falta Muy Grave</label>
+                <label><input type="radio" name="q45" value="b"> b) Deber ciudadano optativo</label>
                 <label><input type="radio" name="q45" value="c"> c) Falta Grave</label>
-                <label><input type="radio" name="q45" value="d"> d) Deber ciudadano optativo</label>
+                <label><input type="radio" name="q45" value="d"> d) Falta Muy Grave</label>
             </div>
         </div>
         
         <div class="question-block" id="q46" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">46. Las autoridades sindicales (dirigentes) están exentas del Reglamento de Faltas y Sanciones?</div>
             <div class="options">
-                <label><input type="radio" name="q46" value="a"> a) No, están sometidas al reglamento al igual que cualquier maestro en sus funciones</label>
-                <label><input type="radio" name="q46" value="b"> b) Sí, gozan de inmunidad total</label>
+                <label><input type="radio" name="q46" value="a"> a) Sí, gozan de inmunidad total</label>
+                <label><input type="radio" name="q46" value="b"> b) No, están sometidas al reglamento al igual que cualquier maestro en sus funciones</label>
                 <label><input type="radio" name="q46" value="c"> c) Solo en el ámbito penal</label>
                 <label><input type="radio" name="q46" value="d"> d) Solo responden ante su federación</label>
             </div>
@@ -665,10 +670,10 @@
         <div class="question-block" id="q47" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">47. ¿Quién corre con los gastos administrativos de los Tribunales?</div>
             <div class="options">
-                <label><input type="radio" name="q47" value="a"> a) El Ministerio de Educación / Direcciones Departamentales</label>
-                <label><input type="radio" name="q47" value="b"> b) Los maestros acusados</label>
-                <label><input type="radio" name="q47" value="c"> c) Los padres denunciantes</label>
-                <label><input type="radio" name="q47" value="d"> d) El municipio</label>
+                <label><input type="radio" name="q47" value="a"> a) Los padres denunciantes</label>
+                <label><input type="radio" name="q47" value="b"> b) El Ministerio de Educación / Direcciones Departamentales</label>
+                <label><input type="radio" name="q47" value="c"> c) El municipio</label>
+                <label><input type="radio" name="q47" value="d"> d) Los maestros acusados</label>
             </div>
         </div>
         
@@ -676,29 +681,29 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">48. ¿El acoso escolar (bullying) fomentado o no detenido por el maestro es sancionado?</div>
             <div class="options">
                 <label><input type="radio" name="q48" value="a"> a) Sí, como falta grave o muy grave por negligencia o incitación</label>
-                <label><input type="radio" name="q48" value="b"> b) No, es problema de los estudiantes</label>
-                <label><input type="radio" name="q48" value="c"> c) Solo se sanciona a los padres</label>
-                <label><input type="radio" name="q48" value="d"> d) Se premia al maestro</label>
+                <label><input type="radio" name="q48" value="b"> b) Solo se sanciona a los padres</label>
+                <label><input type="radio" name="q48" value="c"> c) Se premia al maestro</label>
+                <label><input type="radio" name="q48" value="d"> d) No, es problema de los estudiantes</label>
             </div>
         </div>
         
         <div class="question-block" id="q49" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">49. ¿Las resoluciones de destitución deben ser avaladas por?</div>
             <div class="options">
-                <label><input type="radio" name="q49" value="a"> a) El Ministro de Educación tras el fallo ejecutoriado del tribunal</label>
-                <label><input type="radio" name="q49" value="b"> b) El Presidente de la República</label>
-                <label><input type="radio" name="q49" value="c"> c) El Director del Colegio</label>
-                <label><input type="radio" name="q49" value="d"> d) El Alcalde Municipal</label>
+                <label><input type="radio" name="q49" value="a"> a) El Director del Colegio</label>
+                <label><input type="radio" name="q49" value="b"> b) El Alcalde Municipal</label>
+                <label><input type="radio" name="q49" value="c"> c) El Ministro de Educación tras el fallo ejecutoriado del tribunal</label>
+                <label><input type="radio" name="q49" value="d"> d) El Presidente de la República</label>
             </div>
         </div>
         
         <div class="question-block" id="q50" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">50. ¿Cuál es el espíritu del Reglamento de Faltas y Sanciones?</div>
             <div class="options">
-                <label><input type="radio" name="q50" value="a"> a) Garantizar el orden, la ética profesional y resguardar el derecho a la educación integral y segura</label>
-                <label><input type="radio" name="q50" value="b"> b) Despedir a los maestros</label>
-                <label><input type="radio" name="q50" value="c"> c) Ahorrar dinero al Estado</label>
-                <label><input type="radio" name="q50" value="d"> d) Privatizar colegios fiscales</label>
+                <label><input type="radio" name="q50" value="a"> a) Privatizar colegios fiscales</label>
+                <label><input type="radio" name="q50" value="b"> b) Garantizar el orden, la ética profesional y resguardar el derecho a la educación integral y segura</label>
+                <label><input type="radio" name="q50" value="c"> c) Despedir a los maestros</label>
+                <label><input type="radio" name="q50" value="d"> d) Ahorrar dinero al Estado</label>
             </div>
         </div>
         
@@ -729,56 +734,56 @@
     
     <script>
         const correctAnswers = {
-            "q1": "a",
+            "q1": "b",
         "q2": "a",
-        "q3": "a",
-        "q4": "a",
-        "q5": "a",
-        "q6": "a",
-        "q7": "a",
+        "q3": "c",
+        "q4": "b",
+        "q5": "d",
+        "q6": "b",
+        "q7": "d",
         "q8": "a",
         "q9": "a",
         "q10": "a",
-        "q11": "a",
-        "q12": "a",
-        "q13": "a",
-        "q14": "a",
+        "q11": "c",
+        "q12": "b",
+        "q13": "d",
+        "q14": "d",
         "q15": "a",
-        "q16": "a",
-        "q17": "a",
+        "q16": "d",
+        "q17": "d",
         "q18": "a",
         "q19": "a",
         "q20": "a",
-        "q21": "a",
-        "q22": "a",
+        "q21": "c",
+        "q22": "c",
         "q23": "a",
         "q24": "a",
-        "q25": "a",
+        "q25": "c",
         "q26": "a",
-        "q27": "a",
-        "q28": "a",
+        "q27": "c",
+        "q28": "b",
         "q29": "a",
-        "q30": "a",
-        "q31": "a",
-        "q32": "a",
+        "q30": "c",
+        "q31": "d",
+        "q32": "b",
         "q33": "a",
-        "q34": "a",
-        "q35": "a",
+        "q34": "b",
+        "q35": "d",
         "q36": "a",
-        "q37": "a",
-        "q38": "a",
-        "q39": "a",
-        "q40": "a",
-        "q41": "a",
-        "q42": "a",
-        "q43": "a",
-        "q44": "a",
+        "q37": "c",
+        "q38": "c",
+        "q39": "c",
+        "q40": "b",
+        "q41": "d",
+        "q42": "c",
+        "q43": "d",
+        "q44": "c",
         "q45": "a",
-        "q46": "a",
-        "q47": "a",
+        "q46": "b",
+        "q47": "b",
         "q48": "a",
-        "q49": "a",
-        "q50": "a"
+        "q49": "c",
+        "q50": "b"
         };
     </script>
     <script src="../preguntas.js"></script>

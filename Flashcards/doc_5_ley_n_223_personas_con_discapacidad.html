@@ -29,6 +29,9 @@
             .nav-links { display: none !important; }
             .nav-links.show-mobile { display: flex !important; flex-direction: column !important; }
             .dropdown { flex: none !important; width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
+            .dropdown-content { position: relative !important; min-width: 100% !important; box-shadow: inset 0 2px 5px rgba(0,0,0,0.2) !important; border-radius: 0 !important; background: #2e7d32 !important; border: none !important; }
+            .dropdown-content a { color: white !important; border-bottom: 1px solid rgba(255,255,255,0.1) !important; padding: 10px 15px !important; font-size: 0.95rem !important; }
+            .dropdown-content a:hover { background: #1b5e20 !important; }
             .hero-title { font-size: 1.8rem !important; }
             .hero-subtitle { font-size: 1rem !important; }
             .header-title { font-size: 1.1rem !important; }
@@ -38,8 +41,10 @@
         }
         @media (max-width: 768px) {
             /* Ajustes para tarjetas flash */
-            #flashcard-box { padding: 25px 15px !important; min-height: 200px !important; }
-            #card-text { font-size: 1.1rem !important; line-height: 1.4 !important; }
+            #flashcard-box { padding: 15px 10px !important; min-height: 150px !important; }
+            #card-text { font-size: 1.05rem !important; line-height: 1.3 !important; }
+            #flash-buttons { gap: 5px !important; margin-top: 15px !important; }
+            #flash-buttons button { padding: 10px 5px !important; font-size: 0.85rem !important; flex: 1 !important; }
             
             /* Ajustes para audiolibros y contenedores principales */
             div[style*="padding: 40px;"] { padding: 15px !important; }
@@ -89,7 +94,7 @@
     
     <nav class="navbar" id="navbar" style="background: #1b5e20; padding: 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 9999;">
         <div class="nav-container" style="width: 100%; max-width: 1200px; margin: 0 auto;">
-            <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('show-mobile')">☰ Menú Principal</button>
+            <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('show-mobile')">Menú Principal ☰</button>
             <div class="nav-links" id="navLinks" style="display: flex; justify-content: center; width: 100%;">
 
             <div class="dropdown" style="flex: 1; text-align: center;">
@@ -191,7 +196,7 @@
             <h2 id="card-text" style="color: white; font-size: 1.8rem; font-weight: bold; margin: 0; text-shadow: 1px 1px 3px rgba(0,0,0,0.2);">Cargando...</h2>
         </div>
         
-        <div style="display: flex; justify-content: space-between; margin-top: 25px; gap: 15px;">
+        <div id="flash-buttons" style="display: flex; justify-content: space-between; margin-top: 25px; gap: 15px;">
             <button onclick="prevCard()" style="background: linear-gradient(to right, #e53935, #c62828); color: white; border: none; padding: 15px 30px; font-size: 1.2rem; font-weight: bold; border-radius: 50px; cursor: pointer; flex: 1; box-shadow: 0 4px 10px rgba(229, 57, 53, 0.3);">← Anterior</button>
             <button onclick="flipCard()" style="background: linear-gradient(to right, #ffc107, #ffb300); color: white; border: none; padding: 15px 30px; font-size: 1.2rem; font-weight: bold; border-radius: 50px; cursor: pointer; flex: 2; box-shadow: 0 4px 10px rgba(255, 193, 7, 0.3); text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">Ver Respuesta</button>
             <button onclick="nextCard()" style="background: linear-gradient(to right, #c62828, #e53935); color: white; border: none; padding: 15px 30px; font-size: 1.2rem; font-weight: bold; border-radius: 50px; cursor: pointer; flex: 1; box-shadow: 0 4px 10px rgba(229, 57, 53, 0.3);">Siguiente →</button>
@@ -204,56 +209,56 @@
     
     <script>
         const questions = [
-            {q: '1. ¿Cuál es el objeto de la Ley N° 223?', a: 'a) Garantizar a las personas con discapacidad el ejercicio pleno de sus derechos y deberes'},
-        {q: '2. ¿Qué principio garantiza la educación para todos sin exclusión?', a: 'a) Inclusión'},
-        {q: '3. ¿Cómo define la Ley 223 la \'discapacidad\'?', a: 'a) Como la deficiencia física, mental, intelectual o sensorial a largo plazo que interfiere en la participación plena y efectiva'},
-        {q: '4. ¿Cuál de estos NO es un tipo de discapacidad reconocido por la ley?', a: 'a) Discapacidad estética'},
-        {q: '5. El enfoque de educación para personas con discapacidad exige:', a: 'a) Educación Inclusiva en todos los niveles del Sistema Educativo Plurinacional'},
-        {q: '6. ¿Qué entidad emite el Carnet de Discapacidad?', a: 'a) El Comité Departamental de Personas con Discapacidad (CODEPEDIS) / SEDES'},
-        {q: '7. ¿Qué son los \'ajustes razonables\' según la ley?', a: 'a) Modificaciones y adaptaciones necesarias que no impongan carga desproporcionada para garantizar derechos'},
-        {q: '8. ¿Qué porcentaje mínimo de inserción laboral en instituciones públicas establece la ley?', a: 'a) 4% del personal'},
-        {q: '9. ¿Qué derecho tienen los padres, tutores o cónyuges de personas con discapacidad grave o muy grave en el ámbito laboral?', a: 'a) Inamovilidad laboral'},
-        {q: '10. ¿Qué es el RUDEAL en el contexto educativo alternativo y especial?', a: 'a) Registro Único de Estudiantes de Alternativa y Especial'},
-        {q: '11. Las personas con discapacidad tienen derecho a la gratuidad en el sistema de salud en:', a: 'a) Todo el Sistema Nacional de Salud Pública'},
-        {q: '12. ¿Qué institución nacional formula las políticas para personas con discapacidad?', a: 'a) El Comité Nacional de Personas con Discapacidad (CONALPEDIS)'},
-        {q: '13. La lengua de señas boliviana (LSB) es reconocida como:', a: 'a) El medio de acceso a la comunicación de las personas sordas'},
-        {q: '14. El Estado debe promover la accesibilidad en la infraestructura pública. Esto significa:', a: 'a) Eliminar barreras arquitectónicas (rampas, ascensores, señalética)'},
-        {q: '15. En el ámbito educativo, ¿qué es la \'Discapacidad Múltiple\'?', a: 'a) La presencia de dos o más deficiencias (ej. sordo-ceguera)'},
-        {q: '16. ¿Qué nivel de discapacidad tiene derecho a la renta solidaria (según normativas conexas)?', a: 'a) Grave y Muy Grave'},
-        {q: '17. Si un colegio privado rechaza la inscripción de un estudiante por su discapacidad, está cometiendo:', a: 'a) Un acto de discriminación penado por la Ley 045 y 223'},
-        {q: '18. ¿Quiénes son responsables del diseño e implementación de las adaptaciones curriculares?', a: 'a) Los maestros y maestras con apoyo técnico'},
-        {q: '19. ¿Qué implica el principio de \'Equidad de Género\' en la Ley 223?', a: 'a) Garantizar que mujeres y niñas con discapacidad no sufran doble discriminación'},
-        {q: '20. El sistema de escritura Braille debe ser implementado prioritariamente para personas con:', a: 'a) Discapacidad visual (ceguera)'},
-        {q: '21. ¿Qué rol tienen los Centros de Educación Especial?', a: 'a) Brindar atención directa a quienes no pueden incluirse en escuelas regulares y apoyo indirecto a las inclusivas'},
-        {q: '22. ¿La evaluación a un estudiante con discapacidad en educación regular debe ser?', a: 'a) Adaptada a sus capacidades mediante instrumentos diferenciados y flexibles'},
-        {q: '23. ¿Qué derecho tienen las personas con discapacidad en el transporte público?', a: 'a) Accesibilidad y tarifas preferenciales (según normativas municipales/nacionales)'},
-        {q: '24. ¿Qué es la \'Rehabilitación Basada en la Comunidad\' (RBC)?', a: 'a) Estrategia de desarrollo comunitario para la rehabilitación, igualdad de oportunidades e integración'},
-        {q: '25. ¿Qué institución a nivel departamental protege los derechos de las Personas con Discapacidad?', a: 'a) CODEPEDIS'},
-        {q: '26. Las personas con discapacidad intelectual tienen derecho a:', a: 'a) Apoyo psicopedagógico y educación continua respetando sus ritmos de aprendizaje'},
-        {q: '27. ¿Es legal exigir que un niño con discapacidad lleve un tutor pagado (\'sombra\') a la escuela regular pública?', a: 'a) No, el Estado debe garantizar la educación inclusiva sin cobros extra'},
-        {q: '28. ¿Qué significa que la educación inclusiva requiere \'corresponsabilidad\'?', a: 'a) Que maestros, familia, comunidad y Estado deben participar activamente'},
-        {q: '29. La Ley 223 establece el derecho a la vida libre de violencia. Las personas con discapacidad son:', a: 'a) Población altamente vulnerable y el estado debe priorizar su protección'},
-        {q: '30. ¿Qué porcentaje de rebaja establece la normativa para servicios básicos e impuestos para personas con discapacidad?', a: 'a) Tarifas preferenciales establecidas por los gobiernos autónomos (ej. 20% a 50%)'},
-        {q: '31. ¿Cuál es el día nacional de las Personas con Discapacidad en Bolivia?', a: 'a) 15 de octubre'},
-        {q: '32. La negación de ajustes razonables en el trabajo se considera:', a: 'a) Discriminación en el empleo'},
-        {q: '33. ¿Los niños con discapacidad tienen derecho a recibir el Bono Juancito Pinto?', a: 'a) Sí, están incluidos y en Educación Especial no hay límite de edad estricto como en regular'},
-        {q: '34. ¿Qué significa Discapacidad Psíquica o Mental?', a: 'a) Alteración del comportamiento, desarrollo o estado de ánimo que afecta la autonomía'},
-        {q: '35. El personal docente que tiene hijos con discapacidad grave, en temas de designación, tiene:', a: 'a) Prioridad para su asignación cerca de su domicilio o centro médico'},
-        {q: '36. ¿Cuál de estos NO es un instrumento de evaluación del estudiante con discapacidad?', a: 'a) Sentencia judicial'},
-        {q: '37. ¿Qué ente del Ministerio de Educación rige la educación de esta población?', a: 'a) El Viceministerio de Educación Alternativa y Especial'},
-        {q: '38. ¿Qué papel juegan las familias en la educación de un niño con discapacidad?', a: 'a) Aliados fundamentales para el desarrollo del plan educativo y terapia en casa'},
-        {q: '39. ¿Qué dice la Ley 223 sobre la capacidad jurídica de las personas con discapacidad?', a: 'a) Tienen capacidad jurídica en igualdad de condiciones, con sistemas de apoyo si lo requieren'},
-        {q: '40. Los medios de comunicación deben garantizar:', a: 'a) Intérpretes en lengua de señas y subtitulado en programas informativos/oficiales'},
-        {q: '41. La inamovilidad laboral ampara a la persona con discapacidad y a:', a: 'a) Su cónyuge, padres o tutores que la tengan a su cargo'},
-        {q: '42. ¿Cómo se denomina la acción de ocultar o encerrar a una persona con discapacidad en su hogar?', a: 'a) Vulneración al derecho a la libertad, inclusión y trato digno (violencia)'},
-        {q: '43. ¿Los centros de educación especial son gratuitos?', a: 'a) Sí, los centros fiscales y de convenio son de carácter gratuito'},
-        {q: '44. La discriminación a un estudiante con discapacidad por parte de un profesor, según el reglamento de faltas y sanciones es:', a: 'a) Una Falta Muy Grave'},
-        {q: '45. ¿Qué es la \'prevención\' de la discapacidad?', a: 'a) Medidas orientadas a evitar que se produzcan deficiencias físicas, mentales o sensoriales'},
-        {q: '46. El talento extraordinario (superdotación), ¿pertenece a Educación Especial?', a: 'a) Sí, es un área de atención dentro del Subsistema de Educación Especial'},
-        {q: '47. ¿Qué es un equipo multidisciplinario en Educación Especial?', a: 'a) Conjunto de profesionales (psicólogo, trabajador social, fisioterapeuta, educador) que evalúan al estudiante'},
-        {q: '48. Las certificaciones académicas (diploma de bachiller) de estudiantes con discapacidad de escuelas inclusivas:', a: 'a) Tienen el mismo valor legal que las de cualquier otro estudiante'},
-        {q: '49. ¿El término correcto según la ley boliviana es?', a: 'a) Personas con discapacidad'},
-        {q: '50. ¿El Estado boliviano firmó la Convención de la ONU sobre los Derechos de las Personas con Discapacidad?', a: 'a) Sí, y la Ley 223 se fundamenta en dicha Convención'}
+            {q: '1. ¿Cuál es el objeto de la Ley N° 223?', a: 'Garantizar a las personas con discapacidad el ejercicio pleno de sus derechos y deberes'},
+        {q: '2. ¿Qué principio garantiza la educación para todos sin exclusión?', a: 'Inclusión'},
+        {q: '3. ¿Cómo define la Ley 223 la \'discapacidad\'?', a: 'Como la deficiencia física, mental, intelectual o sensorial a largo plazo que interfiere en la participación plena y efectiva'},
+        {q: '4. ¿Cuál de estos NO es un tipo de discapacidad reconocido por la ley?', a: 'Discapacidad estética'},
+        {q: '5. El enfoque de educación para personas con discapacidad exige:', a: 'Educación Inclusiva en todos los niveles del Sistema Educativo Plurinacional'},
+        {q: '6. ¿Qué entidad emite el Carnet de Discapacidad?', a: 'El Comité Departamental de Personas con Discapacidad (CODEPEDIS) / SEDES'},
+        {q: '7. ¿Qué son los \'ajustes razonables\' según la ley?', a: 'Modificaciones y adaptaciones necesarias que no impongan carga desproporcionada para garantizar derechos'},
+        {q: '8. ¿Qué porcentaje mínimo de inserción laboral en instituciones públicas establece la ley?', a: '4% del personal'},
+        {q: '9. ¿Qué derecho tienen los padres, tutores o cónyuges de personas con discapacidad grave o muy grave en el ámbito laboral?', a: 'Inamovilidad laboral'},
+        {q: '10. ¿Qué es el RUDEAL en el contexto educativo alternativo y especial?', a: 'Registro Único de Estudiantes de Alternativa y Especial'},
+        {q: '11. Las personas con discapacidad tienen derecho a la gratuidad en el sistema de salud en:', a: 'Todo el Sistema Nacional de Salud Pública'},
+        {q: '12. ¿Qué institución nacional formula las políticas para personas con discapacidad?', a: 'El Comité Nacional de Personas con Discapacidad (CONALPEDIS)'},
+        {q: '13. La lengua de señas boliviana (LSB) es reconocida como:', a: 'El medio de acceso a la comunicación de las personas sordas'},
+        {q: '14. El Estado debe promover la accesibilidad en la infraestructura pública. Esto significa:', a: 'Eliminar barreras arquitectónicas (rampas, ascensores, señalética)'},
+        {q: '15. En el ámbito educativo, ¿qué es la \'Discapacidad Múltiple\'?', a: 'La presencia de dos o más deficiencias (ej. sordo-ceguera)'},
+        {q: '16. ¿Qué nivel de discapacidad tiene derecho a la renta solidaria (según normativas conexas)?', a: 'Grave y Muy Grave'},
+        {q: '17. Si un colegio privado rechaza la inscripción de un estudiante por su discapacidad, está cometiendo:', a: 'Un acto de discriminación penado por la Ley 045 y 223'},
+        {q: '18. ¿Quiénes son responsables del diseño e implementación de las adaptaciones curriculares?', a: 'Los maestros y maestras con apoyo técnico'},
+        {q: '19. ¿Qué implica el principio de \'Equidad de Género\' en la Ley 223?', a: 'Garantizar que mujeres y niñas con discapacidad no sufran doble discriminación'},
+        {q: '20. El sistema de escritura Braille debe ser implementado prioritariamente para personas con:', a: 'Discapacidad visual (ceguera)'},
+        {q: '21. ¿Qué rol tienen los Centros de Educación Especial?', a: 'Brindar atención directa a quienes no pueden incluirse en escuelas regulares y apoyo indirecto a las inclusivas'},
+        {q: '22. ¿La evaluación a un estudiante con discapacidad en educación regular debe ser?', a: 'Adaptada a sus capacidades mediante instrumentos diferenciados y flexibles'},
+        {q: '23. ¿Qué derecho tienen las personas con discapacidad en el transporte público?', a: 'Accesibilidad y tarifas preferenciales (según normativas municipales/nacionales)'},
+        {q: '24. ¿Qué es la \'Rehabilitación Basada en la Comunidad\' (RBC)?', a: 'Estrategia de desarrollo comunitario para la rehabilitación, igualdad de oportunidades e integración'},
+        {q: '25. ¿Qué institución a nivel departamental protege los derechos de las Personas con Discapacidad?', a: 'CODEPEDIS'},
+        {q: '26. Las personas con discapacidad intelectual tienen derecho a:', a: 'Apoyo psicopedagógico y educación continua respetando sus ritmos de aprendizaje'},
+        {q: '27. ¿Es legal exigir que un niño con discapacidad lleve un tutor pagado (\'sombra\') a la escuela regular pública?', a: 'No, el Estado debe garantizar la educación inclusiva sin cobros extra'},
+        {q: '28. ¿Qué significa que la educación inclusiva requiere \'corresponsabilidad\'?', a: 'Que maestros, familia, comunidad y Estado deben participar activamente'},
+        {q: '29. La Ley 223 establece el derecho a la vida libre de violencia. Las personas con discapacidad son:', a: 'Población altamente vulnerable y el estado debe priorizar su protección'},
+        {q: '30. ¿Qué porcentaje de rebaja establece la normativa para servicios básicos e impuestos para personas con discapacidad?', a: 'Tarifas preferenciales establecidas por los gobiernos autónomos (ej. 20% a 50%)'},
+        {q: '31. ¿Cuál es el día nacional de las Personas con Discapacidad en Bolivia?', a: '15 de octubre'},
+        {q: '32. La negación de ajustes razonables en el trabajo se considera:', a: 'Discriminación en el empleo'},
+        {q: '33. ¿Los niños con discapacidad tienen derecho a recibir el Bono Juancito Pinto?', a: 'Sí, están incluidos y en Educación Especial no hay límite de edad estricto como en regular'},
+        {q: '34. ¿Qué significa Discapacidad Psíquica o Mental?', a: 'Alteración del comportamiento, desarrollo o estado de ánimo que afecta la autonomía'},
+        {q: '35. El personal docente que tiene hijos con discapacidad grave, en temas de designación, tiene:', a: 'Prioridad para su asignación cerca de su domicilio o centro médico'},
+        {q: '36. ¿Cuál de estos NO es un instrumento de evaluación del estudiante con discapacidad?', a: 'Sentencia judicial'},
+        {q: '37. ¿Qué ente del Ministerio de Educación rige la educación de esta población?', a: 'El Viceministerio de Educación Alternativa y Especial'},
+        {q: '38. ¿Qué papel juegan las familias en la educación de un niño con discapacidad?', a: 'Aliados fundamentales para el desarrollo del plan educativo y terapia en casa'},
+        {q: '39. ¿Qué dice la Ley 223 sobre la capacidad jurídica de las personas con discapacidad?', a: 'Tienen capacidad jurídica en igualdad de condiciones, con sistemas de apoyo si lo requieren'},
+        {q: '40. Los medios de comunicación deben garantizar:', a: 'Intérpretes en lengua de señas y subtitulado en programas informativos/oficiales'},
+        {q: '41. La inamovilidad laboral ampara a la persona con discapacidad y a:', a: 'Su cónyuge, padres o tutores que la tengan a su cargo'},
+        {q: '42. ¿Cómo se denomina la acción de ocultar o encerrar a una persona con discapacidad en su hogar?', a: 'Vulneración al derecho a la libertad, inclusión y trato digno (violencia)'},
+        {q: '43. ¿Los centros de educación especial son gratuitos?', a: 'Sí, los centros fiscales y de convenio son de carácter gratuito'},
+        {q: '44. La discriminación a un estudiante con discapacidad por parte de un profesor, según el reglamento de faltas y sanciones es:', a: 'Una Falta Muy Grave'},
+        {q: '45. ¿Qué es la \'prevención\' de la discapacidad?', a: 'Medidas orientadas a evitar que se produzcan deficiencias físicas, mentales o sensoriales'},
+        {q: '46. El talento extraordinario (superdotación), ¿pertenece a Educación Especial?', a: 'Sí, es un área de atención dentro del Subsistema de Educación Especial'},
+        {q: '47. ¿Qué es un equipo multidisciplinario en Educación Especial?', a: 'Conjunto de profesionales (psicólogo, trabajador social, fisioterapeuta, educador) que evalúan al estudiante'},
+        {q: '48. Las certificaciones académicas (diploma de bachiller) de estudiantes con discapacidad de escuelas inclusivas:', a: 'Tienen el mismo valor legal que las de cualquier otro estudiante'},
+        {q: '49. ¿El término correcto según la ley boliviana es?', a: 'Personas con discapacidad'},
+        {q: '50. ¿El Estado boliviano firmó la Convención de la ONU sobre los Derechos de las Personas con Discapacidad?', a: 'Sí, y la Ley 223 se fundamenta en dicha Convención'}
         ];
         
         let currentIndex = 0;

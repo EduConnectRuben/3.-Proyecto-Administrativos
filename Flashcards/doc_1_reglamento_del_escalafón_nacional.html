@@ -29,6 +29,9 @@
             .nav-links { display: none !important; }
             .nav-links.show-mobile { display: flex !important; flex-direction: column !important; }
             .dropdown { flex: none !important; width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
+            .dropdown-content { position: relative !important; min-width: 100% !important; box-shadow: inset 0 2px 5px rgba(0,0,0,0.2) !important; border-radius: 0 !important; background: #2e7d32 !important; border: none !important; }
+            .dropdown-content a { color: white !important; border-bottom: 1px solid rgba(255,255,255,0.1) !important; padding: 10px 15px !important; font-size: 0.95rem !important; }
+            .dropdown-content a:hover { background: #1b5e20 !important; }
             .hero-title { font-size: 1.8rem !important; }
             .hero-subtitle { font-size: 1rem !important; }
             .header-title { font-size: 1.1rem !important; }
@@ -38,8 +41,10 @@
         }
         @media (max-width: 768px) {
             /* Ajustes para tarjetas flash */
-            #flashcard-box { padding: 25px 15px !important; min-height: 200px !important; }
-            #card-text { font-size: 1.1rem !important; line-height: 1.4 !important; }
+            #flashcard-box { padding: 15px 10px !important; min-height: 150px !important; }
+            #card-text { font-size: 1.05rem !important; line-height: 1.3 !important; }
+            #flash-buttons { gap: 5px !important; margin-top: 15px !important; }
+            #flash-buttons button { padding: 10px 5px !important; font-size: 0.85rem !important; flex: 1 !important; }
             
             /* Ajustes para audiolibros y contenedores principales */
             div[style*="padding: 40px;"] { padding: 15px !important; }
@@ -89,7 +94,7 @@
     
     <nav class="navbar" id="navbar" style="background: #1b5e20; padding: 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 9999;">
         <div class="nav-container" style="width: 100%; max-width: 1200px; margin: 0 auto;">
-            <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('show-mobile')">☰ Menú Principal</button>
+            <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('show-mobile')">Menú Principal ☰</button>
             <div class="nav-links" id="navLinks" style="display: flex; justify-content: center; width: 100%;">
 
             <div class="dropdown" style="flex: 1; text-align: center;">
@@ -191,7 +196,7 @@
             <h2 id="card-text" style="color: white; font-size: 1.8rem; font-weight: bold; margin: 0; text-shadow: 1px 1px 3px rgba(0,0,0,0.2);">Cargando...</h2>
         </div>
         
-        <div style="display: flex; justify-content: space-between; margin-top: 25px; gap: 15px;">
+        <div id="flash-buttons" style="display: flex; justify-content: space-between; margin-top: 25px; gap: 15px;">
             <button onclick="prevCard()" style="background: linear-gradient(to right, #e53935, #c62828); color: white; border: none; padding: 15px 30px; font-size: 1.2rem; font-weight: bold; border-radius: 50px; cursor: pointer; flex: 1; box-shadow: 0 4px 10px rgba(229, 57, 53, 0.3);">← Anterior</button>
             <button onclick="flipCard()" style="background: linear-gradient(to right, #ffc107, #ffb300); color: white; border: none; padding: 15px 30px; font-size: 1.2rem; font-weight: bold; border-radius: 50px; cursor: pointer; flex: 2; box-shadow: 0 4px 10px rgba(255, 193, 7, 0.3); text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">Ver Respuesta</button>
             <button onclick="nextCard()" style="background: linear-gradient(to right, #c62828, #e53935); color: white; border: none; padding: 15px 30px; font-size: 1.2rem; font-weight: bold; border-radius: 50px; cursor: pointer; flex: 1; box-shadow: 0 4px 10px rgba(229, 57, 53, 0.3);">Siguiente →</button>
@@ -204,56 +209,56 @@
     
     <script>
         const questions = [
-            {q: '1. ¿Mediante qué Decreto Supremo fue aprobado el Reglamento del Escalafón Nacional del Servicio de Educación?', a: 'a) D.S. N° 04688'},
-        {q: '2. ¿En qué fecha se promulgó el Decreto Supremo N° 04688 que aprueba el Escalafón?', a: 'a) 18 de julio de 1957'},
-        {q: '3. ¿Cuál es una de las finalidades principales del Escalafón del Magisterio?', a: 'a) Garantizar la estabilidad laboral de los maestros'},
-        {q: '4. ¿Qué es el Escalafón según el reglamento?', a: 'a) El registro sistemático y centralizado de los datos personales y profesionales'},
-        {q: '5. ¿Quiénes están sujetos a las disposiciones del Reglamento del Escalafón?', a: 'a) El personal docente y administrativo del servicio de educación'},
-        {q: '6. ¿Cómo se clasifica el personal en el Servicio de Educación?', a: 'a) Docente y Administrativo'},
-        {q: '7. ¿Qué se requiere indispensablemente para ingresar al servicio docente?', a: 'a) Poseer título de Maestro Normalista'},
-        {q: '8. ¿A qué categoría ingresa un maestro normalista recién egresado?', a: 'a) Quinta Categoría'},
-        {q: '9. ¿Qué porcentaje de bonificación corresponde a la Categoría Mérito?', a: 'b) 150%'},
-        {q: '10. ¿Cuál es el requisito de tiempo de servicio para ascender a la Categoría Cero?', a: 'a) 25 años (5 por cada de las 5 categorías previas)'},
-        {q: '11. ¿Qué porcentaje de bonificación tiene la Categoría Cero?', a: 'a) 100%'},
-        {q: '12. ¿Cuántos años de servicio mínimo se requieren para ascender a la siguiente jerarquía o categoría (por tiempo de servicio sin examen)?', a: 'a) 5 años'},
-        {q: '13. ¿Qué documento acredita los méritos y servicios del docente para fines de calificación?', a: 'a) El libro de calificación o kardex'},
-        {q: '14. ¿Cuántas categorías abarca la jerarquía del Escalafón Docente?', a: 'a) Siete (5ta a Mérito)'},
-        {q: '15. ¿Qué función corresponde a la máxima jerarquía docente?', a: 'a) Director General de Educación'},
-        {q: '16. ¿Cuál de las siguientes es una falta muy grave según el reglamento conexo?', a: 'a) Acoso sexual o maltrato físico a estudiantes'},
-        {q: '17. ¿Qué institución elabora las listas de ascenso de categoría?', a: 'a) El Ministerio de Educación a través de la Dirección respectiva'},
-        {q: '18. ¿Qué bonificación corresponde a la Primera Categoría?', a: 'a) 75%'},
-        {q: '19. ¿Qué bonificación corresponde a la Segunda Categoría?', a: 'a) 60%'},
-        {q: '20. ¿Qué bonificación corresponde a la Tercera Categoría?', a: 'a) 45%'},
-        {q: '21. ¿Qué bonificación corresponde a la Cuarta Categoría?', a: 'a) 30%'},
-        {q: '22. ¿Qué bonificación corresponde a la Quinta Categoría?', a: 'a) 0% al ingresar, y luego 15% según el caso general'},
-        {q: '23. ¿Qué instancia es responsable de calificar los expedientes para ascensos?', a: 'a) La Comisión Calificadora del Escalafón'},
-        {q: '24. ¿Cómo se califica el tiempo de servicio docente?', a: 'b) 5 puntos por año'},
-        {q: '25. ¿Qué ocurre si un maestro es destituido por falta muy grave?', a: 'a) Pierde sus derechos en el Escalafón'},
-        {q: '26. ¿Qué derecho tienen los maestros inscritos en el Escalafón respecto a la jubilación?', a: 'a) Derecho a jubilación con el 100% de la última calificación (sujeto a leyes actuales)'},
-        {q: '27. ¿Quién tiene prioridad para ocupar una plaza vacante?', a: 'a) El maestro de mayor calificación y categoría'},
-        {q: '28. ¿Qué es un maestro \'Interino\' según el reglamento?', a: 'a) Quien ejerce docencia sin poseer título de maestro normalista o titular'},
-        {q: '29. ¿Puede un maestro interino inscribirse en el Escalafón?', a: 'a) Sí, después de cumplir 10 años de servicio continuos y aprobar examen'},
-        {q: '30. ¿Qué puntaje máximo se otorga por \'Méritos Generales\'?', a: 'a) 100 puntos'},
-        {q: '31. ¿Cuál es el organismo máximo encargado de la ejecución del Reglamento del Escalafón?', a: 'a) La Dirección Nacional de Personal o su equivalente actual en el MINEDU'},
-        {q: '32. ¿Qué se considera \'abandono de funciones\'?', a: 'a) Ausencia injustificada por 6 días continuos o discontinuos en el mes'},
-        {q: '33. ¿Cuál es un requisito para ascender a Director de Unidad Educativa?', a: 'a) Tener Título en Provisión Nacional y experiencia mínima de años según la categoría'},
-        {q: '34. ¿Qué tipo de licencias reconoce el Escalafón?', a: 'a) Por enfermedad, maternidad, becas de estudio y asuntos propios'},
-        {q: '35. ¿Cuál es el tiempo de vacación anual para el personal docente?', a: 'a) El periodo de descanso pedagógico establecido en el calendario'},
-        {q: '36. ¿Qué documentos van al Kardex del maestro?', a: 'a) Títulos, certificados de servicio, memorandos de felicitación o deméritos'},
-        {q: '37. ¿Quiénes tienen derecho al Subsidio de Frontera?', a: 'a) Docentes que prestan servicios en zonas fronterizas (20% de recargo)'},
-        {q: '38. ¿A quiénes se aplica el Escalafón Administrativo?', a: 'a) Secretarias, regentes, porteros y oficinistas del sector educación'},
-        {q: '39. ¿Qué pasa si un docente no cumple con la asistencia mínima requerida al año?', a: 'a) Sufre descuentos y posibles procesos disciplinarios'},
-        {q: '40. ¿Cuál es la función principal de la Comisión de Calificación?', a: 'a) Revisar expedientes y asignar puntajes para el ascenso'},
-        {q: '41. ¿Qué sucede en caso de permutas entre docentes?', a: 'a) Ambos deben tener categoría similar y justificar motivos válidos'},
-        {q: '42. ¿Qué requisito es necesario para gozar de inamovilidad docente?', a: 'a) Estar inscrito regularmente en el Escalafón'},
-        {q: '43. ¿El reglamento permite la doble percepción de sueldos del Estado?', a: 'a) No, está prohibido por ley, salvo excepciones expresas'},
-        {q: '44. ¿Qué sanción conlleva la falsificación de documentos para el escalafón?', a: 'a) Proceso penal, destitución y expulsión del escalafón'},
-        {q: '45. ¿Cuáles son los niveles de educación en la Ley 070 (que interactúan con el escalafón actual)?', a: 'a) Inicial, Primaria y Secundaria'},
-        {q: '46. ¿Qué beneficios tienen las madres docentes según el escalafón?', a: 'a) Subsidios de lactancia y licencia por maternidad'},
-        {q: '47. ¿Qué entidad defiende los derechos del maestro en casos de vulneración al escalafón?', a: 'a) La Federación y Confederación de Maestros (Sindicato)'},
-        {q: '48. ¿Un maestro puede ser destituido sin proceso previo?', a: 'a) No, se requiere un proceso disciplinario para demostrar la falta grave'},
-        {q: '49. ¿Qué aspecto es calificado dentro del puntaje de \'Servicios Comunitarios\'?', a: 'a) Alfabetización o apoyo social comunitario verificado'},
-        {q: '50. ¿Qué garantía fundamental protege el Escalafón según la Constitución Política del Estado?', a: 'a) La carrera docente, inamovilidad y sindicalización'}
+            {q: '1. ¿Mediante qué Decreto Supremo fue aprobado el Reglamento del Escalafón Nacional del Servicio de Educación?', a: 'D.S. N° 04688'},
+        {q: '2. ¿En qué fecha se promulgó el Decreto Supremo N° 04688 que aprueba el Escalafón?', a: '18 de julio de 1957'},
+        {q: '3. ¿Cuál es una de las finalidades principales del Escalafón del Magisterio?', a: 'Garantizar la estabilidad laboral de los maestros'},
+        {q: '4. ¿Qué es el Escalafón según el reglamento?', a: 'El registro sistemático y centralizado de los datos personales y profesionales'},
+        {q: '5. ¿Quiénes están sujetos a las disposiciones del Reglamento del Escalafón?', a: 'El personal docente y administrativo del servicio de educación'},
+        {q: '6. ¿Cómo se clasifica el personal en el Servicio de Educación?', a: 'Docente y Administrativo'},
+        {q: '7. ¿Qué se requiere indispensablemente para ingresar al servicio docente?', a: 'Poseer título de Maestro Normalista'},
+        {q: '8. ¿A qué categoría ingresa un maestro normalista recién egresado?', a: 'Quinta Categoría'},
+        {q: '9. ¿Qué porcentaje de bonificación corresponde a la Categoría Mérito?', a: '150%'},
+        {q: '10. ¿Cuál es el requisito de tiempo de servicio para ascender a la Categoría Cero?', a: '25 años (5 por cada de las 5 categorías previas)'},
+        {q: '11. ¿Qué porcentaje de bonificación tiene la Categoría Cero?', a: '100%'},
+        {q: '12. ¿Cuántos años de servicio mínimo se requieren para ascender a la siguiente jerarquía o categoría (por tiempo de servicio sin examen)?', a: '5 años'},
+        {q: '13. ¿Qué documento acredita los méritos y servicios del docente para fines de calificación?', a: 'El libro de calificación o kardex'},
+        {q: '14. ¿Cuántas categorías abarca la jerarquía del Escalafón Docente?', a: 'Siete (5ta a Mérito)'},
+        {q: '15. ¿Qué función corresponde a la máxima jerarquía docente?', a: 'Director General de Educación'},
+        {q: '16. ¿Cuál de las siguientes es una falta muy grave según el reglamento conexo?', a: 'Acoso sexual o maltrato físico a estudiantes'},
+        {q: '17. ¿Qué institución elabora las listas de ascenso de categoría?', a: 'El Ministerio de Educación a través de la Dirección respectiva'},
+        {q: '18. ¿Qué bonificación corresponde a la Primera Categoría?', a: '75%'},
+        {q: '19. ¿Qué bonificación corresponde a la Segunda Categoría?', a: '60%'},
+        {q: '20. ¿Qué bonificación corresponde a la Tercera Categoría?', a: '45%'},
+        {q: '21. ¿Qué bonificación corresponde a la Cuarta Categoría?', a: '30%'},
+        {q: '22. ¿Qué bonificación corresponde a la Quinta Categoría?', a: '0% al ingresar, y luego 15% según el caso general'},
+        {q: '23. ¿Qué instancia es responsable de calificar los expedientes para ascensos?', a: 'La Comisión Calificadora del Escalafón'},
+        {q: '24. ¿Cómo se califica el tiempo de servicio docente?', a: '5 puntos por año'},
+        {q: '25. ¿Qué ocurre si un maestro es destituido por falta muy grave?', a: 'Pierde sus derechos en el Escalafón'},
+        {q: '26. ¿Qué derecho tienen los maestros inscritos en el Escalafón respecto a la jubilación?', a: 'Derecho a jubilación con el 100% de la última calificación (sujeto a leyes actuales)'},
+        {q: '27. ¿Quién tiene prioridad para ocupar una plaza vacante?', a: 'El maestro de mayor calificación y categoría'},
+        {q: '28. ¿Qué es un maestro \'Interino\' según el reglamento?', a: 'Quien ejerce docencia sin poseer título de maestro normalista o titular'},
+        {q: '29. ¿Puede un maestro interino inscribirse en el Escalafón?', a: 'Sí, después de cumplir 10 años de servicio continuos y aprobar examen'},
+        {q: '30. ¿Qué puntaje máximo se otorga por \'Méritos Generales\'?', a: '100 puntos'},
+        {q: '31. ¿Cuál es el organismo máximo encargado de la ejecución del Reglamento del Escalafón?', a: 'La Dirección Nacional de Personal o su equivalente actual en el MINEDU'},
+        {q: '32. ¿Qué se considera \'abandono de funciones\'?', a: 'Ausencia injustificada por 6 días continuos o discontinuos en el mes'},
+        {q: '33. ¿Cuál es un requisito para ascender a Director de Unidad Educativa?', a: 'Tener Título en Provisión Nacional y experiencia mínima de años según la categoría'},
+        {q: '34. ¿Qué tipo de licencias reconoce el Escalafón?', a: 'Por enfermedad, maternidad, becas de estudio y asuntos propios'},
+        {q: '35. ¿Cuál es el tiempo de vacación anual para el personal docente?', a: 'El periodo de descanso pedagógico establecido en el calendario'},
+        {q: '36. ¿Qué documentos van al Kardex del maestro?', a: 'Títulos, certificados de servicio, memorandos de felicitación o deméritos'},
+        {q: '37. ¿Quiénes tienen derecho al Subsidio de Frontera?', a: 'Docentes que prestan servicios en zonas fronterizas (20% de recargo)'},
+        {q: '38. ¿A quiénes se aplica el Escalafón Administrativo?', a: 'Secretarias, regentes, porteros y oficinistas del sector educación'},
+        {q: '39. ¿Qué pasa si un docente no cumple con la asistencia mínima requerida al año?', a: 'Sufre descuentos y posibles procesos disciplinarios'},
+        {q: '40. ¿Cuál es la función principal de la Comisión de Calificación?', a: 'Revisar expedientes y asignar puntajes para el ascenso'},
+        {q: '41. ¿Qué sucede en caso de permutas entre docentes?', a: 'Ambos deben tener categoría similar y justificar motivos válidos'},
+        {q: '42. ¿Qué requisito es necesario para gozar de inamovilidad docente?', a: 'Estar inscrito regularmente en el Escalafón'},
+        {q: '43. ¿El reglamento permite la doble percepción de sueldos del Estado?', a: 'No, está prohibido por ley, salvo excepciones expresas'},
+        {q: '44. ¿Qué sanción conlleva la falsificación de documentos para el escalafón?', a: 'Proceso penal, destitución y expulsión del escalafón'},
+        {q: '45. ¿Cuáles son los niveles de educación en la Ley 070 (que interactúan con el escalafón actual)?', a: 'Inicial, Primaria y Secundaria'},
+        {q: '46. ¿Qué beneficios tienen las madres docentes según el escalafón?', a: 'Subsidios de lactancia y licencia por maternidad'},
+        {q: '47. ¿Qué entidad defiende los derechos del maestro en casos de vulneración al escalafón?', a: 'La Federación y Confederación de Maestros (Sindicato)'},
+        {q: '48. ¿Un maestro puede ser destituido sin proceso previo?', a: 'No, se requiere un proceso disciplinario para demostrar la falta grave'},
+        {q: '49. ¿Qué aspecto es calificado dentro del puntaje de \'Servicios Comunitarios\'?', a: 'Alfabetización o apoyo social comunitario verificado'},
+        {q: '50. ¿Qué garantía fundamental protege el Escalafón según la Constitución Política del Estado?', a: 'La carrera docente, inamovilidad y sindicalización'}
         ];
         
         let currentIndex = 0;

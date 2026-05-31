@@ -29,6 +29,9 @@
             .nav-links { display: none !important; }
             .nav-links.show-mobile { display: flex !important; flex-direction: column !important; }
             .dropdown { flex: none !important; width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
+            .dropdown-content { position: relative !important; min-width: 100% !important; box-shadow: inset 0 2px 5px rgba(0,0,0,0.2) !important; border-radius: 0 !important; background: #2e7d32 !important; border: none !important; }
+            .dropdown-content a { color: white !important; border-bottom: 1px solid rgba(255,255,255,0.1) !important; padding: 10px 15px !important; font-size: 0.95rem !important; }
+            .dropdown-content a:hover { background: #1b5e20 !important; }
             .hero-title { font-size: 1.8rem !important; }
             .hero-subtitle { font-size: 1rem !important; }
             .header-title { font-size: 1.1rem !important; }
@@ -38,8 +41,10 @@
         }
         @media (max-width: 768px) {
             /* Ajustes para tarjetas flash */
-            #flashcard-box { padding: 25px 15px !important; min-height: 200px !important; }
-            #card-text { font-size: 1.1rem !important; line-height: 1.4 !important; }
+            #flashcard-box { padding: 15px 10px !important; min-height: 150px !important; }
+            #card-text { font-size: 1.05rem !important; line-height: 1.3 !important; }
+            #flash-buttons { gap: 5px !important; margin-top: 15px !important; }
+            #flash-buttons button { padding: 10px 5px !important; font-size: 0.85rem !important; flex: 1 !important; }
             
             /* Ajustes para audiolibros y contenedores principales */
             div[style*="padding: 40px;"] { padding: 15px !important; }
@@ -89,7 +94,7 @@
     
     <nav class="navbar" id="navbar" style="background: #1b5e20; padding: 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 9999;">
         <div class="nav-container" style="width: 100%; max-width: 1200px; margin: 0 auto;">
-            <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('show-mobile')">☰ Menú Principal</button>
+            <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('show-mobile')">Menú Principal ☰</button>
             <div class="nav-links" id="navLinks" style="display: flex; justify-content: center; width: 100%;">
 
             <div class="dropdown" style="flex: 1; text-align: center;">
@@ -205,29 +210,29 @@
         <div class="question-block" id="q1" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">1. ¿Qué es la resolución de problemas en el ámbito administrativo escolar?</div>
             <div class="options">
-                <label><input type="radio" name="q1" value="a"> a) El proceso sistemático de identificar una dificultad y aplicar una solución eficaz</label>
-                <label><input type="radio" name="q1" value="b"> b) Delegar el trabajo a otra persona</label>
-                <label><input type="radio" name="q1" value="c"> c) Ignorar las quejas</label>
-                <label><input type="radio" name="q1" value="d"> d) Escribir un reporte sin tomar acción</label>
+                <label><input type="radio" name="q1" value="a"> a) Ignorar las quejas</label>
+                <label><input type="radio" name="q1" value="b"> b) Escribir un reporte sin tomar acción</label>
+                <label><input type="radio" name="q1" value="c"> c) El proceso sistemático de identificar una dificultad y aplicar una solución eficaz</label>
+                <label><input type="radio" name="q1" value="d"> d) Delegar el trabajo a otra persona</label>
             </div>
         </div>
         
         <div class="question-block" id="q2" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">2. El primer paso crítico para resolver un problema es:</div>
             <div class="options">
-                <label><input type="radio" name="q2" value="a"> a) Definir clara y objetivamente cuál es el problema real</label>
-                <label><input type="radio" name="q2" value="b"> b) Encontrar un culpable</label>
-                <label><input type="radio" name="q2" value="c"> c) Aplicar la primera solución que se ocurra</label>
-                <label><input type="radio" name="q2" value="d"> d) Pedir más presupuesto</label>
+                <label><input type="radio" name="q2" value="a"> a) Encontrar un culpable</label>
+                <label><input type="radio" name="q2" value="b"> b) Definir clara y objetivamente cuál es el problema real</label>
+                <label><input type="radio" name="q2" value="c"> c) Pedir más presupuesto</label>
+                <label><input type="radio" name="q2" value="d"> d) Aplicar la primera solución que se ocurra</label>
             </div>
         </div>
         
         <div class="question-block" id="q3" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">3. La técnica de 'Lluvia de ideas' (Brainstorming) sirve para:</div>
             <div class="options">
-                <label><input type="radio" name="q3" value="a"> a) Generar múltiples opciones de solución sin juzgarlas inicialmente</label>
-                <label><input type="radio" name="q3" value="b"> b) Discutir y pelear por una idea</label>
-                <label><input type="radio" name="q3" value="c"> c) Evaluar el rendimiento de los docentes</label>
+                <label><input type="radio" name="q3" value="a"> a) Evaluar el rendimiento de los docentes</label>
+                <label><input type="radio" name="q3" value="b"> b) Generar múltiples opciones de solución sin juzgarlas inicialmente</label>
+                <label><input type="radio" name="q3" value="c"> c) Discutir y pelear por una idea</label>
                 <label><input type="radio" name="q3" value="d"> d) Redactar memorándums</label>
             </div>
         </div>
@@ -235,29 +240,29 @@
         <div class="question-block" id="q4" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">4. ¿Por qué es importante analizar las causas raíz de un problema?</div>
             <div class="options">
-                <label><input type="radio" name="q4" value="a"> a) Para evitar que el problema vuelva a ocurrir en el futuro</label>
-                <label><input type="radio" name="q4" value="b"> b) Para saber a quién despedir</label>
-                <label><input type="radio" name="q4" value="c"> c) Para alargar el tiempo de las reuniones</label>
-                <label><input type="radio" name="q4" value="d"> d) Porque lo exige el reglamento</label>
+                <label><input type="radio" name="q4" value="a"> a) Para alargar el tiempo de las reuniones</label>
+                <label><input type="radio" name="q4" value="b"> b) Porque lo exige el reglamento</label>
+                <label><input type="radio" name="q4" value="c"> c) Para evitar que el problema vuelva a ocurrir en el futuro</label>
+                <label><input type="radio" name="q4" value="d"> d) Para saber a quién despedir</label>
             </div>
         </div>
         
         <div class="question-block" id="q5" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">5. El diagrama de Ishikawa (Causa-Efecto) se utiliza para:</div>
             <div class="options">
-                <label><input type="radio" name="q5" value="a"> a) Identificar y clasificar las causas posibles de un problema específico</label>
-                <label><input type="radio" name="q5" value="b"> b) Calcular el presupuesto</label>
-                <label><input type="radio" name="q5" value="c"> c) Hacer el horario de clases</label>
-                <label><input type="radio" name="q5" value="d"> d) Evaluar a los alumnos</label>
+                <label><input type="radio" name="q5" value="a"> a) Evaluar a los alumnos</label>
+                <label><input type="radio" name="q5" value="b"> b) Identificar y clasificar las causas posibles de un problema específico</label>
+                <label><input type="radio" name="q5" value="c"> c) Calcular el presupuesto</label>
+                <label><input type="radio" name="q5" value="d"> d) Hacer el horario de clases</label>
             </div>
         </div>
         
         <div class="question-block" id="q6" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">6. Una vez elegida una solución, el siguiente paso administrativo es:</div>
             <div class="options">
-                <label><input type="radio" name="q6" value="a"> a) Elaborar un plan de acción con responsables y tiempos definidos</label>
-                <label><input type="radio" name="q6" value="b"> b) Esperar a que la solución funcione sola</label>
-                <label><input type="radio" name="q6" value="c"> c) Archivar el caso</label>
+                <label><input type="radio" name="q6" value="a"> a) Esperar a que la solución funcione sola</label>
+                <label><input type="radio" name="q6" value="b"> b) Archivar el caso</label>
+                <label><input type="radio" name="q6" value="c"> c) Elaborar un plan de acción con responsables y tiempos definidos</label>
                 <label><input type="radio" name="q6" value="d"> d) Cambiar de problema</label>
             </div>
         </div>
@@ -265,9 +270,9 @@
         <div class="question-block" id="q7" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">7. La evaluación y seguimiento de la solución implementada permite:</div>
             <div class="options">
-                <label><input type="radio" name="q7" value="a"> a) Verificar si la medida fue efectiva o si requiere ajustes</label>
-                <label><input type="radio" name="q7" value="b"> b) Perder el tiempo</label>
-                <label><input type="radio" name="q7" value="c"> c) Culpar a los que fallaron</label>
+                <label><input type="radio" name="q7" value="a"> a) Perder el tiempo</label>
+                <label><input type="radio" name="q7" value="b"> b) Culpar a los que fallaron</label>
+                <label><input type="radio" name="q7" value="c"> c) Verificar si la medida fue efectiva o si requiere ajustes</label>
                 <label><input type="radio" name="q7" value="d"> d) Aumentar el sueldo de los involucrados</label>
             </div>
         </div>
@@ -275,19 +280,19 @@
         <div class="question-block" id="q8" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">8. En la toma de decisiones, un enfoque proactivo significa:</div>
             <div class="options">
-                <label><input type="radio" name="q8" value="a"> a) Anticiparse a los problemas y tomar medidas preventivas</label>
-                <label><input type="radio" name="q8" value="b"> b) Actuar solo cuando hay una crisis</label>
-                <label><input type="radio" name="q8" value="c"> c) Dejar que otros decidan</label>
-                <label><input type="radio" name="q8" value="d"> d) Evitar cualquier riesgo</label>
+                <label><input type="radio" name="q8" value="a"> a) Dejar que otros decidan</label>
+                <label><input type="radio" name="q8" value="b"> b) Evitar cualquier riesgo</label>
+                <label><input type="radio" name="q8" value="c"> c) Actuar solo cuando hay una crisis</label>
+                <label><input type="radio" name="q8" value="d"> d) Anticiparse a los problemas y tomar medidas preventivas</label>
             </div>
         </div>
         
         <div class="question-block" id="q9" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">9. La comunicación asertiva en la resolución de problemas implica:</div>
             <div class="options">
-                <label><input type="radio" name="q9" value="a"> a) Expresar ideas y necesidades de forma clara, directa y respetuosa</label>
+                <label><input type="radio" name="q9" value="a"> a) Quedarse callado para evitar discusiones</label>
                 <label><input type="radio" name="q9" value="b"> b) Gritar para imponer autoridad</label>
-                <label><input type="radio" name="q9" value="c"> c) Quedarse callado para evitar discusiones</label>
+                <label><input type="radio" name="q9" value="c"> c) Expresar ideas y necesidades de forma clara, directa y respetuosa</label>
                 <label><input type="radio" name="q9" value="d"> d) Hablar a espaldas de los colegas</label>
             </div>
         </div>
@@ -295,19 +300,19 @@
         <div class="question-block" id="q10" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">10. Un buen líder administrativo escolar frente a un problema debe:</div>
             <div class="options">
-                <label><input type="radio" name="q10" value="a"> a) Mantener la calma, analizar la situación y fomentar el trabajo en equipo</label>
-                <label><input type="radio" name="q10" value="b"> b) Entrar en pánico</label>
+                <label><input type="radio" name="q10" value="a"> a) Ocultar el problema a la comunidad</label>
+                <label><input type="radio" name="q10" value="b"> b) Mantener la calma, analizar la situación y fomentar el trabajo en equipo</label>
                 <label><input type="radio" name="q10" value="c"> c) Renunciar</label>
-                <label><input type="radio" name="q10" value="d"> d) Ocultar el problema a la comunidad</label>
+                <label><input type="radio" name="q10" value="d"> d) Entrar en pánico</label>
             </div>
         </div>
         
         <div class="question-block" id="q11" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">11. En base al manual: ¿Qué es la resolución de problemas en el ámbito administrativo escolar?</div>
             <div class="options">
-                <label><input type="radio" name="q11" value="a"> a) El proceso sistemático de identificar una dificultad y aplicar una solución eficaz</label>
-                <label><input type="radio" name="q11" value="b"> b) Delegar el trabajo a otra persona</label>
-                <label><input type="radio" name="q11" value="c"> c) Ignorar las quejas</label>
+                <label><input type="radio" name="q11" value="a"> a) Ignorar las quejas</label>
+                <label><input type="radio" name="q11" value="b"> b) El proceso sistemático de identificar una dificultad y aplicar una solución eficaz</label>
+                <label><input type="radio" name="q11" value="c"> c) Delegar el trabajo a otra persona</label>
                 <label><input type="radio" name="q11" value="d"> d) Escribir un reporte sin tomar acción</label>
             </div>
         </div>
@@ -315,9 +320,9 @@
         <div class="question-block" id="q12" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">12. En base al manual: El primer paso crítico para resolver un problema es:</div>
             <div class="options">
-                <label><input type="radio" name="q12" value="a"> a) Definir clara y objetivamente cuál es el problema real</label>
-                <label><input type="radio" name="q12" value="b"> b) Encontrar un culpable</label>
-                <label><input type="radio" name="q12" value="c"> c) Aplicar la primera solución que se ocurra</label>
+                <label><input type="radio" name="q12" value="a"> a) Encontrar un culpable</label>
+                <label><input type="radio" name="q12" value="b"> b) Aplicar la primera solución que se ocurra</label>
+                <label><input type="radio" name="q12" value="c"> c) Definir clara y objetivamente cuál es el problema real</label>
                 <label><input type="radio" name="q12" value="d"> d) Pedir más presupuesto</label>
             </div>
         </div>
@@ -325,20 +330,20 @@
         <div class="question-block" id="q13" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">13. En base al manual: La técnica de 'Lluvia de ideas' (Brainstorming) sirve para:</div>
             <div class="options">
-                <label><input type="radio" name="q13" value="a"> a) Generar múltiples opciones de solución sin juzgarlas inicialmente</label>
+                <label><input type="radio" name="q13" value="a"> a) Redactar memorándums</label>
                 <label><input type="radio" name="q13" value="b"> b) Discutir y pelear por una idea</label>
-                <label><input type="radio" name="q13" value="c"> c) Evaluar el rendimiento de los docentes</label>
-                <label><input type="radio" name="q13" value="d"> d) Redactar memorándums</label>
+                <label><input type="radio" name="q13" value="c"> c) Generar múltiples opciones de solución sin juzgarlas inicialmente</label>
+                <label><input type="radio" name="q13" value="d"> d) Evaluar el rendimiento de los docentes</label>
             </div>
         </div>
         
         <div class="question-block" id="q14" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">14. En base al manual: ¿Por qué es importante analizar las causas raíz de un problema?</div>
             <div class="options">
-                <label><input type="radio" name="q14" value="a"> a) Para evitar que el problema vuelva a ocurrir en el futuro</label>
-                <label><input type="radio" name="q14" value="b"> b) Para saber a quién despedir</label>
-                <label><input type="radio" name="q14" value="c"> c) Para alargar el tiempo de las reuniones</label>
-                <label><input type="radio" name="q14" value="d"> d) Porque lo exige el reglamento</label>
+                <label><input type="radio" name="q14" value="a"> a) Porque lo exige el reglamento</label>
+                <label><input type="radio" name="q14" value="b"> b) Para alargar el tiempo de las reuniones</label>
+                <label><input type="radio" name="q14" value="c"> c) Para evitar que el problema vuelva a ocurrir en el futuro</label>
+                <label><input type="radio" name="q14" value="d"> d) Para saber a quién despedir</label>
             </div>
         </div>
         
@@ -355,19 +360,19 @@
         <div class="question-block" id="q16" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">16. En base al manual: Una vez elegida una solución, el siguiente paso administrativo es:</div>
             <div class="options">
-                <label><input type="radio" name="q16" value="a"> a) Elaborar un plan de acción con responsables y tiempos definidos</label>
-                <label><input type="radio" name="q16" value="b"> b) Esperar a que la solución funcione sola</label>
-                <label><input type="radio" name="q16" value="c"> c) Archivar el caso</label>
-                <label><input type="radio" name="q16" value="d"> d) Cambiar de problema</label>
+                <label><input type="radio" name="q16" value="a"> a) Esperar a que la solución funcione sola</label>
+                <label><input type="radio" name="q16" value="b"> b) Archivar el caso</label>
+                <label><input type="radio" name="q16" value="c"> c) Cambiar de problema</label>
+                <label><input type="radio" name="q16" value="d"> d) Elaborar un plan de acción con responsables y tiempos definidos</label>
             </div>
         </div>
         
         <div class="question-block" id="q17" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">17. En base al manual: La evaluación y seguimiento de la solución implementada permite:</div>
             <div class="options">
-                <label><input type="radio" name="q17" value="a"> a) Verificar si la medida fue efectiva o si requiere ajustes</label>
+                <label><input type="radio" name="q17" value="a"> a) Culpar a los que fallaron</label>
                 <label><input type="radio" name="q17" value="b"> b) Perder el tiempo</label>
-                <label><input type="radio" name="q17" value="c"> c) Culpar a los que fallaron</label>
+                <label><input type="radio" name="q17" value="c"> c) Verificar si la medida fue efectiva o si requiere ajustes</label>
                 <label><input type="radio" name="q17" value="d"> d) Aumentar el sueldo de los involucrados</label>
             </div>
         </div>
@@ -375,19 +380,19 @@
         <div class="question-block" id="q18" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">18. En base al manual: En la toma de decisiones, un enfoque proactivo significa:</div>
             <div class="options">
-                <label><input type="radio" name="q18" value="a"> a) Anticiparse a los problemas y tomar medidas preventivas</label>
+                <label><input type="radio" name="q18" value="a"> a) Dejar que otros decidan</label>
                 <label><input type="radio" name="q18" value="b"> b) Actuar solo cuando hay una crisis</label>
-                <label><input type="radio" name="q18" value="c"> c) Dejar que otros decidan</label>
-                <label><input type="radio" name="q18" value="d"> d) Evitar cualquier riesgo</label>
+                <label><input type="radio" name="q18" value="c"> c) Evitar cualquier riesgo</label>
+                <label><input type="radio" name="q18" value="d"> d) Anticiparse a los problemas y tomar medidas preventivas</label>
             </div>
         </div>
         
         <div class="question-block" id="q19" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">19. En base al manual: La comunicación asertiva en la resolución de problemas implica:</div>
             <div class="options">
-                <label><input type="radio" name="q19" value="a"> a) Expresar ideas y necesidades de forma clara, directa y respetuosa</label>
+                <label><input type="radio" name="q19" value="a"> a) Quedarse callado para evitar discusiones</label>
                 <label><input type="radio" name="q19" value="b"> b) Gritar para imponer autoridad</label>
-                <label><input type="radio" name="q19" value="c"> c) Quedarse callado para evitar discusiones</label>
+                <label><input type="radio" name="q19" value="c"> c) Expresar ideas y necesidades de forma clara, directa y respetuosa</label>
                 <label><input type="radio" name="q19" value="d"> d) Hablar a espaldas de los colegas</label>
             </div>
         </div>
@@ -395,9 +400,9 @@
         <div class="question-block" id="q20" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">20. En base al manual: Un buen líder administrativo escolar frente a un problema debe:</div>
             <div class="options">
-                <label><input type="radio" name="q20" value="a"> a) Mantener la calma, analizar la situación y fomentar el trabajo en equipo</label>
-                <label><input type="radio" name="q20" value="b"> b) Entrar en pánico</label>
-                <label><input type="radio" name="q20" value="c"> c) Renunciar</label>
+                <label><input type="radio" name="q20" value="a"> a) Entrar en pánico</label>
+                <label><input type="radio" name="q20" value="b"> b) Renunciar</label>
+                <label><input type="radio" name="q20" value="c"> c) Mantener la calma, analizar la situación y fomentar el trabajo en equipo</label>
                 <label><input type="radio" name="q20" value="d"> d) Ocultar el problema a la comunidad</label>
             </div>
         </div>
@@ -406,19 +411,19 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">21. Desde la perspectiva institucional, ¿Qué es la resolución de problemas en el ámbito administrativo escolar?</div>
             <div class="options">
                 <label><input type="radio" name="q21" value="a"> a) El proceso sistemático de identificar una dificultad y aplicar una solución eficaz</label>
-                <label><input type="radio" name="q21" value="b"> b) Delegar el trabajo a otra persona</label>
+                <label><input type="radio" name="q21" value="b"> b) Escribir un reporte sin tomar acción</label>
                 <label><input type="radio" name="q21" value="c"> c) Ignorar las quejas</label>
-                <label><input type="radio" name="q21" value="d"> d) Escribir un reporte sin tomar acción</label>
+                <label><input type="radio" name="q21" value="d"> d) Delegar el trabajo a otra persona</label>
             </div>
         </div>
         
         <div class="question-block" id="q22" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">22. Desde la perspectiva institucional, El primer paso crítico para resolver un problema es:</div>
             <div class="options">
-                <label><input type="radio" name="q22" value="a"> a) Definir clara y objetivamente cuál es el problema real</label>
-                <label><input type="radio" name="q22" value="b"> b) Encontrar un culpable</label>
-                <label><input type="radio" name="q22" value="c"> c) Aplicar la primera solución que se ocurra</label>
-                <label><input type="radio" name="q22" value="d"> d) Pedir más presupuesto</label>
+                <label><input type="radio" name="q22" value="a"> a) Pedir más presupuesto</label>
+                <label><input type="radio" name="q22" value="b"> b) Aplicar la primera solución que se ocurra</label>
+                <label><input type="radio" name="q22" value="c"> c) Definir clara y objetivamente cuál es el problema real</label>
+                <label><input type="radio" name="q22" value="d"> d) Encontrar un culpable</label>
             </div>
         </div>
         
@@ -426,29 +431,29 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">23. Desde la perspectiva institucional, La técnica de 'Lluvia de ideas' (Brainstorming) sirve para:</div>
             <div class="options">
                 <label><input type="radio" name="q23" value="a"> a) Generar múltiples opciones de solución sin juzgarlas inicialmente</label>
-                <label><input type="radio" name="q23" value="b"> b) Discutir y pelear por una idea</label>
+                <label><input type="radio" name="q23" value="b"> b) Redactar memorándums</label>
                 <label><input type="radio" name="q23" value="c"> c) Evaluar el rendimiento de los docentes</label>
-                <label><input type="radio" name="q23" value="d"> d) Redactar memorándums</label>
+                <label><input type="radio" name="q23" value="d"> d) Discutir y pelear por una idea</label>
             </div>
         </div>
         
         <div class="question-block" id="q24" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">24. Desde la perspectiva institucional, ¿Por qué es importante analizar las causas raíz de un problema?</div>
             <div class="options">
-                <label><input type="radio" name="q24" value="a"> a) Para evitar que el problema vuelva a ocurrir en el futuro</label>
+                <label><input type="radio" name="q24" value="a"> a) Para alargar el tiempo de las reuniones</label>
                 <label><input type="radio" name="q24" value="b"> b) Para saber a quién despedir</label>
-                <label><input type="radio" name="q24" value="c"> c) Para alargar el tiempo de las reuniones</label>
-                <label><input type="radio" name="q24" value="d"> d) Porque lo exige el reglamento</label>
+                <label><input type="radio" name="q24" value="c"> c) Porque lo exige el reglamento</label>
+                <label><input type="radio" name="q24" value="d"> d) Para evitar que el problema vuelva a ocurrir en el futuro</label>
             </div>
         </div>
         
         <div class="question-block" id="q25" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">25. Desde la perspectiva institucional, El diagrama de Ishikawa (Causa-Efecto) se utiliza para:</div>
             <div class="options">
-                <label><input type="radio" name="q25" value="a"> a) Identificar y clasificar las causas posibles de un problema específico</label>
+                <label><input type="radio" name="q25" value="a"> a) Evaluar a los alumnos</label>
                 <label><input type="radio" name="q25" value="b"> b) Calcular el presupuesto</label>
-                <label><input type="radio" name="q25" value="c"> c) Hacer el horario de clases</label>
-                <label><input type="radio" name="q25" value="d"> d) Evaluar a los alumnos</label>
+                <label><input type="radio" name="q25" value="c"> c) Identificar y clasificar las causas posibles de un problema específico</label>
+                <label><input type="radio" name="q25" value="d"> d) Hacer el horario de clases</label>
             </div>
         </div>
         
@@ -465,19 +470,19 @@
         <div class="question-block" id="q27" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">27. Desde la perspectiva institucional, La evaluación y seguimiento de la solución implementada permite:</div>
             <div class="options">
-                <label><input type="radio" name="q27" value="a"> a) Verificar si la medida fue efectiva o si requiere ajustes</label>
-                <label><input type="radio" name="q27" value="b"> b) Perder el tiempo</label>
-                <label><input type="radio" name="q27" value="c"> c) Culpar a los que fallaron</label>
-                <label><input type="radio" name="q27" value="d"> d) Aumentar el sueldo de los involucrados</label>
+                <label><input type="radio" name="q27" value="a"> a) Perder el tiempo</label>
+                <label><input type="radio" name="q27" value="b"> b) Aumentar el sueldo de los involucrados</label>
+                <label><input type="radio" name="q27" value="c"> c) Verificar si la medida fue efectiva o si requiere ajustes</label>
+                <label><input type="radio" name="q27" value="d"> d) Culpar a los que fallaron</label>
             </div>
         </div>
         
         <div class="question-block" id="q28" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">28. Desde la perspectiva institucional, En la toma de decisiones, un enfoque proactivo significa:</div>
             <div class="options">
-                <label><input type="radio" name="q28" value="a"> a) Anticiparse a los problemas y tomar medidas preventivas</label>
+                <label><input type="radio" name="q28" value="a"> a) Dejar que otros decidan</label>
                 <label><input type="radio" name="q28" value="b"> b) Actuar solo cuando hay una crisis</label>
-                <label><input type="radio" name="q28" value="c"> c) Dejar que otros decidan</label>
+                <label><input type="radio" name="q28" value="c"> c) Anticiparse a los problemas y tomar medidas preventivas</label>
                 <label><input type="radio" name="q28" value="d"> d) Evitar cualquier riesgo</label>
             </div>
         </div>
@@ -485,19 +490,19 @@
         <div class="question-block" id="q29" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">29. Desde la perspectiva institucional, La comunicación asertiva en la resolución de problemas implica:</div>
             <div class="options">
-                <label><input type="radio" name="q29" value="a"> a) Expresar ideas y necesidades de forma clara, directa y respetuosa</label>
-                <label><input type="radio" name="q29" value="b"> b) Gritar para imponer autoridad</label>
-                <label><input type="radio" name="q29" value="c"> c) Quedarse callado para evitar discusiones</label>
-                <label><input type="radio" name="q29" value="d"> d) Hablar a espaldas de los colegas</label>
+                <label><input type="radio" name="q29" value="a"> a) Hablar a espaldas de los colegas</label>
+                <label><input type="radio" name="q29" value="b"> b) Quedarse callado para evitar discusiones</label>
+                <label><input type="radio" name="q29" value="c"> c) Expresar ideas y necesidades de forma clara, directa y respetuosa</label>
+                <label><input type="radio" name="q29" value="d"> d) Gritar para imponer autoridad</label>
             </div>
         </div>
         
         <div class="question-block" id="q30" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">30. Desde la perspectiva institucional, Un buen líder administrativo escolar frente a un problema debe:</div>
             <div class="options">
-                <label><input type="radio" name="q30" value="a"> a) Mantener la calma, analizar la situación y fomentar el trabajo en equipo</label>
-                <label><input type="radio" name="q30" value="b"> b) Entrar en pánico</label>
-                <label><input type="radio" name="q30" value="c"> c) Renunciar</label>
+                <label><input type="radio" name="q30" value="a"> a) Renunciar</label>
+                <label><input type="radio" name="q30" value="b"> b) Mantener la calma, analizar la situación y fomentar el trabajo en equipo</label>
+                <label><input type="radio" name="q30" value="c"> c) Entrar en pánico</label>
                 <label><input type="radio" name="q30" value="d"> d) Ocultar el problema a la comunidad</label>
             </div>
         </div>
@@ -505,30 +510,30 @@
         <div class="question-block" id="q31" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">31. Es fundamental considerar que: ¿Qué es la resolución de problemas en el ámbito administrativo escolar?</div>
             <div class="options">
-                <label><input type="radio" name="q31" value="a"> a) El proceso sistemático de identificar una dificultad y aplicar una solución eficaz</label>
-                <label><input type="radio" name="q31" value="b"> b) Delegar el trabajo a otra persona</label>
+                <label><input type="radio" name="q31" value="a"> a) Escribir un reporte sin tomar acción</label>
+                <label><input type="radio" name="q31" value="b"> b) El proceso sistemático de identificar una dificultad y aplicar una solución eficaz</label>
                 <label><input type="radio" name="q31" value="c"> c) Ignorar las quejas</label>
-                <label><input type="radio" name="q31" value="d"> d) Escribir un reporte sin tomar acción</label>
+                <label><input type="radio" name="q31" value="d"> d) Delegar el trabajo a otra persona</label>
             </div>
         </div>
         
         <div class="question-block" id="q32" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">32. Es fundamental considerar que: El primer paso crítico para resolver un problema es:</div>
             <div class="options">
-                <label><input type="radio" name="q32" value="a"> a) Definir clara y objetivamente cuál es el problema real</label>
-                <label><input type="radio" name="q32" value="b"> b) Encontrar un culpable</label>
-                <label><input type="radio" name="q32" value="c"> c) Aplicar la primera solución que se ocurra</label>
-                <label><input type="radio" name="q32" value="d"> d) Pedir más presupuesto</label>
+                <label><input type="radio" name="q32" value="a"> a) Aplicar la primera solución que se ocurra</label>
+                <label><input type="radio" name="q32" value="b"> b) Pedir más presupuesto</label>
+                <label><input type="radio" name="q32" value="c"> c) Encontrar un culpable</label>
+                <label><input type="radio" name="q32" value="d"> d) Definir clara y objetivamente cuál es el problema real</label>
             </div>
         </div>
         
         <div class="question-block" id="q33" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">33. Es fundamental considerar que: La técnica de 'Lluvia de ideas' (Brainstorming) sirve para:</div>
             <div class="options">
-                <label><input type="radio" name="q33" value="a"> a) Generar múltiples opciones de solución sin juzgarlas inicialmente</label>
-                <label><input type="radio" name="q33" value="b"> b) Discutir y pelear por una idea</label>
-                <label><input type="radio" name="q33" value="c"> c) Evaluar el rendimiento de los docentes</label>
-                <label><input type="radio" name="q33" value="d"> d) Redactar memorándums</label>
+                <label><input type="radio" name="q33" value="a"> a) Redactar memorándums</label>
+                <label><input type="radio" name="q33" value="b"> b) Generar múltiples opciones de solución sin juzgarlas inicialmente</label>
+                <label><input type="radio" name="q33" value="c"> c) Discutir y pelear por una idea</label>
+                <label><input type="radio" name="q33" value="d"> d) Evaluar el rendimiento de los docentes</label>
             </div>
         </div>
         
@@ -536,29 +541,29 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">34. Es fundamental considerar que: ¿Por qué es importante analizar las causas raíz de un problema?</div>
             <div class="options">
                 <label><input type="radio" name="q34" value="a"> a) Para evitar que el problema vuelva a ocurrir en el futuro</label>
-                <label><input type="radio" name="q34" value="b"> b) Para saber a quién despedir</label>
+                <label><input type="radio" name="q34" value="b"> b) Porque lo exige el reglamento</label>
                 <label><input type="radio" name="q34" value="c"> c) Para alargar el tiempo de las reuniones</label>
-                <label><input type="radio" name="q34" value="d"> d) Porque lo exige el reglamento</label>
+                <label><input type="radio" name="q34" value="d"> d) Para saber a quién despedir</label>
             </div>
         </div>
         
         <div class="question-block" id="q35" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">35. Es fundamental considerar que: El diagrama de Ishikawa (Causa-Efecto) se utiliza para:</div>
             <div class="options">
-                <label><input type="radio" name="q35" value="a"> a) Identificar y clasificar las causas posibles de un problema específico</label>
+                <label><input type="radio" name="q35" value="a"> a) Hacer el horario de clases</label>
                 <label><input type="radio" name="q35" value="b"> b) Calcular el presupuesto</label>
-                <label><input type="radio" name="q35" value="c"> c) Hacer el horario de clases</label>
-                <label><input type="radio" name="q35" value="d"> d) Evaluar a los alumnos</label>
+                <label><input type="radio" name="q35" value="c"> c) Evaluar a los alumnos</label>
+                <label><input type="radio" name="q35" value="d"> d) Identificar y clasificar las causas posibles de un problema específico</label>
             </div>
         </div>
         
         <div class="question-block" id="q36" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">36. Es fundamental considerar que: Una vez elegida una solución, el siguiente paso administrativo es:</div>
             <div class="options">
-                <label><input type="radio" name="q36" value="a"> a) Elaborar un plan de acción con responsables y tiempos definidos</label>
-                <label><input type="radio" name="q36" value="b"> b) Esperar a que la solución funcione sola</label>
+                <label><input type="radio" name="q36" value="a"> a) Esperar a que la solución funcione sola</label>
+                <label><input type="radio" name="q36" value="b"> b) Cambiar de problema</label>
                 <label><input type="radio" name="q36" value="c"> c) Archivar el caso</label>
-                <label><input type="radio" name="q36" value="d"> d) Cambiar de problema</label>
+                <label><input type="radio" name="q36" value="d"> d) Elaborar un plan de acción con responsables y tiempos definidos</label>
             </div>
         </div>
         
@@ -566,8 +571,8 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">37. Es fundamental considerar que: La evaluación y seguimiento de la solución implementada permite:</div>
             <div class="options">
                 <label><input type="radio" name="q37" value="a"> a) Verificar si la medida fue efectiva o si requiere ajustes</label>
-                <label><input type="radio" name="q37" value="b"> b) Perder el tiempo</label>
-                <label><input type="radio" name="q37" value="c"> c) Culpar a los que fallaron</label>
+                <label><input type="radio" name="q37" value="b"> b) Culpar a los que fallaron</label>
+                <label><input type="radio" name="q37" value="c"> c) Perder el tiempo</label>
                 <label><input type="radio" name="q37" value="d"> d) Aumentar el sueldo de los involucrados</label>
             </div>
         </div>
@@ -575,29 +580,29 @@
         <div class="question-block" id="q38" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">38. Es fundamental considerar que: En la toma de decisiones, un enfoque proactivo significa:</div>
             <div class="options">
-                <label><input type="radio" name="q38" value="a"> a) Anticiparse a los problemas y tomar medidas preventivas</label>
-                <label><input type="radio" name="q38" value="b"> b) Actuar solo cuando hay una crisis</label>
-                <label><input type="radio" name="q38" value="c"> c) Dejar que otros decidan</label>
-                <label><input type="radio" name="q38" value="d"> d) Evitar cualquier riesgo</label>
+                <label><input type="radio" name="q38" value="a"> a) Actuar solo cuando hay una crisis</label>
+                <label><input type="radio" name="q38" value="b"> b) Evitar cualquier riesgo</label>
+                <label><input type="radio" name="q38" value="c"> c) Anticiparse a los problemas y tomar medidas preventivas</label>
+                <label><input type="radio" name="q38" value="d"> d) Dejar que otros decidan</label>
             </div>
         </div>
         
         <div class="question-block" id="q39" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">39. Es fundamental considerar que: La comunicación asertiva en la resolución de problemas implica:</div>
             <div class="options">
-                <label><input type="radio" name="q39" value="a"> a) Expresar ideas y necesidades de forma clara, directa y respetuosa</label>
-                <label><input type="radio" name="q39" value="b"> b) Gritar para imponer autoridad</label>
-                <label><input type="radio" name="q39" value="c"> c) Quedarse callado para evitar discusiones</label>
-                <label><input type="radio" name="q39" value="d"> d) Hablar a espaldas de los colegas</label>
+                <label><input type="radio" name="q39" value="a"> a) Gritar para imponer autoridad</label>
+                <label><input type="radio" name="q39" value="b"> b) Quedarse callado para evitar discusiones</label>
+                <label><input type="radio" name="q39" value="c"> c) Hablar a espaldas de los colegas</label>
+                <label><input type="radio" name="q39" value="d"> d) Expresar ideas y necesidades de forma clara, directa y respetuosa</label>
             </div>
         </div>
         
         <div class="question-block" id="q40" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">40. Es fundamental considerar que: Un buen líder administrativo escolar frente a un problema debe:</div>
             <div class="options">
-                <label><input type="radio" name="q40" value="a"> a) Mantener la calma, analizar la situación y fomentar el trabajo en equipo</label>
-                <label><input type="radio" name="q40" value="b"> b) Entrar en pánico</label>
-                <label><input type="radio" name="q40" value="c"> c) Renunciar</label>
+                <label><input type="radio" name="q40" value="a"> a) Renunciar</label>
+                <label><input type="radio" name="q40" value="b"> b) Mantener la calma, analizar la situación y fomentar el trabajo en equipo</label>
+                <label><input type="radio" name="q40" value="c"> c) Entrar en pánico</label>
                 <label><input type="radio" name="q40" value="d"> d) Ocultar el problema a la comunidad</label>
             </div>
         </div>
@@ -605,9 +610,9 @@
         <div class="question-block" id="q41" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">41. Según los lineamientos: ¿Qué es la resolución de problemas en el ámbito administrativo escolar?</div>
             <div class="options">
-                <label><input type="radio" name="q41" value="a"> a) El proceso sistemático de identificar una dificultad y aplicar una solución eficaz</label>
-                <label><input type="radio" name="q41" value="b"> b) Delegar el trabajo a otra persona</label>
-                <label><input type="radio" name="q41" value="c"> c) Ignorar las quejas</label>
+                <label><input type="radio" name="q41" value="a"> a) Delegar el trabajo a otra persona</label>
+                <label><input type="radio" name="q41" value="b"> b) Ignorar las quejas</label>
+                <label><input type="radio" name="q41" value="c"> c) El proceso sistemático de identificar una dificultad y aplicar una solución eficaz</label>
                 <label><input type="radio" name="q41" value="d"> d) Escribir un reporte sin tomar acción</label>
             </div>
         </div>
@@ -615,10 +620,10 @@
         <div class="question-block" id="q42" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">42. Según los lineamientos: El primer paso crítico para resolver un problema es:</div>
             <div class="options">
-                <label><input type="radio" name="q42" value="a"> a) Definir clara y objetivamente cuál es el problema real</label>
-                <label><input type="radio" name="q42" value="b"> b) Encontrar un culpable</label>
+                <label><input type="radio" name="q42" value="a"> a) Encontrar un culpable</label>
+                <label><input type="radio" name="q42" value="b"> b) Pedir más presupuesto</label>
                 <label><input type="radio" name="q42" value="c"> c) Aplicar la primera solución que se ocurra</label>
-                <label><input type="radio" name="q42" value="d"> d) Pedir más presupuesto</label>
+                <label><input type="radio" name="q42" value="d"> d) Definir clara y objetivamente cuál es el problema real</label>
             </div>
         </div>
         
@@ -627,38 +632,38 @@
             <div class="options">
                 <label><input type="radio" name="q43" value="a"> a) Generar múltiples opciones de solución sin juzgarlas inicialmente</label>
                 <label><input type="radio" name="q43" value="b"> b) Discutir y pelear por una idea</label>
-                <label><input type="radio" name="q43" value="c"> c) Evaluar el rendimiento de los docentes</label>
-                <label><input type="radio" name="q43" value="d"> d) Redactar memorándums</label>
+                <label><input type="radio" name="q43" value="c"> c) Redactar memorándums</label>
+                <label><input type="radio" name="q43" value="d"> d) Evaluar el rendimiento de los docentes</label>
             </div>
         </div>
         
         <div class="question-block" id="q44" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">44. Según los lineamientos: ¿Por qué es importante analizar las causas raíz de un problema?</div>
             <div class="options">
-                <label><input type="radio" name="q44" value="a"> a) Para evitar que el problema vuelva a ocurrir en el futuro</label>
-                <label><input type="radio" name="q44" value="b"> b) Para saber a quién despedir</label>
-                <label><input type="radio" name="q44" value="c"> c) Para alargar el tiempo de las reuniones</label>
-                <label><input type="radio" name="q44" value="d"> d) Porque lo exige el reglamento</label>
+                <label><input type="radio" name="q44" value="a"> a) Porque lo exige el reglamento</label>
+                <label><input type="radio" name="q44" value="b"> b) Para alargar el tiempo de las reuniones</label>
+                <label><input type="radio" name="q44" value="c"> c) Para evitar que el problema vuelva a ocurrir en el futuro</label>
+                <label><input type="radio" name="q44" value="d"> d) Para saber a quién despedir</label>
             </div>
         </div>
         
         <div class="question-block" id="q45" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">45. Según los lineamientos: El diagrama de Ishikawa (Causa-Efecto) se utiliza para:</div>
             <div class="options">
-                <label><input type="radio" name="q45" value="a"> a) Identificar y clasificar las causas posibles de un problema específico</label>
-                <label><input type="radio" name="q45" value="b"> b) Calcular el presupuesto</label>
-                <label><input type="radio" name="q45" value="c"> c) Hacer el horario de clases</label>
-                <label><input type="radio" name="q45" value="d"> d) Evaluar a los alumnos</label>
+                <label><input type="radio" name="q45" value="a"> a) Evaluar a los alumnos</label>
+                <label><input type="radio" name="q45" value="b"> b) Hacer el horario de clases</label>
+                <label><input type="radio" name="q45" value="c"> c) Calcular el presupuesto</label>
+                <label><input type="radio" name="q45" value="d"> d) Identificar y clasificar las causas posibles de un problema específico</label>
             </div>
         </div>
         
         <div class="question-block" id="q46" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">46. Según los lineamientos: Una vez elegida una solución, el siguiente paso administrativo es:</div>
             <div class="options">
-                <label><input type="radio" name="q46" value="a"> a) Elaborar un plan de acción con responsables y tiempos definidos</label>
-                <label><input type="radio" name="q46" value="b"> b) Esperar a que la solución funcione sola</label>
-                <label><input type="radio" name="q46" value="c"> c) Archivar el caso</label>
-                <label><input type="radio" name="q46" value="d"> d) Cambiar de problema</label>
+                <label><input type="radio" name="q46" value="a"> a) Esperar a que la solución funcione sola</label>
+                <label><input type="radio" name="q46" value="b"> b) Archivar el caso</label>
+                <label><input type="radio" name="q46" value="c"> c) Cambiar de problema</label>
+                <label><input type="radio" name="q46" value="d"> d) Elaborar un plan de acción con responsables y tiempos definidos</label>
             </div>
         </div>
         
@@ -666,39 +671,39 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">47. Según los lineamientos: La evaluación y seguimiento de la solución implementada permite:</div>
             <div class="options">
                 <label><input type="radio" name="q47" value="a"> a) Verificar si la medida fue efectiva o si requiere ajustes</label>
-                <label><input type="radio" name="q47" value="b"> b) Perder el tiempo</label>
+                <label><input type="radio" name="q47" value="b"> b) Aumentar el sueldo de los involucrados</label>
                 <label><input type="radio" name="q47" value="c"> c) Culpar a los que fallaron</label>
-                <label><input type="radio" name="q47" value="d"> d) Aumentar el sueldo de los involucrados</label>
+                <label><input type="radio" name="q47" value="d"> d) Perder el tiempo</label>
             </div>
         </div>
         
         <div class="question-block" id="q48" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">48. Según los lineamientos: En la toma de decisiones, un enfoque proactivo significa:</div>
             <div class="options">
-                <label><input type="radio" name="q48" value="a"> a) Anticiparse a los problemas y tomar medidas preventivas</label>
-                <label><input type="radio" name="q48" value="b"> b) Actuar solo cuando hay una crisis</label>
-                <label><input type="radio" name="q48" value="c"> c) Dejar que otros decidan</label>
-                <label><input type="radio" name="q48" value="d"> d) Evitar cualquier riesgo</label>
+                <label><input type="radio" name="q48" value="a"> a) Actuar solo cuando hay una crisis</label>
+                <label><input type="radio" name="q48" value="b"> b) Dejar que otros decidan</label>
+                <label><input type="radio" name="q48" value="c"> c) Evitar cualquier riesgo</label>
+                <label><input type="radio" name="q48" value="d"> d) Anticiparse a los problemas y tomar medidas preventivas</label>
             </div>
         </div>
         
         <div class="question-block" id="q49" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">49. Según los lineamientos: La comunicación asertiva en la resolución de problemas implica:</div>
             <div class="options">
-                <label><input type="radio" name="q49" value="a"> a) Expresar ideas y necesidades de forma clara, directa y respetuosa</label>
-                <label><input type="radio" name="q49" value="b"> b) Gritar para imponer autoridad</label>
-                <label><input type="radio" name="q49" value="c"> c) Quedarse callado para evitar discusiones</label>
-                <label><input type="radio" name="q49" value="d"> d) Hablar a espaldas de los colegas</label>
+                <label><input type="radio" name="q49" value="a"> a) Quedarse callado para evitar discusiones</label>
+                <label><input type="radio" name="q49" value="b"> b) Expresar ideas y necesidades de forma clara, directa y respetuosa</label>
+                <label><input type="radio" name="q49" value="c"> c) Hablar a espaldas de los colegas</label>
+                <label><input type="radio" name="q49" value="d"> d) Gritar para imponer autoridad</label>
             </div>
         </div>
         
         <div class="question-block" id="q50" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">50. Según los lineamientos: Un buen líder administrativo escolar frente a un problema debe:</div>
             <div class="options">
-                <label><input type="radio" name="q50" value="a"> a) Mantener la calma, analizar la situación y fomentar el trabajo en equipo</label>
+                <label><input type="radio" name="q50" value="a"> a) Renunciar</label>
                 <label><input type="radio" name="q50" value="b"> b) Entrar en pánico</label>
-                <label><input type="radio" name="q50" value="c"> c) Renunciar</label>
-                <label><input type="radio" name="q50" value="d"> d) Ocultar el problema a la comunidad</label>
+                <label><input type="radio" name="q50" value="c"> c) Ocultar el problema a la comunidad</label>
+                <label><input type="radio" name="q50" value="d"> d) Mantener la calma, analizar la situación y fomentar el trabajo en equipo</label>
             </div>
         </div>
         
@@ -729,56 +734,56 @@
     
     <script>
         const correctAnswers = {
-            "q1": "a",
-        "q2": "a",
-        "q3": "a",
-        "q4": "a",
-        "q5": "a",
-        "q6": "a",
-        "q7": "a",
-        "q8": "a",
-        "q9": "a",
-        "q10": "a",
-        "q11": "a",
-        "q12": "a",
-        "q13": "a",
-        "q14": "a",
+            "q1": "c",
+        "q2": "b",
+        "q3": "b",
+        "q4": "c",
+        "q5": "b",
+        "q6": "c",
+        "q7": "c",
+        "q8": "d",
+        "q9": "c",
+        "q10": "b",
+        "q11": "b",
+        "q12": "c",
+        "q13": "c",
+        "q14": "c",
         "q15": "a",
-        "q16": "a",
-        "q17": "a",
-        "q18": "a",
-        "q19": "a",
-        "q20": "a",
+        "q16": "d",
+        "q17": "c",
+        "q18": "d",
+        "q19": "c",
+        "q20": "c",
         "q21": "a",
-        "q22": "a",
+        "q22": "c",
         "q23": "a",
-        "q24": "a",
-        "q25": "a",
+        "q24": "d",
+        "q25": "c",
         "q26": "a",
-        "q27": "a",
-        "q28": "a",
-        "q29": "a",
-        "q30": "a",
-        "q31": "a",
-        "q32": "a",
-        "q33": "a",
+        "q27": "c",
+        "q28": "c",
+        "q29": "c",
+        "q30": "b",
+        "q31": "b",
+        "q32": "d",
+        "q33": "b",
         "q34": "a",
-        "q35": "a",
-        "q36": "a",
+        "q35": "d",
+        "q36": "d",
         "q37": "a",
-        "q38": "a",
-        "q39": "a",
-        "q40": "a",
-        "q41": "a",
-        "q42": "a",
+        "q38": "c",
+        "q39": "d",
+        "q40": "b",
+        "q41": "c",
+        "q42": "d",
         "q43": "a",
-        "q44": "a",
-        "q45": "a",
-        "q46": "a",
+        "q44": "c",
+        "q45": "d",
+        "q46": "d",
         "q47": "a",
-        "q48": "a",
-        "q49": "a",
-        "q50": "a"
+        "q48": "d",
+        "q49": "b",
+        "q50": "d"
         };
     </script>
     <script src="../preguntas.js"></script>

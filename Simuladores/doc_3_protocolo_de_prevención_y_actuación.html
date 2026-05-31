@@ -29,6 +29,9 @@
             .nav-links { display: none !important; }
             .nav-links.show-mobile { display: flex !important; flex-direction: column !important; }
             .dropdown { flex: none !important; width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
+            .dropdown-content { position: relative !important; min-width: 100% !important; box-shadow: inset 0 2px 5px rgba(0,0,0,0.2) !important; border-radius: 0 !important; background: #2e7d32 !important; border: none !important; }
+            .dropdown-content a { color: white !important; border-bottom: 1px solid rgba(255,255,255,0.1) !important; padding: 10px 15px !important; font-size: 0.95rem !important; }
+            .dropdown-content a:hover { background: #1b5e20 !important; }
             .hero-title { font-size: 1.8rem !important; }
             .hero-subtitle { font-size: 1rem !important; }
             .header-title { font-size: 1.1rem !important; }
@@ -38,8 +41,10 @@
         }
         @media (max-width: 768px) {
             /* Ajustes para tarjetas flash */
-            #flashcard-box { padding: 25px 15px !important; min-height: 200px !important; }
-            #card-text { font-size: 1.1rem !important; line-height: 1.4 !important; }
+            #flashcard-box { padding: 15px 10px !important; min-height: 150px !important; }
+            #card-text { font-size: 1.05rem !important; line-height: 1.3 !important; }
+            #flash-buttons { gap: 5px !important; margin-top: 15px !important; }
+            #flash-buttons button { padding: 10px 5px !important; font-size: 0.85rem !important; flex: 1 !important; }
             
             /* Ajustes para audiolibros y contenedores principales */
             div[style*="padding: 40px;"] { padding: 15px !important; }
@@ -89,7 +94,7 @@
     
     <nav class="navbar" id="navbar" style="background: #1b5e20; padding: 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 9999;">
         <div class="nav-container" style="width: 100%; max-width: 1200px; margin: 0 auto;">
-            <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('show-mobile')">☰ Menú Principal</button>
+            <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('show-mobile')">Menú Principal ☰</button>
             <div class="nav-links" id="navLinks" style="display: flex; justify-content: center; width: 100%;">
 
             <div class="dropdown" style="flex: 1; text-align: center;">
@@ -205,18 +210,18 @@
         <div class="question-block" id="q1" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">1. ¿Mediante qué Decreto Supremo fue aprobado el Reglamento del Escalafón Nacional del Servicio de Educación?</div>
             <div class="options">
-                <label><input type="radio" name="q1" value="a"> a) D.S. N° 04688</label>
-                <label><input type="radio" name="q1" value="b"> b) D.S. N° 004</label>
-                <label><input type="radio" name="q1" value="c"> c) D.S. N° 1302</label>
-                <label><input type="radio" name="q1" value="d"> d) D.S. N° 813</label>
+                <label><input type="radio" name="q1" value="a"> a) D.S. N° 1302</label>
+                <label><input type="radio" name="q1" value="b"> b) D.S. N° 813</label>
+                <label><input type="radio" name="q1" value="c"> c) D.S. N° 04688</label>
+                <label><input type="radio" name="q1" value="d"> d) D.S. N° 004</label>
             </div>
         </div>
         
         <div class="question-block" id="q2" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">2. ¿En qué fecha se promulgó el Decreto Supremo N° 04688 que aprueba el Escalafón?</div>
             <div class="options">
-                <label><input type="radio" name="q2" value="a"> a) 18 de julio de 1957</label>
-                <label><input type="radio" name="q2" value="b"> b) 6 de agosto de 1957</label>
+                <label><input type="radio" name="q2" value="a"> a) 6 de agosto de 1957</label>
+                <label><input type="radio" name="q2" value="b"> b) 18 de julio de 1957</label>
                 <label><input type="radio" name="q2" value="c"> c) 15 de julio de 1960</label>
                 <label><input type="radio" name="q2" value="d"> d) 20 de octubre de 1956</label>
             </div>
@@ -225,39 +230,39 @@
         <div class="question-block" id="q3" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">3. ¿Cuál es una de las finalidades principales del Escalafón del Magisterio?</div>
             <div class="options">
-                <label><input type="radio" name="q3" value="a"> a) Garantizar la estabilidad laboral de los maestros</label>
+                <label><input type="radio" name="q3" value="a"> a) Cobrar pensiones</label>
                 <label><input type="radio" name="q3" value="b"> b) Privatizar la educación</label>
                 <label><input type="radio" name="q3" value="c"> c) Reducir salarios</label>
-                <label><input type="radio" name="q3" value="d"> d) Cobrar pensiones</label>
+                <label><input type="radio" name="q3" value="d"> d) Garantizar la estabilidad laboral de los maestros</label>
             </div>
         </div>
         
         <div class="question-block" id="q4" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">4. ¿Qué es el Escalafón según el reglamento?</div>
             <div class="options">
-                <label><input type="radio" name="q4" value="a"> a) El registro sistemático y centralizado de los datos personales y profesionales</label>
-                <label><input type="radio" name="q4" value="b"> b) Un bono económico anual</label>
-                <label><input type="radio" name="q4" value="c"> c) Una sanción administrativa</label>
-                <label><input type="radio" name="q4" value="d"> d) Un examen de ingreso</label>
+                <label><input type="radio" name="q4" value="a"> a) Un bono económico anual</label>
+                <label><input type="radio" name="q4" value="b"> b) Una sanción administrativa</label>
+                <label><input type="radio" name="q4" value="c"> c) Un examen de ingreso</label>
+                <label><input type="radio" name="q4" value="d"> d) El registro sistemático y centralizado de los datos personales y profesionales</label>
             </div>
         </div>
         
         <div class="question-block" id="q5" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">5. ¿Quiénes están sujetos a las disposiciones del Reglamento del Escalafón?</div>
             <div class="options">
-                <label><input type="radio" name="q5" value="a"> a) El personal docente y administrativo del servicio de educación</label>
+                <label><input type="radio" name="q5" value="a"> a) Exclusivamente estudiantes</label>
                 <label><input type="radio" name="q5" value="b"> b) Solo los directores</label>
-                <label><input type="radio" name="q5" value="c"> c) Solo el personal de colegios privados</label>
-                <label><input type="radio" name="q5" value="d"> d) Exclusivamente estudiantes</label>
+                <label><input type="radio" name="q5" value="c"> c) El personal docente y administrativo del servicio de educación</label>
+                <label><input type="radio" name="q5" value="d"> d) Solo el personal de colegios privados</label>
             </div>
         </div>
         
         <div class="question-block" id="q6" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">6. ¿Cómo se clasifica el personal en el Servicio de Educación?</div>
             <div class="options">
-                <label><input type="radio" name="q6" value="a"> a) Docente y Administrativo</label>
+                <label><input type="radio" name="q6" value="a"> a) Urbano y Rural</label>
                 <label><input type="radio" name="q6" value="b"> b) Público y Privado</label>
-                <label><input type="radio" name="q6" value="c"> c) Urbano y Rural</label>
+                <label><input type="radio" name="q6" value="c"> c) Docente y Administrativo</label>
                 <label><input type="radio" name="q6" value="d"> d) Regular y Alternativo</label>
             </div>
         </div>
@@ -266,9 +271,9 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">7. ¿Qué se requiere indispensablemente para ingresar al servicio docente?</div>
             <div class="options">
                 <label><input type="radio" name="q7" value="a"> a) Poseer título de Maestro Normalista</label>
-                <label><input type="radio" name="q7" value="b"> b) Ser mayor de 30 años</label>
-                <label><input type="radio" name="q7" value="c"> c) Tener recomendación política</label>
-                <label><input type="radio" name="q7" value="d"> d) Vivir en zona rural</label>
+                <label><input type="radio" name="q7" value="b"> b) Vivir en zona rural</label>
+                <label><input type="radio" name="q7" value="c"> c) Ser mayor de 30 años</label>
+                <label><input type="radio" name="q7" value="d"> d) Tener recomendación política</label>
             </div>
         </div>
         
@@ -276,18 +281,18 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">8. ¿A qué categoría ingresa un maestro normalista recién egresado?</div>
             <div class="options">
                 <label><input type="radio" name="q8" value="a"> a) Quinta Categoría</label>
-                <label><input type="radio" name="q8" value="b"> b) Categoría Cero</label>
-                <label><input type="radio" name="q8" value="c"> c) Cuarta Categoría</label>
-                <label><input type="radio" name="q8" value="d"> d) Tercera Categoría</label>
+                <label><input type="radio" name="q8" value="b"> b) Cuarta Categoría</label>
+                <label><input type="radio" name="q8" value="c"> c) Tercera Categoría</label>
+                <label><input type="radio" name="q8" value="d"> d) Categoría Cero</label>
             </div>
         </div>
         
         <div class="question-block" id="q9" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">9. ¿Qué porcentaje de bonificación corresponde a la Categoría Mérito?</div>
             <div class="options">
-                <label><input type="radio" name="q9" value="a"> a) 100%</label>
+                <label><input type="radio" name="q9" value="a"> a) 50%</label>
                 <label><input type="radio" name="q9" value="b"> b) 150%</label>
-                <label><input type="radio" name="q9" value="c"> c) 50%</label>
+                <label><input type="radio" name="q9" value="c"> c) 100%</label>
                 <label><input type="radio" name="q9" value="d"> d) 75%</label>
             </div>
         </div>
@@ -295,30 +300,30 @@
         <div class="question-block" id="q10" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">10. ¿Cuál es el requisito de tiempo de servicio para ascender a la Categoría Cero?</div>
             <div class="options">
-                <label><input type="radio" name="q10" value="a"> a) 25 años (5 por cada de las 5 categorías previas)</label>
+                <label><input type="radio" name="q10" value="a"> a) 15 años</label>
                 <label><input type="radio" name="q10" value="b"> b) 10 años</label>
-                <label><input type="radio" name="q10" value="c"> c) 30 años</label>
-                <label><input type="radio" name="q10" value="d"> d) 15 años</label>
+                <label><input type="radio" name="q10" value="c"> c) 25 años (5 por cada de las 5 categorías previas)</label>
+                <label><input type="radio" name="q10" value="d"> d) 30 años</label>
             </div>
         </div>
         
         <div class="question-block" id="q11" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">11. ¿Qué porcentaje de bonificación tiene la Categoría Cero?</div>
             <div class="options">
-                <label><input type="radio" name="q11" value="a"> a) 100%</label>
-                <label><input type="radio" name="q11" value="b"> b) 80%</label>
-                <label><input type="radio" name="q11" value="c"> c) 120%</label>
-                <label><input type="radio" name="q11" value="d"> d) 150%</label>
+                <label><input type="radio" name="q11" value="a"> a) 120%</label>
+                <label><input type="radio" name="q11" value="b"> b) 150%</label>
+                <label><input type="radio" name="q11" value="c"> c) 80%</label>
+                <label><input type="radio" name="q11" value="d"> d) 100%</label>
             </div>
         </div>
         
         <div class="question-block" id="q12" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">12. ¿Cuántos años de servicio mínimo se requieren para ascender a la siguiente jerarquía o categoría (por tiempo de servicio sin examen)?</div>
             <div class="options">
-                <label><input type="radio" name="q12" value="a"> a) 5 años</label>
-                <label><input type="radio" name="q12" value="b"> b) 4 años</label>
-                <label><input type="radio" name="q12" value="c"> c) 3 años</label>
-                <label><input type="radio" name="q12" value="d"> d) 10 años</label>
+                <label><input type="radio" name="q12" value="a"> a) 3 años</label>
+                <label><input type="radio" name="q12" value="b"> b) 10 años</label>
+                <label><input type="radio" name="q12" value="c"> c) 4 años</label>
+                <label><input type="radio" name="q12" value="d"> d) 5 años</label>
             </div>
         </div>
         
@@ -326,19 +331,19 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">13. ¿Qué documento acredita los méritos y servicios del docente para fines de calificación?</div>
             <div class="options">
                 <label><input type="radio" name="q13" value="a"> a) El libro de calificación o kardex</label>
-                <label><input type="radio" name="q13" value="b"> b) La cédula de identidad</label>
-                <label><input type="radio" name="q13" value="c"> c) El título en provisión nacional</label>
-                <label><input type="radio" name="q13" value="d"> d) El certificado de nacimiento</label>
+                <label><input type="radio" name="q13" value="b"> b) El título en provisión nacional</label>
+                <label><input type="radio" name="q13" value="c"> c) El certificado de nacimiento</label>
+                <label><input type="radio" name="q13" value="d"> d) La cédula de identidad</label>
             </div>
         </div>
         
         <div class="question-block" id="q14" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">14. ¿Cuántas categorías abarca la jerarquía del Escalafón Docente?</div>
             <div class="options">
-                <label><input type="radio" name="q14" value="a"> a) Siete (5ta a Mérito)</label>
-                <label><input type="radio" name="q14" value="b"> b) Cinco</label>
-                <label><input type="radio" name="q14" value="c"> c) Diez</label>
-                <label><input type="radio" name="q14" value="d"> d) Tres</label>
+                <label><input type="radio" name="q14" value="a"> a) Diez</label>
+                <label><input type="radio" name="q14" value="b"> b) Tres</label>
+                <label><input type="radio" name="q14" value="c"> c) Siete (5ta a Mérito)</label>
+                <label><input type="radio" name="q14" value="d"> d) Cinco</label>
             </div>
         </div>
         
@@ -346,69 +351,69 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">15. ¿Qué función corresponde a la máxima jerarquía docente?</div>
             <div class="options">
                 <label><input type="radio" name="q15" value="a"> a) Director General de Educación</label>
-                <label><input type="radio" name="q15" value="b"> b) Profesor de Aula</label>
-                <label><input type="radio" name="q15" value="c"> c) Portero</label>
-                <label><input type="radio" name="q15" value="d"> d) Secretario</label>
+                <label><input type="radio" name="q15" value="b"> b) Secretario</label>
+                <label><input type="radio" name="q15" value="c"> c) Profesor de Aula</label>
+                <label><input type="radio" name="q15" value="d"> d) Portero</label>
             </div>
         </div>
         
         <div class="question-block" id="q16" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">16. ¿Cuál de las siguientes es una falta muy grave según el reglamento conexo?</div>
             <div class="options">
-                <label><input type="radio" name="q16" value="a"> a) Acoso sexual o maltrato físico a estudiantes</label>
-                <label><input type="radio" name="q16" value="b"> b) Llegar tarde 5 minutos</label>
-                <label><input type="radio" name="q16" value="c"> c) Olvidar el registro de asistencia</label>
-                <label><input type="radio" name="q16" value="d"> d) No usar uniforme</label>
+                <label><input type="radio" name="q16" value="a"> a) Olvidar el registro de asistencia</label>
+                <label><input type="radio" name="q16" value="b"> b) No usar uniforme</label>
+                <label><input type="radio" name="q16" value="c"> c) Acoso sexual o maltrato físico a estudiantes</label>
+                <label><input type="radio" name="q16" value="d"> d) Llegar tarde 5 minutos</label>
             </div>
         </div>
         
         <div class="question-block" id="q17" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">17. ¿Qué institución elabora las listas de ascenso de categoría?</div>
             <div class="options">
-                <label><input type="radio" name="q17" value="a"> a) El Ministerio de Educación a través de la Dirección respectiva</label>
-                <label><input type="radio" name="q17" value="b"> b) Los sindicatos</label>
-                <label><input type="radio" name="q17" value="c"> c) Las alcaldías</label>
-                <label><input type="radio" name="q17" value="d"> d) Las direcciones de unidades educativas</label>
+                <label><input type="radio" name="q17" value="a"> a) Las direcciones de unidades educativas</label>
+                <label><input type="radio" name="q17" value="b"> b) El Ministerio de Educación a través de la Dirección respectiva</label>
+                <label><input type="radio" name="q17" value="c"> c) Los sindicatos</label>
+                <label><input type="radio" name="q17" value="d"> d) Las alcaldías</label>
             </div>
         </div>
         
         <div class="question-block" id="q18" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">18. ¿Qué bonificación corresponde a la Primera Categoría?</div>
             <div class="options">
-                <label><input type="radio" name="q18" value="a"> a) 75%</label>
-                <label><input type="radio" name="q18" value="b"> b) 60%</label>
-                <label><input type="radio" name="q18" value="c"> c) 45%</label>
-                <label><input type="radio" name="q18" value="d"> d) 100%</label>
+                <label><input type="radio" name="q18" value="a"> a) 60%</label>
+                <label><input type="radio" name="q18" value="b"> b) 100%</label>
+                <label><input type="radio" name="q18" value="c"> c) 75%</label>
+                <label><input type="radio" name="q18" value="d"> d) 45%</label>
             </div>
         </div>
         
         <div class="question-block" id="q19" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">19. ¿Qué bonificación corresponde a la Segunda Categoría?</div>
             <div class="options">
-                <label><input type="radio" name="q19" value="a"> a) 60%</label>
-                <label><input type="radio" name="q19" value="b"> b) 75%</label>
-                <label><input type="radio" name="q19" value="c"> c) 45%</label>
-                <label><input type="radio" name="q19" value="d"> d) 30%</label>
+                <label><input type="radio" name="q19" value="a"> a) 30%</label>
+                <label><input type="radio" name="q19" value="b"> b) 45%</label>
+                <label><input type="radio" name="q19" value="c"> c) 60%</label>
+                <label><input type="radio" name="q19" value="d"> d) 75%</label>
             </div>
         </div>
         
         <div class="question-block" id="q20" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">20. ¿Qué bonificación corresponde a la Tercera Categoría?</div>
             <div class="options">
-                <label><input type="radio" name="q20" value="a"> a) 45%</label>
-                <label><input type="radio" name="q20" value="b"> b) 30%</label>
-                <label><input type="radio" name="q20" value="c"> c) 60%</label>
-                <label><input type="radio" name="q20" value="d"> d) 15%</label>
+                <label><input type="radio" name="q20" value="a"> a) 15%</label>
+                <label><input type="radio" name="q20" value="b"> b) 60%</label>
+                <label><input type="radio" name="q20" value="c"> c) 45%</label>
+                <label><input type="radio" name="q20" value="d"> d) 30%</label>
             </div>
         </div>
         
         <div class="question-block" id="q21" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">21. ¿Qué bonificación corresponde a la Cuarta Categoría?</div>
             <div class="options">
-                <label><input type="radio" name="q21" value="a"> a) 30%</label>
+                <label><input type="radio" name="q21" value="a"> a) 60%</label>
                 <label><input type="radio" name="q21" value="b"> b) 15%</label>
                 <label><input type="radio" name="q21" value="c"> c) 45%</label>
-                <label><input type="radio" name="q21" value="d"> d) 60%</label>
+                <label><input type="radio" name="q21" value="d"> d) 30%</label>
             </div>
         </div>
         
@@ -416,17 +421,17 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">22. ¿Qué bonificación corresponde a la Quinta Categoría?</div>
             <div class="options">
                 <label><input type="radio" name="q22" value="a"> a) 0% al ingresar, y luego 15% según el caso general</label>
-                <label><input type="radio" name="q22" value="b"> b) 30%</label>
+                <label><input type="radio" name="q22" value="b"> b) 100%</label>
                 <label><input type="radio" name="q22" value="c"> c) 10%</label>
-                <label><input type="radio" name="q22" value="d"> d) 100%</label>
+                <label><input type="radio" name="q22" value="d"> d) 30%</label>
             </div>
         </div>
         
         <div class="question-block" id="q23" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">23. ¿Qué instancia es responsable de calificar los expedientes para ascensos?</div>
             <div class="options">
-                <label><input type="radio" name="q23" value="a"> a) La Comisión Calificadora del Escalafón</label>
-                <label><input type="radio" name="q23" value="b"> b) El Director del Colegio</label>
+                <label><input type="radio" name="q23" value="a"> a) El Director del Colegio</label>
+                <label><input type="radio" name="q23" value="b"> b) La Comisión Calificadora del Escalafón</label>
                 <label><input type="radio" name="q23" value="c"> c) La Junta Escolar</label>
                 <label><input type="radio" name="q23" value="d"> d) El Alcalde Municipal</label>
             </div>
@@ -435,10 +440,10 @@
         <div class="question-block" id="q24" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">24. ¿Cómo se califica el tiempo de servicio docente?</div>
             <div class="options">
-                <label><input type="radio" name="q24" value="a"> a) A razón de 10 puntos por cada año de servicio</label>
-                <label><input type="radio" name="q24" value="b"> b) 5 puntos por año</label>
-                <label><input type="radio" name="q24" value="c"> c) 2 puntos por año</label>
-                <label><input type="radio" name="q24" value="d"> d) 1 punto por mes</label>
+                <label><input type="radio" name="q24" value="a"> a) 2 puntos por año</label>
+                <label><input type="radio" name="q24" value="b"> b) A razón de 10 puntos por cada año de servicio</label>
+                <label><input type="radio" name="q24" value="c"> c) 1 punto por mes</label>
+                <label><input type="radio" name="q24" value="d"> d) 5 puntos por año</label>
             </div>
         </div>
         
@@ -447,18 +452,18 @@
             <div class="options">
                 <label><input type="radio" name="q25" value="a"> a) Pierde sus derechos en el Escalafón</label>
                 <label><input type="radio" name="q25" value="b"> b) Sigue ganando sueldo</label>
-                <label><input type="radio" name="q25" value="c"> c) Es trasladado de colegio</label>
-                <label><input type="radio" name="q25" value="d"> d) Sube de categoría</label>
+                <label><input type="radio" name="q25" value="c"> c) Sube de categoría</label>
+                <label><input type="radio" name="q25" value="d"> d) Es trasladado de colegio</label>
             </div>
         </div>
         
         <div class="question-block" id="q26" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">26. ¿Qué derecho tienen los maestros inscritos en el Escalafón respecto a la jubilación?</div>
             <div class="options">
-                <label><input type="radio" name="q26" value="a"> a) Derecho a jubilación con el 100% de la última calificación (sujeto a leyes actuales)</label>
-                <label><input type="radio" name="q26" value="b"> b) No tienen derecho a jubilación</label>
-                <label><input type="radio" name="q26" value="c"> c) Jubilación a los 30 años de edad</label>
-                <label><input type="radio" name="q26" value="d"> d) Solo reciben indemnización</label>
+                <label><input type="radio" name="q26" value="a"> a) Solo reciben indemnización</label>
+                <label><input type="radio" name="q26" value="b"> b) Derecho a jubilación con el 100% de la última calificación (sujeto a leyes actuales)</label>
+                <label><input type="radio" name="q26" value="c"> c) No tienen derecho a jubilación</label>
+                <label><input type="radio" name="q26" value="d"> d) Jubilación a los 30 años de edad</label>
             </div>
         </div>
         
@@ -466,29 +471,29 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">27. ¿Quién tiene prioridad para ocupar una plaza vacante?</div>
             <div class="options">
                 <label><input type="radio" name="q27" value="a"> a) El maestro de mayor calificación y categoría</label>
-                <label><input type="radio" name="q27" value="b"> b) El recién egresado</label>
+                <label><input type="radio" name="q27" value="b"> b) Cualquier ciudadano</label>
                 <label><input type="radio" name="q27" value="c"> c) El maestro interino</label>
-                <label><input type="radio" name="q27" value="d"> d) Cualquier ciudadano</label>
+                <label><input type="radio" name="q27" value="d"> d) El recién egresado</label>
             </div>
         </div>
         
         <div class="question-block" id="q28" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">28. ¿Qué es un maestro 'Interino' según el reglamento?</div>
             <div class="options">
-                <label><input type="radio" name="q28" value="a"> a) Quien ejerce docencia sin poseer título de maestro normalista o titular</label>
-                <label><input type="radio" name="q28" value="b"> b) Quien está en Categoría Mérito</label>
-                <label><input type="radio" name="q28" value="c"> c) Un director departamental</label>
-                <label><input type="radio" name="q28" value="d"> d) Un inspector escolar</label>
+                <label><input type="radio" name="q28" value="a"> a) Un director departamental</label>
+                <label><input type="radio" name="q28" value="b"> b) Un inspector escolar</label>
+                <label><input type="radio" name="q28" value="c"> c) Quien está en Categoría Mérito</label>
+                <label><input type="radio" name="q28" value="d"> d) Quien ejerce docencia sin poseer título de maestro normalista o titular</label>
             </div>
         </div>
         
         <div class="question-block" id="q29" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">29. ¿Puede un maestro interino inscribirse en el Escalafón?</div>
             <div class="options">
-                <label><input type="radio" name="q29" value="a"> a) Sí, después de cumplir 10 años de servicio continuos y aprobar examen</label>
+                <label><input type="radio" name="q29" value="a"> a) Sí, con recomendación</label>
                 <label><input type="radio" name="q29" value="b"> b) No, bajo ninguna circunstancia</label>
-                <label><input type="radio" name="q29" value="c"> c) Sí, al primer mes de trabajo</label>
-                <label><input type="radio" name="q29" value="d"> d) Sí, con recomendación</label>
+                <label><input type="radio" name="q29" value="c"> c) Sí, después de cumplir 10 años de servicio continuos y aprobar examen</label>
+                <label><input type="radio" name="q29" value="d"> d) Sí, al primer mes de trabajo</label>
             </div>
         </div>
         
@@ -496,28 +501,28 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">30. ¿Qué puntaje máximo se otorga por 'Méritos Generales'?</div>
             <div class="options">
                 <label><input type="radio" name="q30" value="a"> a) 100 puntos</label>
-                <label><input type="radio" name="q30" value="b"> b) 50 puntos</label>
-                <label><input type="radio" name="q30" value="c"> c) 10 puntos</label>
-                <label><input type="radio" name="q30" value="d"> d) 200 puntos</label>
+                <label><input type="radio" name="q30" value="b"> b) 200 puntos</label>
+                <label><input type="radio" name="q30" value="c"> c) 50 puntos</label>
+                <label><input type="radio" name="q30" value="d"> d) 10 puntos</label>
             </div>
         </div>
         
         <div class="question-block" id="q31" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">31. ¿Cuál es el organismo máximo encargado de la ejecución del Reglamento del Escalafón?</div>
             <div class="options">
-                <label><input type="radio" name="q31" value="a"> a) La Dirección Nacional de Personal o su equivalente actual en el MINEDU</label>
-                <label><input type="radio" name="q31" value="b"> b) El Sindicato de Maestros</label>
-                <label><input type="radio" name="q31" value="c"> c) El Gobierno Municipal</label>
-                <label><input type="radio" name="q31" value="d"> d) La Confederación de Estudiantes</label>
+                <label><input type="radio" name="q31" value="a"> a) El Gobierno Municipal</label>
+                <label><input type="radio" name="q31" value="b"> b) La Confederación de Estudiantes</label>
+                <label><input type="radio" name="q31" value="c"> c) La Dirección Nacional de Personal o su equivalente actual en el MINEDU</label>
+                <label><input type="radio" name="q31" value="d"> d) El Sindicato de Maestros</label>
             </div>
         </div>
         
         <div class="question-block" id="q32" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">32. ¿Qué se considera 'abandono de funciones'?</div>
             <div class="options">
-                <label><input type="radio" name="q32" value="a"> a) Ausencia injustificada por 6 días continuos o discontinuos en el mes</label>
+                <label><input type="radio" name="q32" value="a"> a) Ausencia justificada por enfermedad</label>
                 <label><input type="radio" name="q32" value="b"> b) Llegar tarde una vez</label>
-                <label><input type="radio" name="q32" value="c"> c) Ausencia justificada por enfermedad</label>
+                <label><input type="radio" name="q32" value="c"> c) Ausencia injustificada por 6 días continuos o discontinuos en el mes</label>
                 <label><input type="radio" name="q32" value="d"> d) Pedir licencia sin goce de haber</label>
             </div>
         </div>
@@ -525,49 +530,49 @@
         <div class="question-block" id="q33" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">33. ¿Cuál es un requisito para ascender a Director de Unidad Educativa?</div>
             <div class="options">
-                <label><input type="radio" name="q33" value="a"> a) Tener Título en Provisión Nacional y experiencia mínima de años según la categoría</label>
-                <label><input type="radio" name="q33" value="b"> b) Ser estudiante egresado</label>
-                <label><input type="radio" name="q33" value="c"> c) Tener título de abogado</label>
-                <label><input type="radio" name="q33" value="d"> d) No requiere ningún requisito</label>
+                <label><input type="radio" name="q33" value="a"> a) Ser estudiante egresado</label>
+                <label><input type="radio" name="q33" value="b"> b) Tener Título en Provisión Nacional y experiencia mínima de años según la categoría</label>
+                <label><input type="radio" name="q33" value="c"> c) No requiere ningún requisito</label>
+                <label><input type="radio" name="q33" value="d"> d) Tener título de abogado</label>
             </div>
         </div>
         
         <div class="question-block" id="q34" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">34. ¿Qué tipo de licencias reconoce el Escalafón?</div>
             <div class="options">
-                <label><input type="radio" name="q34" value="a"> a) Por enfermedad, maternidad, becas de estudio y asuntos propios</label>
-                <label><input type="radio" name="q34" value="b"> b) Solo por vacaciones</label>
-                <label><input type="radio" name="q34" value="c"> c) Únicamente por enfermedad grave</label>
-                <label><input type="radio" name="q34" value="d"> d) No se permiten licencias</label>
+                <label><input type="radio" name="q34" value="a"> a) Únicamente por enfermedad grave</label>
+                <label><input type="radio" name="q34" value="b"> b) No se permiten licencias</label>
+                <label><input type="radio" name="q34" value="c"> c) Por enfermedad, maternidad, becas de estudio y asuntos propios</label>
+                <label><input type="radio" name="q34" value="d"> d) Solo por vacaciones</label>
             </div>
         </div>
         
         <div class="question-block" id="q35" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">35. ¿Cuál es el tiempo de vacación anual para el personal docente?</div>
             <div class="options">
-                <label><input type="radio" name="q35" value="a"> a) El periodo de descanso pedagógico establecido en el calendario</label>
+                <label><input type="radio" name="q35" value="a"> a) 10 días al año</label>
                 <label><input type="radio" name="q35" value="b"> b) 15 días hábiles</label>
                 <label><input type="radio" name="q35" value="c"> c) Un mes por semestre</label>
-                <label><input type="radio" name="q35" value="d"> d) 10 días al año</label>
+                <label><input type="radio" name="q35" value="d"> d) El periodo de descanso pedagógico establecido en el calendario</label>
             </div>
         </div>
         
         <div class="question-block" id="q36" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">36. ¿Qué documentos van al Kardex del maestro?</div>
             <div class="options">
-                <label><input type="radio" name="q36" value="a"> a) Títulos, certificados de servicio, memorandos de felicitación o deméritos</label>
-                <label><input type="radio" name="q36" value="b"> b) Solo el certificado de nacimiento</label>
-                <label><input type="radio" name="q36" value="c"> c) Facturas de compras</label>
-                <label><input type="radio" name="q36" value="d"> d) Actas de notas de estudiantes</label>
+                <label><input type="radio" name="q36" value="a"> a) Solo el certificado de nacimiento</label>
+                <label><input type="radio" name="q36" value="b"> b) Actas de notas de estudiantes</label>
+                <label><input type="radio" name="q36" value="c"> c) Títulos, certificados de servicio, memorandos de felicitación o deméritos</label>
+                <label><input type="radio" name="q36" value="d"> d) Facturas de compras</label>
             </div>
         </div>
         
         <div class="question-block" id="q37" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">37. ¿Quiénes tienen derecho al Subsidio de Frontera?</div>
             <div class="options">
-                <label><input type="radio" name="q37" value="a"> a) Docentes que prestan servicios en zonas fronterizas (20% de recargo)</label>
-                <label><input type="radio" name="q37" value="b"> b) Docentes de ciudades capitales</label>
-                <label><input type="radio" name="q37" value="c"> c) Todos los docentes</label>
+                <label><input type="radio" name="q37" value="a"> a) Todos los docentes</label>
+                <label><input type="radio" name="q37" value="b"> b) Docentes que prestan servicios en zonas fronterizas (20% de recargo)</label>
+                <label><input type="radio" name="q37" value="c"> c) Docentes de ciudades capitales</label>
                 <label><input type="radio" name="q37" value="d"> d) Solo directores</label>
             </div>
         </div>
@@ -575,28 +580,28 @@
         <div class="question-block" id="q38" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">38. ¿A quiénes se aplica el Escalafón Administrativo?</div>
             <div class="options">
-                <label><input type="radio" name="q38" value="a"> a) Secretarias, regentes, porteros y oficinistas del sector educación</label>
-                <label><input type="radio" name="q38" value="b"> b) Solo a maestros</label>
-                <label><input type="radio" name="q38" value="c"> c) A estudiantes</label>
-                <label><input type="radio" name="q38" value="d"> d) A profesionales libres</label>
+                <label><input type="radio" name="q38" value="a"> a) A estudiantes</label>
+                <label><input type="radio" name="q38" value="b"> b) A profesionales libres</label>
+                <label><input type="radio" name="q38" value="c"> c) Secretarias, regentes, porteros y oficinistas del sector educación</label>
+                <label><input type="radio" name="q38" value="d"> d) Solo a maestros</label>
             </div>
         </div>
         
         <div class="question-block" id="q39" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">39. ¿Qué pasa si un docente no cumple con la asistencia mínima requerida al año?</div>
             <div class="options">
-                <label><input type="radio" name="q39" value="a"> a) Sufre descuentos y posibles procesos disciplinarios</label>
-                <label><input type="radio" name="q39" value="b"> b) Se le premia</label>
+                <label><input type="radio" name="q39" value="a"> a) No sucede nada</label>
+                <label><input type="radio" name="q39" value="b"> b) Sufre descuentos y posibles procesos disciplinarios</label>
                 <label><input type="radio" name="q39" value="c"> c) Es promovido</label>
-                <label><input type="radio" name="q39" value="d"> d) No sucede nada</label>
+                <label><input type="radio" name="q39" value="d"> d) Se le premia</label>
             </div>
         </div>
         
         <div class="question-block" id="q40" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">40. ¿Cuál es la función principal de la Comisión de Calificación?</div>
             <div class="options">
-                <label><input type="radio" name="q40" value="a"> a) Revisar expedientes y asignar puntajes para el ascenso</label>
-                <label><input type="radio" name="q40" value="b"> b) Repartir libros</label>
+                <label><input type="radio" name="q40" value="a"> a) Repartir libros</label>
+                <label><input type="radio" name="q40" value="b"> b) Revisar expedientes y asignar puntajes para el ascenso</label>
                 <label><input type="radio" name="q40" value="c"> c) Limpiar el colegio</label>
                 <label><input type="radio" name="q40" value="d"> d) Tomar asistencia de estudiantes</label>
             </div>
@@ -605,30 +610,30 @@
         <div class="question-block" id="q41" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">41. ¿Qué sucede en caso de permutas entre docentes?</div>
             <div class="options">
-                <label><input type="radio" name="q41" value="a"> a) Ambos deben tener categoría similar y justificar motivos válidos</label>
+                <label><input type="radio" name="q41" value="a"> a) Solo se permite entre directores</label>
                 <label><input type="radio" name="q41" value="b"> b) Cualquiera puede permutar sin requisitos</label>
                 <label><input type="radio" name="q41" value="c"> c) Están totalmente prohibidas</label>
-                <label><input type="radio" name="q41" value="d"> d) Solo se permite entre directores</label>
+                <label><input type="radio" name="q41" value="d"> d) Ambos deben tener categoría similar y justificar motivos válidos</label>
             </div>
         </div>
         
         <div class="question-block" id="q42" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">42. ¿Qué requisito es necesario para gozar de inamovilidad docente?</div>
             <div class="options">
-                <label><input type="radio" name="q42" value="a"> a) Estar inscrito regularmente en el Escalafón</label>
-                <label><input type="radio" name="q42" value="b"> b) Ser amigo del director</label>
-                <label><input type="radio" name="q42" value="c"> c) Tener más de 60 años</label>
-                <label><input type="radio" name="q42" value="d"> d) Enseñar dos materias</label>
+                <label><input type="radio" name="q42" value="a"> a) Enseñar dos materias</label>
+                <label><input type="radio" name="q42" value="b"> b) Tener más de 60 años</label>
+                <label><input type="radio" name="q42" value="c"> c) Estar inscrito regularmente en el Escalafón</label>
+                <label><input type="radio" name="q42" value="d"> d) Ser amigo del director</label>
             </div>
         </div>
         
         <div class="question-block" id="q43" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">43. ¿El reglamento permite la doble percepción de sueldos del Estado?</div>
             <div class="options">
-                <label><input type="radio" name="q43" value="a"> a) No, está prohibido por ley, salvo excepciones expresas</label>
+                <label><input type="radio" name="q43" value="a"> a) Solo en colegios rurales</label>
                 <label><input type="radio" name="q43" value="b"> b) Sí, sin restricciones</label>
-                <label><input type="radio" name="q43" value="c"> c) Solo en colegios rurales</label>
-                <label><input type="radio" name="q43" value="d"> d) Solo a directores</label>
+                <label><input type="radio" name="q43" value="c"> c) Solo a directores</label>
+                <label><input type="radio" name="q43" value="d"> d) No, está prohibido por ley, salvo excepciones expresas</label>
             </div>
         </div>
         
@@ -636,8 +641,8 @@
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">44. ¿Qué sanción conlleva la falsificación de documentos para el escalafón?</div>
             <div class="options">
                 <label><input type="radio" name="q44" value="a"> a) Proceso penal, destitución y expulsión del escalafón</label>
-                <label><input type="radio" name="q44" value="b"> b) Una llamada de atención verbal</label>
-                <label><input type="radio" name="q44" value="c"> c) Retraso en el ascenso por un año</label>
+                <label><input type="radio" name="q44" value="b"> b) Retraso en el ascenso por un año</label>
+                <label><input type="radio" name="q44" value="c"> c) Una llamada de atención verbal</label>
                 <label><input type="radio" name="q44" value="d"> d) Descuento de un día de haber</label>
             </div>
         </div>
@@ -645,40 +650,40 @@
         <div class="question-block" id="q45" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">45. ¿Cuáles son los niveles de educación en la Ley 070 (que interactúan con el escalafón actual)?</div>
             <div class="options">
-                <label><input type="radio" name="q45" value="a"> a) Inicial, Primaria y Secundaria</label>
-                <label><input type="radio" name="q45" value="b"> b) Básico, Intermedio y Medio</label>
-                <label><input type="radio" name="q45" value="c"> c) Primario, Superior y Técnico</label>
-                <label><input type="radio" name="q45" value="d"> d) Regular, Alternativa y Especial</label>
+                <label><input type="radio" name="q45" value="a"> a) Básico, Intermedio y Medio</label>
+                <label><input type="radio" name="q45" value="b"> b) Inicial, Primaria y Secundaria</label>
+                <label><input type="radio" name="q45" value="c"> c) Regular, Alternativa y Especial</label>
+                <label><input type="radio" name="q45" value="d"> d) Primario, Superior y Técnico</label>
             </div>
         </div>
         
         <div class="question-block" id="q46" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">46. ¿Qué beneficios tienen las madres docentes según el escalafón?</div>
             <div class="options">
-                <label><input type="radio" name="q46" value="a"> a) Subsidios de lactancia y licencia por maternidad</label>
-                <label><input type="radio" name="q46" value="b"> b) Jubilación adelantada 10 años</label>
-                <label><input type="radio" name="q46" value="c"> c) Exención de dar exámenes</label>
-                <label><input type="radio" name="q46" value="d"> d) Salario doble</label>
+                <label><input type="radio" name="q46" value="a"> a) Salario doble</label>
+                <label><input type="radio" name="q46" value="b"> b) Exención de dar exámenes</label>
+                <label><input type="radio" name="q46" value="c"> c) Subsidios de lactancia y licencia por maternidad</label>
+                <label><input type="radio" name="q46" value="d"> d) Jubilación adelantada 10 años</label>
             </div>
         </div>
         
         <div class="question-block" id="q47" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">47. ¿Qué entidad defiende los derechos del maestro en casos de vulneración al escalafón?</div>
             <div class="options">
-                <label><input type="radio" name="q47" value="a"> a) La Federación y Confederación de Maestros (Sindicato)</label>
+                <label><input type="radio" name="q47" value="a"> a) Las Juntas Escolares</label>
                 <label><input type="radio" name="q47" value="b"> b) La Policía Nacional</label>
                 <label><input type="radio" name="q47" value="c"> c) El Tribunal Supremo Electoral</label>
-                <label><input type="radio" name="q47" value="d"> d) Las Juntas Escolares</label>
+                <label><input type="radio" name="q47" value="d"> d) La Federación y Confederación de Maestros (Sindicato)</label>
             </div>
         </div>
         
         <div class="question-block" id="q48" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">48. ¿Un maestro puede ser destituido sin proceso previo?</div>
             <div class="options">
-                <label><input type="radio" name="q48" value="a"> a) No, se requiere un proceso disciplinario para demostrar la falta grave</label>
-                <label><input type="radio" name="q48" value="b"> b) Sí, a simple denuncia</label>
-                <label><input type="radio" name="q48" value="c"> c) Sí, si el director lo decide</label>
-                <label><input type="radio" name="q48" value="d"> d) Solo en casos de huelga</label>
+                <label><input type="radio" name="q48" value="a"> a) Sí, si el director lo decide</label>
+                <label><input type="radio" name="q48" value="b"> b) Solo en casos de huelga</label>
+                <label><input type="radio" name="q48" value="c"> c) No, se requiere un proceso disciplinario para demostrar la falta grave</label>
+                <label><input type="radio" name="q48" value="d"> d) Sí, a simple denuncia</label>
             </div>
         </div>
         
@@ -687,18 +692,18 @@
             <div class="options">
                 <label><input type="radio" name="q49" value="a"> a) Alfabetización o apoyo social comunitario verificado</label>
                 <label><input type="radio" name="q49" value="b"> b) Pagar impuestos</label>
-                <label><input type="radio" name="q49" value="c"> c) Asistir a fiestas del pueblo</label>
-                <label><input type="radio" name="q49" value="d"> d) Construir su propia casa</label>
+                <label><input type="radio" name="q49" value="c"> c) Construir su propia casa</label>
+                <label><input type="radio" name="q49" value="d"> d) Asistir a fiestas del pueblo</label>
             </div>
         </div>
         
         <div class="question-block" id="q50" style="background: #f9fdf9; border: 1px solid #c8e6c9; border-left: 5px solid #2e7d32; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
             <div class="question-text" style="color: #1b5e20; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">50. ¿Qué garantía fundamental protege el Escalafón según la Constitución Política del Estado?</div>
             <div class="options">
-                <label><input type="radio" name="q50" value="a"> a) La carrera docente, inamovilidad y sindicalización</label>
-                <label><input type="radio" name="q50" value="b"> b) El libre comercio</label>
-                <label><input type="radio" name="q50" value="c"> c) La propiedad privada</label>
-                <label><input type="radio" name="q50" value="d"> d) La libertad de culto</label>
+                <label><input type="radio" name="q50" value="a"> a) La libertad de culto</label>
+                <label><input type="radio" name="q50" value="b"> b) La carrera docente, inamovilidad y sindicalización</label>
+                <label><input type="radio" name="q50" value="c"> c) El libre comercio</label>
+                <label><input type="radio" name="q50" value="d"> d) La propiedad privada</label>
             </div>
         </div>
         
@@ -729,56 +734,56 @@
     
     <script>
         const correctAnswers = {
-            "q1": "a",
-        "q2": "a",
-        "q3": "a",
-        "q4": "a",
-        "q5": "a",
-        "q6": "a",
+            "q1": "c",
+        "q2": "b",
+        "q3": "d",
+        "q4": "d",
+        "q5": "c",
+        "q6": "c",
         "q7": "a",
         "q8": "a",
         "q9": "b",
-        "q10": "a",
-        "q11": "a",
-        "q12": "a",
+        "q10": "c",
+        "q11": "d",
+        "q12": "d",
         "q13": "a",
-        "q14": "a",
+        "q14": "c",
         "q15": "a",
-        "q16": "a",
-        "q17": "a",
-        "q18": "a",
-        "q19": "a",
-        "q20": "a",
-        "q21": "a",
+        "q16": "c",
+        "q17": "b",
+        "q18": "c",
+        "q19": "c",
+        "q20": "c",
+        "q21": "d",
         "q22": "a",
-        "q23": "a",
-        "q24": "b",
+        "q23": "b",
+        "q24": "d",
         "q25": "a",
-        "q26": "a",
+        "q26": "b",
         "q27": "a",
-        "q28": "a",
-        "q29": "a",
+        "q28": "d",
+        "q29": "c",
         "q30": "a",
-        "q31": "a",
-        "q32": "a",
-        "q33": "a",
-        "q34": "a",
-        "q35": "a",
-        "q36": "a",
-        "q37": "a",
-        "q38": "a",
-        "q39": "a",
-        "q40": "a",
-        "q41": "a",
-        "q42": "a",
-        "q43": "a",
+        "q31": "c",
+        "q32": "c",
+        "q33": "b",
+        "q34": "c",
+        "q35": "d",
+        "q36": "c",
+        "q37": "b",
+        "q38": "c",
+        "q39": "b",
+        "q40": "b",
+        "q41": "d",
+        "q42": "c",
+        "q43": "d",
         "q44": "a",
-        "q45": "a",
-        "q46": "a",
-        "q47": "a",
-        "q48": "a",
+        "q45": "b",
+        "q46": "c",
+        "q47": "d",
+        "q48": "c",
         "q49": "a",
-        "q50": "a"
+        "q50": "b"
         };
     </script>
     <script src="../preguntas.js"></script>

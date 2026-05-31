@@ -29,6 +29,9 @@
             .nav-links { display: none !important; }
             .nav-links.show-mobile { display: flex !important; flex-direction: column !important; }
             .dropdown { flex: none !important; width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
+            .dropdown-content { position: relative !important; min-width: 100% !important; box-shadow: inset 0 2px 5px rgba(0,0,0,0.2) !important; border-radius: 0 !important; background: #2e7d32 !important; border: none !important; }
+            .dropdown-content a { color: white !important; border-bottom: 1px solid rgba(255,255,255,0.1) !important; padding: 10px 15px !important; font-size: 0.95rem !important; }
+            .dropdown-content a:hover { background: #1b5e20 !important; }
             .hero-title { font-size: 1.8rem !important; }
             .hero-subtitle { font-size: 1rem !important; }
             .header-title { font-size: 1.1rem !important; }
@@ -38,8 +41,10 @@
         }
         @media (max-width: 768px) {
             /* Ajustes para tarjetas flash */
-            #flashcard-box { padding: 25px 15px !important; min-height: 200px !important; }
-            #card-text { font-size: 1.1rem !important; line-height: 1.4 !important; }
+            #flashcard-box { padding: 15px 10px !important; min-height: 150px !important; }
+            #card-text { font-size: 1.05rem !important; line-height: 1.3 !important; }
+            #flash-buttons { gap: 5px !important; margin-top: 15px !important; }
+            #flash-buttons button { padding: 10px 5px !important; font-size: 0.85rem !important; flex: 1 !important; }
             
             /* Ajustes para audiolibros y contenedores principales */
             div[style*="padding: 40px;"] { padding: 15px !important; }
@@ -89,7 +94,7 @@
     
     <nav class="navbar" id="navbar" style="background: #1b5e20; padding: 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 9999;">
         <div class="nav-container" style="width: 100%; max-width: 1200px; margin: 0 auto;">
-            <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('show-mobile')">☰ Menú Principal</button>
+            <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('show-mobile')">Menú Principal ☰</button>
             <div class="nav-links" id="navLinks" style="display: flex; justify-content: center; width: 100%;">
 
             <div class="dropdown" style="flex: 1; text-align: center;">
@@ -191,7 +196,7 @@
             <h2 id="card-text" style="color: white; font-size: 1.8rem; font-weight: bold; margin: 0; text-shadow: 1px 1px 3px rgba(0,0,0,0.2);">Cargando...</h2>
         </div>
         
-        <div style="display: flex; justify-content: space-between; margin-top: 25px; gap: 15px;">
+        <div id="flash-buttons" style="display: flex; justify-content: space-between; margin-top: 25px; gap: 15px;">
             <button onclick="prevCard()" style="background: linear-gradient(to right, #e53935, #c62828); color: white; border: none; padding: 15px 30px; font-size: 1.2rem; font-weight: bold; border-radius: 50px; cursor: pointer; flex: 1; box-shadow: 0 4px 10px rgba(229, 57, 53, 0.3);">← Anterior</button>
             <button onclick="flipCard()" style="background: linear-gradient(to right, #ffc107, #ffb300); color: white; border: none; padding: 15px 30px; font-size: 1.2rem; font-weight: bold; border-radius: 50px; cursor: pointer; flex: 2; box-shadow: 0 4px 10px rgba(255, 193, 7, 0.3); text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">Ver Respuesta</button>
             <button onclick="nextCard()" style="background: linear-gradient(to right, #c62828, #e53935); color: white; border: none; padding: 15px 30px; font-size: 1.2rem; font-weight: bold; border-radius: 50px; cursor: pointer; flex: 1; box-shadow: 0 4px 10px rgba(229, 57, 53, 0.3);">Siguiente →</button>
@@ -204,56 +209,56 @@
     
     <script>
         const questions = [
-            {q: '1. ¿Qué se entiende por Convivencia Escolar?', a: 'a) La coexistencia armónica y respetuosa entre todos los miembros de la comunidad educativa'},
-        {q: '2. Un conflicto en el ámbito escolar debe ser visto como:', a: 'a) Una oportunidad de aprendizaje y crecimiento si se gestiona adecuadamente'},
-        {q: '3. ¿Cuál es el primer paso en la resolución pacífica de un conflicto?', a: 'a) Identificar el problema y escuchar activamente a las partes involucradas'},
-        {q: '4. La mediación escolar implica:', a: 'a) La intervención de un tercero imparcial que facilita el diálogo para que las partes lleguen a un acuerdo'},
-        {q: '5. Un reglamento de convivencia debe construirse de manera:', a: 'a) Participativa, involucrando a estudiantes, docentes y padres'},
-        {q: '6. La justicia restaurativa en la escuela busca:', a: 'a) Reparar el daño causado y restaurar las relaciones, más que solo castigar'},
-        {q: '7. ¿Qué es la empatía en el contexto escolar?', a: 'a) La capacidad de comprender y compartir los sentimientos de los demás'},
-        {q: '8. Ante una situación de acoso escolar (bullying), la escuela debe:', a: 'a) Activar inmediatamente los protocolos de prevención y actuación'},
-        {q: '9. El clima escolar positivo se caracteriza por:', a: 'a) Relaciones de confianza, respeto, participación y seguridad emocional'},
-        {q: '10. ¿Cuál es el rol del docente en la convivencia pacífica?', a: 'a) Ser un modelo de respeto, promotor del diálogo y mediador natural'},
-        {q: '11. En base al manual: ¿Qué se entiende por Convivencia Escolar?', a: 'a) La coexistencia armónica y respetuosa entre todos los miembros de la comunidad educativa'},
-        {q: '12. En base al manual: Un conflicto en el ámbito escolar debe ser visto como:', a: 'a) Una oportunidad de aprendizaje y crecimiento si se gestiona adecuadamente'},
-        {q: '13. En base al manual: ¿Cuál es el primer paso en la resolución pacífica de un conflicto?', a: 'a) Identificar el problema y escuchar activamente a las partes involucradas'},
-        {q: '14. En base al manual: La mediación escolar implica:', a: 'a) La intervención de un tercero imparcial que facilita el diálogo para que las partes lleguen a un acuerdo'},
-        {q: '15. En base al manual: Un reglamento de convivencia debe construirse de manera:', a: 'a) Participativa, involucrando a estudiantes, docentes y padres'},
-        {q: '16. En base al manual: La justicia restaurativa en la escuela busca:', a: 'a) Reparar el daño causado y restaurar las relaciones, más que solo castigar'},
-        {q: '17. En base al manual: ¿Qué es la empatía en el contexto escolar?', a: 'a) La capacidad de comprender y compartir los sentimientos de los demás'},
-        {q: '18. En base al manual: Ante una situación de acoso escolar (bullying), la escuela debe:', a: 'a) Activar inmediatamente los protocolos de prevención y actuación'},
-        {q: '19. En base al manual: El clima escolar positivo se caracteriza por:', a: 'a) Relaciones de confianza, respeto, participación y seguridad emocional'},
-        {q: '20. En base al manual: ¿Cuál es el rol del docente en la convivencia pacífica?', a: 'a) Ser un modelo de respeto, promotor del diálogo y mediador natural'},
-        {q: '21. Desde la perspectiva institucional, ¿Qué se entiende por Convivencia Escolar?', a: 'a) La coexistencia armónica y respetuosa entre todos los miembros de la comunidad educativa'},
-        {q: '22. Desde la perspectiva institucional, Un conflicto en el ámbito escolar debe ser visto como:', a: 'a) Una oportunidad de aprendizaje y crecimiento si se gestiona adecuadamente'},
-        {q: '23. Desde la perspectiva institucional, ¿Cuál es el primer paso en la resolución pacífica de un conflicto?', a: 'a) Identificar el problema y escuchar activamente a las partes involucradas'},
-        {q: '24. Desde la perspectiva institucional, La mediación escolar implica:', a: 'a) La intervención de un tercero imparcial que facilita el diálogo para que las partes lleguen a un acuerdo'},
-        {q: '25. Desde la perspectiva institucional, Un reglamento de convivencia debe construirse de manera:', a: 'a) Participativa, involucrando a estudiantes, docentes y padres'},
-        {q: '26. Desde la perspectiva institucional, La justicia restaurativa en la escuela busca:', a: 'a) Reparar el daño causado y restaurar las relaciones, más que solo castigar'},
-        {q: '27. Desde la perspectiva institucional, ¿Qué es la empatía en el contexto escolar?', a: 'a) La capacidad de comprender y compartir los sentimientos de los demás'},
-        {q: '28. Desde la perspectiva institucional, Ante una situación de acoso escolar (bullying), la escuela debe:', a: 'a) Activar inmediatamente los protocolos de prevención y actuación'},
-        {q: '29. Desde la perspectiva institucional, El clima escolar positivo se caracteriza por:', a: 'a) Relaciones de confianza, respeto, participación y seguridad emocional'},
-        {q: '30. Desde la perspectiva institucional, ¿Cuál es el rol del docente en la convivencia pacífica?', a: 'a) Ser un modelo de respeto, promotor del diálogo y mediador natural'},
-        {q: '31. Es fundamental considerar que: ¿Qué se entiende por Convivencia Escolar?', a: 'a) La coexistencia armónica y respetuosa entre todos los miembros de la comunidad educativa'},
-        {q: '32. Es fundamental considerar que: Un conflicto en el ámbito escolar debe ser visto como:', a: 'a) Una oportunidad de aprendizaje y crecimiento si se gestiona adecuadamente'},
-        {q: '33. Es fundamental considerar que: ¿Cuál es el primer paso en la resolución pacífica de un conflicto?', a: 'a) Identificar el problema y escuchar activamente a las partes involucradas'},
-        {q: '34. Es fundamental considerar que: La mediación escolar implica:', a: 'a) La intervención de un tercero imparcial que facilita el diálogo para que las partes lleguen a un acuerdo'},
-        {q: '35. Es fundamental considerar que: Un reglamento de convivencia debe construirse de manera:', a: 'a) Participativa, involucrando a estudiantes, docentes y padres'},
-        {q: '36. Es fundamental considerar que: La justicia restaurativa en la escuela busca:', a: 'a) Reparar el daño causado y restaurar las relaciones, más que solo castigar'},
-        {q: '37. Es fundamental considerar que: ¿Qué es la empatía en el contexto escolar?', a: 'a) La capacidad de comprender y compartir los sentimientos de los demás'},
-        {q: '38. Es fundamental considerar que: Ante una situación de acoso escolar (bullying), la escuela debe:', a: 'a) Activar inmediatamente los protocolos de prevención y actuación'},
-        {q: '39. Es fundamental considerar que: El clima escolar positivo se caracteriza por:', a: 'a) Relaciones de confianza, respeto, participación y seguridad emocional'},
-        {q: '40. Es fundamental considerar que: ¿Cuál es el rol del docente en la convivencia pacífica?', a: 'a) Ser un modelo de respeto, promotor del diálogo y mediador natural'},
-        {q: '41. Según los lineamientos: ¿Qué se entiende por Convivencia Escolar?', a: 'a) La coexistencia armónica y respetuosa entre todos los miembros de la comunidad educativa'},
-        {q: '42. Según los lineamientos: Un conflicto en el ámbito escolar debe ser visto como:', a: 'a) Una oportunidad de aprendizaje y crecimiento si se gestiona adecuadamente'},
-        {q: '43. Según los lineamientos: ¿Cuál es el primer paso en la resolución pacífica de un conflicto?', a: 'a) Identificar el problema y escuchar activamente a las partes involucradas'},
-        {q: '44. Según los lineamientos: La mediación escolar implica:', a: 'a) La intervención de un tercero imparcial que facilita el diálogo para que las partes lleguen a un acuerdo'},
-        {q: '45. Según los lineamientos: Un reglamento de convivencia debe construirse de manera:', a: 'a) Participativa, involucrando a estudiantes, docentes y padres'},
-        {q: '46. Según los lineamientos: La justicia restaurativa en la escuela busca:', a: 'a) Reparar el daño causado y restaurar las relaciones, más que solo castigar'},
-        {q: '47. Según los lineamientos: ¿Qué es la empatía en el contexto escolar?', a: 'a) La capacidad de comprender y compartir los sentimientos de los demás'},
-        {q: '48. Según los lineamientos: Ante una situación de acoso escolar (bullying), la escuela debe:', a: 'a) Activar inmediatamente los protocolos de prevención y actuación'},
-        {q: '49. Según los lineamientos: El clima escolar positivo se caracteriza por:', a: 'a) Relaciones de confianza, respeto, participación y seguridad emocional'},
-        {q: '50. Según los lineamientos: ¿Cuál es el rol del docente en la convivencia pacífica?', a: 'a) Ser un modelo de respeto, promotor del diálogo y mediador natural'}
+            {q: '1. ¿Qué se entiende por Convivencia Escolar?', a: 'La coexistencia armónica y respetuosa entre todos los miembros de la comunidad educativa'},
+        {q: '2. Un conflicto en el ámbito escolar debe ser visto como:', a: 'Una oportunidad de aprendizaje y crecimiento si se gestiona adecuadamente'},
+        {q: '3. ¿Cuál es el primer paso en la resolución pacífica de un conflicto?', a: 'Identificar el problema y escuchar activamente a las partes involucradas'},
+        {q: '4. La mediación escolar implica:', a: 'La intervención de un tercero imparcial que facilita el diálogo para que las partes lleguen a un acuerdo'},
+        {q: '5. Un reglamento de convivencia debe construirse de manera:', a: 'Participativa, involucrando a estudiantes, docentes y padres'},
+        {q: '6. La justicia restaurativa en la escuela busca:', a: 'Reparar el daño causado y restaurar las relaciones, más que solo castigar'},
+        {q: '7. ¿Qué es la empatía en el contexto escolar?', a: 'La capacidad de comprender y compartir los sentimientos de los demás'},
+        {q: '8. Ante una situación de acoso escolar (bullying), la escuela debe:', a: 'Activar inmediatamente los protocolos de prevención y actuación'},
+        {q: '9. El clima escolar positivo se caracteriza por:', a: 'Relaciones de confianza, respeto, participación y seguridad emocional'},
+        {q: '10. ¿Cuál es el rol del docente en la convivencia pacífica?', a: 'Ser un modelo de respeto, promotor del diálogo y mediador natural'},
+        {q: '11. En base al manual: ¿Qué se entiende por Convivencia Escolar?', a: 'La coexistencia armónica y respetuosa entre todos los miembros de la comunidad educativa'},
+        {q: '12. En base al manual: Un conflicto en el ámbito escolar debe ser visto como:', a: 'Una oportunidad de aprendizaje y crecimiento si se gestiona adecuadamente'},
+        {q: '13. En base al manual: ¿Cuál es el primer paso en la resolución pacífica de un conflicto?', a: 'Identificar el problema y escuchar activamente a las partes involucradas'},
+        {q: '14. En base al manual: La mediación escolar implica:', a: 'La intervención de un tercero imparcial que facilita el diálogo para que las partes lleguen a un acuerdo'},
+        {q: '15. En base al manual: Un reglamento de convivencia debe construirse de manera:', a: 'Participativa, involucrando a estudiantes, docentes y padres'},
+        {q: '16. En base al manual: La justicia restaurativa en la escuela busca:', a: 'Reparar el daño causado y restaurar las relaciones, más que solo castigar'},
+        {q: '17. En base al manual: ¿Qué es la empatía en el contexto escolar?', a: 'La capacidad de comprender y compartir los sentimientos de los demás'},
+        {q: '18. En base al manual: Ante una situación de acoso escolar (bullying), la escuela debe:', a: 'Activar inmediatamente los protocolos de prevención y actuación'},
+        {q: '19. En base al manual: El clima escolar positivo se caracteriza por:', a: 'Relaciones de confianza, respeto, participación y seguridad emocional'},
+        {q: '20. En base al manual: ¿Cuál es el rol del docente en la convivencia pacífica?', a: 'Ser un modelo de respeto, promotor del diálogo y mediador natural'},
+        {q: '21. Desde la perspectiva institucional, ¿Qué se entiende por Convivencia Escolar?', a: 'La coexistencia armónica y respetuosa entre todos los miembros de la comunidad educativa'},
+        {q: '22. Desde la perspectiva institucional, Un conflicto en el ámbito escolar debe ser visto como:', a: 'Una oportunidad de aprendizaje y crecimiento si se gestiona adecuadamente'},
+        {q: '23. Desde la perspectiva institucional, ¿Cuál es el primer paso en la resolución pacífica de un conflicto?', a: 'Identificar el problema y escuchar activamente a las partes involucradas'},
+        {q: '24. Desde la perspectiva institucional, La mediación escolar implica:', a: 'La intervención de un tercero imparcial que facilita el diálogo para que las partes lleguen a un acuerdo'},
+        {q: '25. Desde la perspectiva institucional, Un reglamento de convivencia debe construirse de manera:', a: 'Participativa, involucrando a estudiantes, docentes y padres'},
+        {q: '26. Desde la perspectiva institucional, La justicia restaurativa en la escuela busca:', a: 'Reparar el daño causado y restaurar las relaciones, más que solo castigar'},
+        {q: '27. Desde la perspectiva institucional, ¿Qué es la empatía en el contexto escolar?', a: 'La capacidad de comprender y compartir los sentimientos de los demás'},
+        {q: '28. Desde la perspectiva institucional, Ante una situación de acoso escolar (bullying), la escuela debe:', a: 'Activar inmediatamente los protocolos de prevención y actuación'},
+        {q: '29. Desde la perspectiva institucional, El clima escolar positivo se caracteriza por:', a: 'Relaciones de confianza, respeto, participación y seguridad emocional'},
+        {q: '30. Desde la perspectiva institucional, ¿Cuál es el rol del docente en la convivencia pacífica?', a: 'Ser un modelo de respeto, promotor del diálogo y mediador natural'},
+        {q: '31. Es fundamental considerar que: ¿Qué se entiende por Convivencia Escolar?', a: 'La coexistencia armónica y respetuosa entre todos los miembros de la comunidad educativa'},
+        {q: '32. Es fundamental considerar que: Un conflicto en el ámbito escolar debe ser visto como:', a: 'Una oportunidad de aprendizaje y crecimiento si se gestiona adecuadamente'},
+        {q: '33. Es fundamental considerar que: ¿Cuál es el primer paso en la resolución pacífica de un conflicto?', a: 'Identificar el problema y escuchar activamente a las partes involucradas'},
+        {q: '34. Es fundamental considerar que: La mediación escolar implica:', a: 'La intervención de un tercero imparcial que facilita el diálogo para que las partes lleguen a un acuerdo'},
+        {q: '35. Es fundamental considerar que: Un reglamento de convivencia debe construirse de manera:', a: 'Participativa, involucrando a estudiantes, docentes y padres'},
+        {q: '36. Es fundamental considerar que: La justicia restaurativa en la escuela busca:', a: 'Reparar el daño causado y restaurar las relaciones, más que solo castigar'},
+        {q: '37. Es fundamental considerar que: ¿Qué es la empatía en el contexto escolar?', a: 'La capacidad de comprender y compartir los sentimientos de los demás'},
+        {q: '38. Es fundamental considerar que: Ante una situación de acoso escolar (bullying), la escuela debe:', a: 'Activar inmediatamente los protocolos de prevención y actuación'},
+        {q: '39. Es fundamental considerar que: El clima escolar positivo se caracteriza por:', a: 'Relaciones de confianza, respeto, participación y seguridad emocional'},
+        {q: '40. Es fundamental considerar que: ¿Cuál es el rol del docente en la convivencia pacífica?', a: 'Ser un modelo de respeto, promotor del diálogo y mediador natural'},
+        {q: '41. Según los lineamientos: ¿Qué se entiende por Convivencia Escolar?', a: 'La coexistencia armónica y respetuosa entre todos los miembros de la comunidad educativa'},
+        {q: '42. Según los lineamientos: Un conflicto en el ámbito escolar debe ser visto como:', a: 'Una oportunidad de aprendizaje y crecimiento si se gestiona adecuadamente'},
+        {q: '43. Según los lineamientos: ¿Cuál es el primer paso en la resolución pacífica de un conflicto?', a: 'Identificar el problema y escuchar activamente a las partes involucradas'},
+        {q: '44. Según los lineamientos: La mediación escolar implica:', a: 'La intervención de un tercero imparcial que facilita el diálogo para que las partes lleguen a un acuerdo'},
+        {q: '45. Según los lineamientos: Un reglamento de convivencia debe construirse de manera:', a: 'Participativa, involucrando a estudiantes, docentes y padres'},
+        {q: '46. Según los lineamientos: La justicia restaurativa en la escuela busca:', a: 'Reparar el daño causado y restaurar las relaciones, más que solo castigar'},
+        {q: '47. Según los lineamientos: ¿Qué es la empatía en el contexto escolar?', a: 'La capacidad de comprender y compartir los sentimientos de los demás'},
+        {q: '48. Según los lineamientos: Ante una situación de acoso escolar (bullying), la escuela debe:', a: 'Activar inmediatamente los protocolos de prevención y actuación'},
+        {q: '49. Según los lineamientos: El clima escolar positivo se caracteriza por:', a: 'Relaciones de confianza, respeto, participación y seguridad emocional'},
+        {q: '50. Según los lineamientos: ¿Cuál es el rol del docente en la convivencia pacífica?', a: 'Ser un modelo de respeto, promotor del diálogo y mediador natural'}
         ];
         
         let currentIndex = 0;

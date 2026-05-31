@@ -29,6 +29,9 @@
             .nav-links { display: none !important; }
             .nav-links.show-mobile { display: flex !important; flex-direction: column !important; }
             .dropdown { flex: none !important; width: 100%; border-top: 1px solid rgba(255,255,255,0.1); }
+            .dropdown-content { position: relative !important; min-width: 100% !important; box-shadow: inset 0 2px 5px rgba(0,0,0,0.2) !important; border-radius: 0 !important; background: #2e7d32 !important; border: none !important; }
+            .dropdown-content a { color: white !important; border-bottom: 1px solid rgba(255,255,255,0.1) !important; padding: 10px 15px !important; font-size: 0.95rem !important; }
+            .dropdown-content a:hover { background: #1b5e20 !important; }
             .hero-title { font-size: 1.8rem !important; }
             .hero-subtitle { font-size: 1rem !important; }
             .header-title { font-size: 1.1rem !important; }
@@ -38,8 +41,10 @@
         }
         @media (max-width: 768px) {
             /* Ajustes para tarjetas flash */
-            #flashcard-box { padding: 25px 15px !important; min-height: 200px !important; }
-            #card-text { font-size: 1.1rem !important; line-height: 1.4 !important; }
+            #flashcard-box { padding: 15px 10px !important; min-height: 150px !important; }
+            #card-text { font-size: 1.05rem !important; line-height: 1.3 !important; }
+            #flash-buttons { gap: 5px !important; margin-top: 15px !important; }
+            #flash-buttons button { padding: 10px 5px !important; font-size: 0.85rem !important; flex: 1 !important; }
             
             /* Ajustes para audiolibros y contenedores principales */
             div[style*="padding: 40px;"] { padding: 15px !important; }
@@ -89,7 +94,7 @@
     
     <nav class="navbar" id="navbar" style="background: #1b5e20; padding: 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 9999;">
         <div class="nav-container" style="width: 100%; max-width: 1200px; margin: 0 auto;">
-            <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('show-mobile')">☰ Menú Principal</button>
+            <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('show-mobile')">Menú Principal ☰</button>
             <div class="nav-links" id="navLinks" style="display: flex; justify-content: center; width: 100%;">
 
             <div class="dropdown" style="flex: 1; text-align: center;">
@@ -191,7 +196,7 @@
             <h2 id="card-text" style="color: white; font-size: 1.8rem; font-weight: bold; margin: 0; text-shadow: 1px 1px 3px rgba(0,0,0,0.2);">Cargando...</h2>
         </div>
         
-        <div style="display: flex; justify-content: space-between; margin-top: 25px; gap: 15px;">
+        <div id="flash-buttons" style="display: flex; justify-content: space-between; margin-top: 25px; gap: 15px;">
             <button onclick="prevCard()" style="background: linear-gradient(to right, #e53935, #c62828); color: white; border: none; padding: 15px 30px; font-size: 1.2rem; font-weight: bold; border-radius: 50px; cursor: pointer; flex: 1; box-shadow: 0 4px 10px rgba(229, 57, 53, 0.3);">← Anterior</button>
             <button onclick="flipCard()" style="background: linear-gradient(to right, #ffc107, #ffb300); color: white; border: none; padding: 15px 30px; font-size: 1.2rem; font-weight: bold; border-radius: 50px; cursor: pointer; flex: 2; box-shadow: 0 4px 10px rgba(255, 193, 7, 0.3); text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">Ver Respuesta</button>
             <button onclick="nextCard()" style="background: linear-gradient(to right, #c62828, #e53935); color: white; border: none; padding: 15px 30px; font-size: 1.2rem; font-weight: bold; border-radius: 50px; cursor: pointer; flex: 1; box-shadow: 0 4px 10px rgba(229, 57, 53, 0.3);">Siguiente →</button>
@@ -204,56 +209,56 @@
     
     <script>
         const questions = [
-            {q: '1. ¿Qué es la resolución de problemas en el ámbito administrativo escolar?', a: 'a) El proceso sistemático de identificar una dificultad y aplicar una solución eficaz'},
-        {q: '2. El primer paso crítico para resolver un problema es:', a: 'a) Definir clara y objetivamente cuál es el problema real'},
-        {q: '3. La técnica de \'Lluvia de ideas\' (Brainstorming) sirve para:', a: 'a) Generar múltiples opciones de solución sin juzgarlas inicialmente'},
-        {q: '4. ¿Por qué es importante analizar las causas raíz de un problema?', a: 'a) Para evitar que el problema vuelva a ocurrir en el futuro'},
-        {q: '5. El diagrama de Ishikawa (Causa-Efecto) se utiliza para:', a: 'a) Identificar y clasificar las causas posibles de un problema específico'},
-        {q: '6. Una vez elegida una solución, el siguiente paso administrativo es:', a: 'a) Elaborar un plan de acción con responsables y tiempos definidos'},
-        {q: '7. La evaluación y seguimiento de la solución implementada permite:', a: 'a) Verificar si la medida fue efectiva o si requiere ajustes'},
-        {q: '8. En la toma de decisiones, un enfoque proactivo significa:', a: 'a) Anticiparse a los problemas y tomar medidas preventivas'},
-        {q: '9. La comunicación asertiva en la resolución de problemas implica:', a: 'a) Expresar ideas y necesidades de forma clara, directa y respetuosa'},
-        {q: '10. Un buen líder administrativo escolar frente a un problema debe:', a: 'a) Mantener la calma, analizar la situación y fomentar el trabajo en equipo'},
-        {q: '11. En base al manual: ¿Qué es la resolución de problemas en el ámbito administrativo escolar?', a: 'a) El proceso sistemático de identificar una dificultad y aplicar una solución eficaz'},
-        {q: '12. En base al manual: El primer paso crítico para resolver un problema es:', a: 'a) Definir clara y objetivamente cuál es el problema real'},
-        {q: '13. En base al manual: La técnica de \'Lluvia de ideas\' (Brainstorming) sirve para:', a: 'a) Generar múltiples opciones de solución sin juzgarlas inicialmente'},
-        {q: '14. En base al manual: ¿Por qué es importante analizar las causas raíz de un problema?', a: 'a) Para evitar que el problema vuelva a ocurrir en el futuro'},
-        {q: '15. En base al manual: El diagrama de Ishikawa (Causa-Efecto) se utiliza para:', a: 'a) Identificar y clasificar las causas posibles de un problema específico'},
-        {q: '16. En base al manual: Una vez elegida una solución, el siguiente paso administrativo es:', a: 'a) Elaborar un plan de acción con responsables y tiempos definidos'},
-        {q: '17. En base al manual: La evaluación y seguimiento de la solución implementada permite:', a: 'a) Verificar si la medida fue efectiva o si requiere ajustes'},
-        {q: '18. En base al manual: En la toma de decisiones, un enfoque proactivo significa:', a: 'a) Anticiparse a los problemas y tomar medidas preventivas'},
-        {q: '19. En base al manual: La comunicación asertiva en la resolución de problemas implica:', a: 'a) Expresar ideas y necesidades de forma clara, directa y respetuosa'},
-        {q: '20. En base al manual: Un buen líder administrativo escolar frente a un problema debe:', a: 'a) Mantener la calma, analizar la situación y fomentar el trabajo en equipo'},
-        {q: '21. Desde la perspectiva institucional, ¿Qué es la resolución de problemas en el ámbito administrativo escolar?', a: 'a) El proceso sistemático de identificar una dificultad y aplicar una solución eficaz'},
-        {q: '22. Desde la perspectiva institucional, El primer paso crítico para resolver un problema es:', a: 'a) Definir clara y objetivamente cuál es el problema real'},
-        {q: '23. Desde la perspectiva institucional, La técnica de \'Lluvia de ideas\' (Brainstorming) sirve para:', a: 'a) Generar múltiples opciones de solución sin juzgarlas inicialmente'},
-        {q: '24. Desde la perspectiva institucional, ¿Por qué es importante analizar las causas raíz de un problema?', a: 'a) Para evitar que el problema vuelva a ocurrir en el futuro'},
-        {q: '25. Desde la perspectiva institucional, El diagrama de Ishikawa (Causa-Efecto) se utiliza para:', a: 'a) Identificar y clasificar las causas posibles de un problema específico'},
-        {q: '26. Desde la perspectiva institucional, Una vez elegida una solución, el siguiente paso administrativo es:', a: 'a) Elaborar un plan de acción con responsables y tiempos definidos'},
-        {q: '27. Desde la perspectiva institucional, La evaluación y seguimiento de la solución implementada permite:', a: 'a) Verificar si la medida fue efectiva o si requiere ajustes'},
-        {q: '28. Desde la perspectiva institucional, En la toma de decisiones, un enfoque proactivo significa:', a: 'a) Anticiparse a los problemas y tomar medidas preventivas'},
-        {q: '29. Desde la perspectiva institucional, La comunicación asertiva en la resolución de problemas implica:', a: 'a) Expresar ideas y necesidades de forma clara, directa y respetuosa'},
-        {q: '30. Desde la perspectiva institucional, Un buen líder administrativo escolar frente a un problema debe:', a: 'a) Mantener la calma, analizar la situación y fomentar el trabajo en equipo'},
-        {q: '31. Es fundamental considerar que: ¿Qué es la resolución de problemas en el ámbito administrativo escolar?', a: 'a) El proceso sistemático de identificar una dificultad y aplicar una solución eficaz'},
-        {q: '32. Es fundamental considerar que: El primer paso crítico para resolver un problema es:', a: 'a) Definir clara y objetivamente cuál es el problema real'},
-        {q: '33. Es fundamental considerar que: La técnica de \'Lluvia de ideas\' (Brainstorming) sirve para:', a: 'a) Generar múltiples opciones de solución sin juzgarlas inicialmente'},
-        {q: '34. Es fundamental considerar que: ¿Por qué es importante analizar las causas raíz de un problema?', a: 'a) Para evitar que el problema vuelva a ocurrir en el futuro'},
-        {q: '35. Es fundamental considerar que: El diagrama de Ishikawa (Causa-Efecto) se utiliza para:', a: 'a) Identificar y clasificar las causas posibles de un problema específico'},
-        {q: '36. Es fundamental considerar que: Una vez elegida una solución, el siguiente paso administrativo es:', a: 'a) Elaborar un plan de acción con responsables y tiempos definidos'},
-        {q: '37. Es fundamental considerar que: La evaluación y seguimiento de la solución implementada permite:', a: 'a) Verificar si la medida fue efectiva o si requiere ajustes'},
-        {q: '38. Es fundamental considerar que: En la toma de decisiones, un enfoque proactivo significa:', a: 'a) Anticiparse a los problemas y tomar medidas preventivas'},
-        {q: '39. Es fundamental considerar que: La comunicación asertiva en la resolución de problemas implica:', a: 'a) Expresar ideas y necesidades de forma clara, directa y respetuosa'},
-        {q: '40. Es fundamental considerar que: Un buen líder administrativo escolar frente a un problema debe:', a: 'a) Mantener la calma, analizar la situación y fomentar el trabajo en equipo'},
-        {q: '41. Según los lineamientos: ¿Qué es la resolución de problemas en el ámbito administrativo escolar?', a: 'a) El proceso sistemático de identificar una dificultad y aplicar una solución eficaz'},
-        {q: '42. Según los lineamientos: El primer paso crítico para resolver un problema es:', a: 'a) Definir clara y objetivamente cuál es el problema real'},
-        {q: '43. Según los lineamientos: La técnica de \'Lluvia de ideas\' (Brainstorming) sirve para:', a: 'a) Generar múltiples opciones de solución sin juzgarlas inicialmente'},
-        {q: '44. Según los lineamientos: ¿Por qué es importante analizar las causas raíz de un problema?', a: 'a) Para evitar que el problema vuelva a ocurrir en el futuro'},
-        {q: '45. Según los lineamientos: El diagrama de Ishikawa (Causa-Efecto) se utiliza para:', a: 'a) Identificar y clasificar las causas posibles de un problema específico'},
-        {q: '46. Según los lineamientos: Una vez elegida una solución, el siguiente paso administrativo es:', a: 'a) Elaborar un plan de acción con responsables y tiempos definidos'},
-        {q: '47. Según los lineamientos: La evaluación y seguimiento de la solución implementada permite:', a: 'a) Verificar si la medida fue efectiva o si requiere ajustes'},
-        {q: '48. Según los lineamientos: En la toma de decisiones, un enfoque proactivo significa:', a: 'a) Anticiparse a los problemas y tomar medidas preventivas'},
-        {q: '49. Según los lineamientos: La comunicación asertiva en la resolución de problemas implica:', a: 'a) Expresar ideas y necesidades de forma clara, directa y respetuosa'},
-        {q: '50. Según los lineamientos: Un buen líder administrativo escolar frente a un problema debe:', a: 'a) Mantener la calma, analizar la situación y fomentar el trabajo en equipo'}
+            {q: '1. ¿Qué es la resolución de problemas en el ámbito administrativo escolar?', a: 'El proceso sistemático de identificar una dificultad y aplicar una solución eficaz'},
+        {q: '2. El primer paso crítico para resolver un problema es:', a: 'Definir clara y objetivamente cuál es el problema real'},
+        {q: '3. La técnica de \'Lluvia de ideas\' (Brainstorming) sirve para:', a: 'Generar múltiples opciones de solución sin juzgarlas inicialmente'},
+        {q: '4. ¿Por qué es importante analizar las causas raíz de un problema?', a: 'Para evitar que el problema vuelva a ocurrir en el futuro'},
+        {q: '5. El diagrama de Ishikawa (Causa-Efecto) se utiliza para:', a: 'Identificar y clasificar las causas posibles de un problema específico'},
+        {q: '6. Una vez elegida una solución, el siguiente paso administrativo es:', a: 'Elaborar un plan de acción con responsables y tiempos definidos'},
+        {q: '7. La evaluación y seguimiento de la solución implementada permite:', a: 'Verificar si la medida fue efectiva o si requiere ajustes'},
+        {q: '8. En la toma de decisiones, un enfoque proactivo significa:', a: 'Anticiparse a los problemas y tomar medidas preventivas'},
+        {q: '9. La comunicación asertiva en la resolución de problemas implica:', a: 'Expresar ideas y necesidades de forma clara, directa y respetuosa'},
+        {q: '10. Un buen líder administrativo escolar frente a un problema debe:', a: 'Mantener la calma, analizar la situación y fomentar el trabajo en equipo'},
+        {q: '11. En base al manual: ¿Qué es la resolución de problemas en el ámbito administrativo escolar?', a: 'El proceso sistemático de identificar una dificultad y aplicar una solución eficaz'},
+        {q: '12. En base al manual: El primer paso crítico para resolver un problema es:', a: 'Definir clara y objetivamente cuál es el problema real'},
+        {q: '13. En base al manual: La técnica de \'Lluvia de ideas\' (Brainstorming) sirve para:', a: 'Generar múltiples opciones de solución sin juzgarlas inicialmente'},
+        {q: '14. En base al manual: ¿Por qué es importante analizar las causas raíz de un problema?', a: 'Para evitar que el problema vuelva a ocurrir en el futuro'},
+        {q: '15. En base al manual: El diagrama de Ishikawa (Causa-Efecto) se utiliza para:', a: 'Identificar y clasificar las causas posibles de un problema específico'},
+        {q: '16. En base al manual: Una vez elegida una solución, el siguiente paso administrativo es:', a: 'Elaborar un plan de acción con responsables y tiempos definidos'},
+        {q: '17. En base al manual: La evaluación y seguimiento de la solución implementada permite:', a: 'Verificar si la medida fue efectiva o si requiere ajustes'},
+        {q: '18. En base al manual: En la toma de decisiones, un enfoque proactivo significa:', a: 'Anticiparse a los problemas y tomar medidas preventivas'},
+        {q: '19. En base al manual: La comunicación asertiva en la resolución de problemas implica:', a: 'Expresar ideas y necesidades de forma clara, directa y respetuosa'},
+        {q: '20. En base al manual: Un buen líder administrativo escolar frente a un problema debe:', a: 'Mantener la calma, analizar la situación y fomentar el trabajo en equipo'},
+        {q: '21. Desde la perspectiva institucional, ¿Qué es la resolución de problemas en el ámbito administrativo escolar?', a: 'El proceso sistemático de identificar una dificultad y aplicar una solución eficaz'},
+        {q: '22. Desde la perspectiva institucional, El primer paso crítico para resolver un problema es:', a: 'Definir clara y objetivamente cuál es el problema real'},
+        {q: '23. Desde la perspectiva institucional, La técnica de \'Lluvia de ideas\' (Brainstorming) sirve para:', a: 'Generar múltiples opciones de solución sin juzgarlas inicialmente'},
+        {q: '24. Desde la perspectiva institucional, ¿Por qué es importante analizar las causas raíz de un problema?', a: 'Para evitar que el problema vuelva a ocurrir en el futuro'},
+        {q: '25. Desde la perspectiva institucional, El diagrama de Ishikawa (Causa-Efecto) se utiliza para:', a: 'Identificar y clasificar las causas posibles de un problema específico'},
+        {q: '26. Desde la perspectiva institucional, Una vez elegida una solución, el siguiente paso administrativo es:', a: 'Elaborar un plan de acción con responsables y tiempos definidos'},
+        {q: '27. Desde la perspectiva institucional, La evaluación y seguimiento de la solución implementada permite:', a: 'Verificar si la medida fue efectiva o si requiere ajustes'},
+        {q: '28. Desde la perspectiva institucional, En la toma de decisiones, un enfoque proactivo significa:', a: 'Anticiparse a los problemas y tomar medidas preventivas'},
+        {q: '29. Desde la perspectiva institucional, La comunicación asertiva en la resolución de problemas implica:', a: 'Expresar ideas y necesidades de forma clara, directa y respetuosa'},
+        {q: '30. Desde la perspectiva institucional, Un buen líder administrativo escolar frente a un problema debe:', a: 'Mantener la calma, analizar la situación y fomentar el trabajo en equipo'},
+        {q: '31. Es fundamental considerar que: ¿Qué es la resolución de problemas en el ámbito administrativo escolar?', a: 'El proceso sistemático de identificar una dificultad y aplicar una solución eficaz'},
+        {q: '32. Es fundamental considerar que: El primer paso crítico para resolver un problema es:', a: 'Definir clara y objetivamente cuál es el problema real'},
+        {q: '33. Es fundamental considerar que: La técnica de \'Lluvia de ideas\' (Brainstorming) sirve para:', a: 'Generar múltiples opciones de solución sin juzgarlas inicialmente'},
+        {q: '34. Es fundamental considerar que: ¿Por qué es importante analizar las causas raíz de un problema?', a: 'Para evitar que el problema vuelva a ocurrir en el futuro'},
+        {q: '35. Es fundamental considerar que: El diagrama de Ishikawa (Causa-Efecto) se utiliza para:', a: 'Identificar y clasificar las causas posibles de un problema específico'},
+        {q: '36. Es fundamental considerar que: Una vez elegida una solución, el siguiente paso administrativo es:', a: 'Elaborar un plan de acción con responsables y tiempos definidos'},
+        {q: '37. Es fundamental considerar que: La evaluación y seguimiento de la solución implementada permite:', a: 'Verificar si la medida fue efectiva o si requiere ajustes'},
+        {q: '38. Es fundamental considerar que: En la toma de decisiones, un enfoque proactivo significa:', a: 'Anticiparse a los problemas y tomar medidas preventivas'},
+        {q: '39. Es fundamental considerar que: La comunicación asertiva en la resolución de problemas implica:', a: 'Expresar ideas y necesidades de forma clara, directa y respetuosa'},
+        {q: '40. Es fundamental considerar que: Un buen líder administrativo escolar frente a un problema debe:', a: 'Mantener la calma, analizar la situación y fomentar el trabajo en equipo'},
+        {q: '41. Según los lineamientos: ¿Qué es la resolución de problemas en el ámbito administrativo escolar?', a: 'El proceso sistemático de identificar una dificultad y aplicar una solución eficaz'},
+        {q: '42. Según los lineamientos: El primer paso crítico para resolver un problema es:', a: 'Definir clara y objetivamente cuál es el problema real'},
+        {q: '43. Según los lineamientos: La técnica de \'Lluvia de ideas\' (Brainstorming) sirve para:', a: 'Generar múltiples opciones de solución sin juzgarlas inicialmente'},
+        {q: '44. Según los lineamientos: ¿Por qué es importante analizar las causas raíz de un problema?', a: 'Para evitar que el problema vuelva a ocurrir en el futuro'},
+        {q: '45. Según los lineamientos: El diagrama de Ishikawa (Causa-Efecto) se utiliza para:', a: 'Identificar y clasificar las causas posibles de un problema específico'},
+        {q: '46. Según los lineamientos: Una vez elegida una solución, el siguiente paso administrativo es:', a: 'Elaborar un plan de acción con responsables y tiempos definidos'},
+        {q: '47. Según los lineamientos: La evaluación y seguimiento de la solución implementada permite:', a: 'Verificar si la medida fue efectiva o si requiere ajustes'},
+        {q: '48. Según los lineamientos: En la toma de decisiones, un enfoque proactivo significa:', a: 'Anticiparse a los problemas y tomar medidas preventivas'},
+        {q: '49. Según los lineamientos: La comunicación asertiva en la resolución de problemas implica:', a: 'Expresar ideas y necesidades de forma clara, directa y respetuosa'},
+        {q: '50. Según los lineamientos: Un buen líder administrativo escolar frente a un problema debe:', a: 'Mantener la calma, analizar la situación y fomentar el trabajo en equipo'}
         ];
         
         let currentIndex = 0;
